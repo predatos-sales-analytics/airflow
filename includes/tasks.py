@@ -2,7 +2,7 @@ from typing import List, Optional
 
 from pyspark.sql import DataFrame
 
-from airflow.includes.pipeline_context import pipeline_context
+from includes.pipeline_context import pipeline_context
 
 
 def _load_transactions(pipeline, store_ids: Optional[List[str]] = None, sample_size: Optional[int] = None) -> DataFrame:

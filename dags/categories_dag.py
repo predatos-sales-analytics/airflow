@@ -2,11 +2,7 @@ from datetime import datetime
 
 from airflow.decorators import dag, task
 
-from airflow.includes.bootstrap import bootstrap_project
-
-bootstrap_project()
-
-from airflow.includes import tasks as pipeline_tasks  # noqa: E402
+from includes import tasks as pipeline_tasks  # noqa: E402
 
 
 default_args = {
@@ -20,7 +16,7 @@ default_args = {
     dag_id="categories_reference_pipeline",
     description="Analiza datasets de categorías y productos-categorías.",
     default_args=default_args,
-    schedule_interval=None,
+    schedule=None,
     start_date=datetime(2023, 1, 1),
     catchup=False,
     tags=["sales", "reference"],

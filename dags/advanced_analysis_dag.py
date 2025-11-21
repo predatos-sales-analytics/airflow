@@ -4,12 +4,8 @@ from typing import List
 from airflow.decorators import dag, task
 from airflow.models import Variable
 
-from airflow.includes.bootstrap import bootstrap_project
-
-bootstrap_project()
-
-from airflow.includes import tasks as pipeline_tasks  # noqa: E402
-from airflow.includes.store_service import fetch_store_ids  # noqa: E402
+from includes import tasks as pipeline_tasks  # noqa: E402
+from includes.store_service import fetch_store_ids  # noqa: E402
 
 
 default_args = {
@@ -26,7 +22,7 @@ default_args = {
         "y entrenamiento distribuido de FP-Growth."
     ),
     default_args=default_args,
-    schedule_interval=None,
+    schedule=None,
     start_date=datetime(2023, 1, 1),
     catchup=False,
     tags=["sales", "advanced", "spark"],

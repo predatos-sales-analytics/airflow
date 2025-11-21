@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# Crear el rol/usuario si no existe
 psql -v ON_ERROR_STOP=1 --username "${POSTGRES_USER}" <<-EOSQL
     DO
     \$\$
@@ -12,16 +13,16 @@ psql -v ON_ERROR_STOP=1 --username "${POSTGRES_USER}" <<-EOSQL
         END IF;
     END
     \$\$;
-
-    DO
-    \$\$
-    BEGIN
-        IF NOT EXISTS (
-            SELECT FROM pg_database WHERE datname = 'sales'
-        ) THEN
-            CREATE DATABASE sales OWNER sales;
-        END IF;
-    END
-    \$\$;
+    -- Otorgar permisos necesarios para COPY
+    ALTER ROLE sales WITH SUPERUSER;
 EOSQL
+
+# Crear la base de datos si no existe (CREATE DATABASE no puede estar dentro de DO)
+# Verificamos primero si existe, y si no, la creamos
+DB_EXISTS=$(psql -v ON_ERROR_STOP=1 --username "${POSTGRES_USER}" -tAc "SELECT 1 FROM pg_database WHERE datname='sales'")
+if [ -z "$DB_EXISTS" ]; then
+    psql -v ON_ERROR_STOP=1 --username "${POSTGRES_USER}" <<-EOSQL
+        CREATE DATABASE sales OWNER sales;
+EOSQL
+fi
 
