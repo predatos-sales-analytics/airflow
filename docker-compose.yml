@@ -1,0 +1,126 @@
+x-airflow-common: &airflow-common
+  build:
+    context: .
+    dockerfile: docker/airflow/Dockerfile
+  env_file:
+    - .env
+  environment: &airflow-common-env
+    AIRFLOW__CORE__EXECUTOR: LocalExecutor
+    AIRFLOW__CORE__FERNET_KEY: "${AIRFLOW_FERNET_KEY:-}"
+    AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "false"
+    AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+    AIRFLOW__API__AUTH_BACKENDS: airflow.api.auth.backend.basic_auth
+    AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres:5432/airflow
+    AIRFLOW_CONN_SALES_POSTGRES: postgresql://sales:sales@postgres:5432/sales
+    DATA_PATH: "${DATA_PATH:-/opt/airflow/data}"
+    OUTPUT_PATH: "${OUTPUT_PATH:-/opt/airflow/output}"
+    DATA_SOURCE: "${DATA_SOURCE:-postgres}"
+    SPARK_MASTER_URL: "${SPARK_MASTER_URL:-spark://spark-master:7077}"
+    SPARK_JARS_PACKAGES: "${SPARK_JARS_PACKAGES:-org.postgresql:postgresql:42.7.3}"
+    POSTGRES_HOST: "${POSTGRES_HOST:-postgres}"
+    POSTGRES_PORT: "${POSTGRES_PORT:-5432}"
+    POSTGRES_DB: "${POSTGRES_DB:-sales}"
+    POSTGRES_USER: "${POSTGRES_USER:-sales}"
+    POSTGRES_PASSWORD: "${POSTGRES_PASSWORD:-sales}"
+    PYSPARK_PYTHON: "${PYSPARK_PYTHON:-/usr/local/bin/python}"
+  volumes:
+    - ./dags:/opt/airflow/dags
+    - ./logs:/opt/airflow/logs
+    - ./plugins:/opt/airflow/plugins
+    - ./includes:/opt/airflow/includes
+    - ./config:/opt/airflow/config
+    - ./src:/opt/airflow/src
+    - ./data:/opt/airflow/data:ro
+  user: "${AIRFLOW_UID:-50000:0}"
+  depends_on:
+    postgres:
+      condition: service_healthy
+    spark-master:
+      condition: service_started
+    spark-worker-1:
+      condition: service_started
+    spark-worker-2:
+      condition: service_started
+
+services:
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: airflow
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER"]
+      interval: 5s
+      retries: 5
+    volumes:
+      - postgres-db-volume:/var/lib/postgresql/data
+      - ./docker/postgres/init-sales-db.sh:/docker-entrypoint-initdb.d/init-sales-db.sh:ro
+    ports:
+      - "5432:5432"
+
+  spark-master:
+    image: bitnami/spark:3.5
+    environment:
+      - SPARK_MODE=master
+      - SPARK_RPC_AUTHENTICATION_ENABLED=no
+      - SPARK_RPC_ENCRYPTION_ENABLED=no
+      - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
+      - SPARK_SSL_ENABLED=no
+    ports:
+      - "7077:7077"
+      - "8080:8080"
+    volumes:
+      - ./data:/opt/workspace/data:ro
+
+  spark-worker-1:
+    image: bitnami/spark:3.5
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark-master:7077
+      - SPARK_WORKER_CORES=2
+      - SPARK_WORKER_MEMORY=2G
+    depends_on:
+      - spark-master
+    volumes:
+      - ./data:/opt/workspace/data:ro
+
+  spark-worker-2:
+    image: bitnami/spark:3.5
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark-master:7077
+      - SPARK_WORKER_CORES=2
+      - SPARK_WORKER_MEMORY=2G
+    depends_on:
+      - spark-master
+    volumes:
+      - ./data:/opt/workspace/data:ro
+
+  airflow-init:
+    <<: *airflow-common
+    command: >
+      bash -c "
+        airflow db migrate &&
+        airflow users create --username admin --password admin --firstname Airflow --lastname Admin --role Admin --email admin@example.com &&
+        airflow connections add 'sales_postgres' --conn-uri 'postgresql://sales:sales@postgres:5432/sales'
+      "
+
+  airflow-scheduler:
+    <<: *airflow-common
+    command: scheduler
+    ports:
+      - "8793:8793"
+
+  airflow-webserver:
+    <<: *airflow-common
+    command: webserver
+    ports:
+      - "8085:8080"
+
+  airflow-triggerer:
+    <<: *airflow-common
+    command: triggerer
+
+volumes:
+  postgres-db-volume:
