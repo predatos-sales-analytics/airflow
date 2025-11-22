@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from airflow.decorators import dag, task
+from airflow.sdk import dag, task
 
 from includes import tasks as pipeline_tasks  # noqa: E402
 

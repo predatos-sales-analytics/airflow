@@ -1,7 +1,7 @@
 from datetime import datetime
 from typing import List
 
-from airflow.decorators import dag, task
+from airflow.sdk import dag, task
 from airflow.models import Variable
 
 from includes import tasks as pipeline_tasks  # noqa: E402
