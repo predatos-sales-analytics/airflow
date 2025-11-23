@@ -359,11 +359,78 @@ class JSONExporter:
                 ensure_ascii=False,
             )
 
+        # Exportar datos para visualización del clustering
+        visualization_path = os.path.join(
+            clustering_dir, "clustering_visualization.json"
+        )
+        visualization_data = self._prepare_clustering_visualization_data(
+            clusters_df, cluster_summary
+        )
+
+        with open(visualization_path, "w", encoding="utf-8") as f:
+            json.dump(
+                {
+                    "n_clusters": n_clusters,
+                    "visualization_data": visualization_data,
+                    "cluster_summary": cluster_summary,
+                    "generated_at": datetime.now().isoformat(),
+                },
+                f,
+                indent=2,
+                ensure_ascii=False,
+            )
+
         print(f"✅ Clustering exportado:")
         print(f"   - Asignaciones: {clusters_path}")
-        print(f"   - Resumen: {summary_path}")
+        print(f"   - Resumen y recomendaciones: {summary_path}")
+        print(f"   - Datos para visualización: {visualization_path}")
 
-        return clusters_path, summary_path
+        return clusters_path, summary_path, visualization_path
+
+    def _prepare_clustering_visualization_data(
+        self, clusters_df: DataFrame, cluster_summary: Dict[str, Any]
+    ) -> Dict[str, Any]:
+        """
+        Prepara datos agregados para visualización del clustering.
+
+        Args:
+            clusters_df: DataFrame con clientes y clusters
+            cluster_summary: Resumen de clusters
+
+        Returns:
+            Diccionario con datos para visualización
+        """
+        from pyspark.sql.functions import avg, count
+
+        # Agregar estadísticas por cluster para visualización
+        cluster_stats = (
+            clusters_df.groupBy("cluster")
+            .agg(
+                count("*").alias("n_customers"),
+                avg("frequency").alias("avg_frequency"),
+                avg("unique_products").alias("avg_unique_products"),
+                avg("total_volume").alias("avg_total_volume"),
+                avg("unique_categories").alias("avg_unique_categories"),
+            )
+            .orderBy("cluster")
+        )
+
+        stats_list = self._spark_to_dict_list(cluster_stats)
+
+        # Preparar datos para gráficos
+        visualization_data = {
+            "cluster_statistics": stats_list,
+            "cluster_labels": {
+                str(cluster_id): cluster_summary[f"cluster_{cluster_id}"]["label"]
+                for cluster_id in range(len(cluster_summary))
+            },
+            "distribution": {
+                str(cluster_id): cluster_summary[f"cluster_{cluster_id}"]["n_customers"]
+                for cluster_id in range(len(cluster_summary))
+            },
+        }
+
+        return visualization_data
 
     def export_recommendations(
         self,

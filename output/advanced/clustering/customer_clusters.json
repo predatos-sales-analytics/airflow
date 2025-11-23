@@ -1,0 +1,8007 @@
+{
+  "n_clusters": 4,
+  "total_customers": 131186,
+  "sample_assignments": [
+    {
+      "customer_id": 13,
+      "frequency": 33,
+      "unique_products": 90,
+      "total_volume": 433,
+      "unique_categories": 15,
+      "cluster": 2
+    },
+    {
+      "customer_id": 107,
+      "frequency": 5,
+      "unique_products": 17,
+      "total_volume": 19,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 198,
+      "frequency": 13,
+      "unique_products": 83,
+      "total_volume": 171,
+      "unique_categories": 15,
+      "cluster": 3
+    },
+    {
+      "customer_id": 275,
+      "frequency": 39,
+      "unique_products": 70,
+      "total_volume": 406,
+      "unique_categories": 15,
+      "cluster": 2
+    },
+    {
+      "customer_id": 304,
+      "frequency": 1,
+      "unique_products": 7,
+      "total_volume": 7,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 323,
+      "frequency": 3,
+      "unique_products": 8,
+      "total_volume": 8,
+      "unique_categories": 5,
+      "cluster": 1
+    },
+    {
+      "customer_id": 362,
+      "frequency": 18,
+      "unique_products": 52,
+      "total_volume": 254,
+      "unique_categories": 12,
+      "cluster": 3
+    },
+    {
+      "customer_id": 374,
+      "frequency": 1,
+      "unique_products": 9,
+      "total_volume": 9,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 431,
+      "frequency": 1,
+      "unique_products": 5,
+      "total_volume": 5,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 440,
+      "frequency": 2,
+      "unique_products": 13,
+      "total_volume": 13,
+      "unique_categories": 7,
+      "cluster": 1
+    },
+    {
+      "customer_id": 564,
+      "frequency": 28,
+      "unique_products": 63,
+      "total_volume": 176,
+      "unique_categories": 14,
+      "cluster": 3
+    },
+    {
+      "customer_id": 662,
+      "frequency": 5,
+      "unique_products": 52,
+      "total_volume": 85,
+      "unique_categories": 16,
+      "cluster": 0
+    },
+    {
+      "customer_id": 773,
+      "frequency": 8,
+      "unique_products": 91,
+      "total_volume": 133,
+      "unique_categories": 16,
+      "cluster": 3
+    },
+    {
+      "customer_id": 783,
+      "frequency": 4,
+      "unique_products": 27,
+      "total_volume": 46,
+      "unique_categories": 7,
+      "cluster": 0
+    },
+    {
+      "customer_id": 820,
+      "frequency": 1,
+      "unique_products": 38,
+      "total_volume": 38,
+      "unique_categories": 12,
+      "cluster": 0
+    },
+    {
+      "customer_id": 842,
+      "frequency": 2,
+      "unique_products": 32,
+      "total_volume": 54,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 857,
+      "frequency": 4,
+      "unique_products": 19,
+      "total_volume": 25,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 921,
+      "frequency": 31,
+      "unique_products": 137,
+      "total_volume": 451,
+      "unique_categories": 21,
+      "cluster": 2
+    },
+    {
+      "customer_id": 946,
+      "frequency": 12,
+      "unique_products": 50,
+      "total_volume": 117,
+      "unique_categories": 11,
+      "cluster": 0
+    },
+    {
+      "customer_id": 974,
+      "frequency": 1,
+      "unique_products": 9,
+      "total_volume": 9,
+      "unique_categories": 7,
+      "cluster": 1
+    },
+    {
+      "customer_id": 999,
+      "frequency": 3,
+      "unique_products": 6,
+      "total_volume": 7,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 1034,
+      "frequency": 1,
+      "unique_products": 7,
+      "total_volume": 7,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 1044,
+      "frequency": 27,
+      "unique_products": 91,
+      "total_volume": 363,
+      "unique_categories": 17,
+      "cluster": 3
+    },
+    {
+      "customer_id": 1142,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 1160,
+      "frequency": 1,
+      "unique_products": 4,
+      "total_volume": 4,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 1283,
+      "frequency": 10,
+      "unique_products": 110,
+      "total_volume": 470,
+      "unique_categories": 16,
+      "cluster": 3
+    },
+    {
+      "customer_id": 1379,
+      "frequency": 3,
+      "unique_products": 76,
+      "total_volume": 154,
+      "unique_categories": 15,
+      "cluster": 3
+    },
+    {
+      "customer_id": 1386,
+      "frequency": 36,
+      "unique_products": 45,
+      "total_volume": 293,
+      "unique_categories": 10,
+      "cluster": 3
+    },
+    {
+      "customer_id": 1464,
+      "frequency": 22,
+      "unique_products": 59,
+      "total_volume": 156,
+      "unique_categories": 14,
+      "cluster": 3
+    },
+    {
+      "customer_id": 1489,
+      "frequency": 2,
+      "unique_products": 46,
+      "total_volume": 68,
+      "unique_categories": 13,
+      "cluster": 0
+    },
+    {
+      "customer_id": 1497,
+      "frequency": 1,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 1,
+      "cluster": 1
+    },
+    {
+      "customer_id": 1515,
+      "frequency": 57,
+      "unique_products": 127,
+      "total_volume": 418,
+      "unique_categories": 16,
+      "cluster": 2
+    },
+    {
+      "customer_id": 1569,
+      "frequency": 2,
+      "unique_products": 9,
+      "total_volume": 10,
+      "unique_categories": 8,
+      "cluster": 1
+    },
+    {
+      "customer_id": 1576,
+      "frequency": 40,
+      "unique_products": 50,
+      "total_volume": 279,
+      "unique_categories": 9,
+      "cluster": 3
+    },
+    {
+      "customer_id": 1591,
+      "frequency": 2,
+      "unique_products": 59,
+      "total_volume": 88,
+      "unique_categories": 15,
+      "cluster": 0
+    },
+    {
+      "customer_id": 1648,
+      "frequency": 1,
+      "unique_products": 4,
+      "total_volume": 4,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 1843,
+      "frequency": 17,
+      "unique_products": 102,
+      "total_volume": 176,
+      "unique_categories": 18,
+      "cluster": 3
+    },
+    {
+      "customer_id": 1918,
+      "frequency": 1,
+      "unique_products": 3,
+      "total_volume": 3,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 2115,
+      "frequency": 5,
+      "unique_products": 22,
+      "total_volume": 33,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 2191,
+      "frequency": 32,
+      "unique_products": 91,
+      "total_volume": 310,
+      "unique_categories": 13,
+      "cluster": 3
+    },
+    {
+      "customer_id": 2228,
+      "frequency": 20,
+      "unique_products": 91,
+      "total_volume": 243,
+      "unique_categories": 16,
+      "cluster": 3
+    },
+    {
+      "customer_id": 2236,
+      "frequency": 8,
+      "unique_products": 44,
+      "total_volume": 96,
+      "unique_categories": 12,
+      "cluster": 0
+    },
+    {
+      "customer_id": 2341,
+      "frequency": 6,
+      "unique_products": 61,
+      "total_volume": 153,
+      "unique_categories": 13,
+      "cluster": 0
+    },
+    {
+      "customer_id": 2477,
+      "frequency": 8,
+      "unique_products": 42,
+      "total_volume": 93,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 2494,
+      "frequency": 27,
+      "unique_products": 70,
+      "total_volume": 157,
+      "unique_categories": 14,
+      "cluster": 3
+    },
+    {
+      "customer_id": 2504,
+      "frequency": 5,
+      "unique_products": 7,
+      "total_volume": 12,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 2531,
+      "frequency": 1,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 3,
+      "cluster": 1
+    },
+    {
+      "customer_id": 2589,
+      "frequency": 10,
+      "unique_products": 29,
+      "total_volume": 40,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 2682,
+      "frequency": 34,
+      "unique_products": 46,
+      "total_volume": 373,
+      "unique_categories": 10,
+      "cluster": 3
+    },
+    {
+      "customer_id": 2793,
+      "frequency": 17,
+      "unique_products": 24,
+      "total_volume": 51,
+      "unique_categories": 8,
+      "cluster": 0
+    },
+    {
+      "customer_id": 2813,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 3097,
+      "frequency": 1,
+      "unique_products": 6,
+      "total_volume": 6,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 3175,
+      "frequency": 4,
+      "unique_products": 15,
+      "total_volume": 15,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 3231,
+      "frequency": 30,
+      "unique_products": 74,
+      "total_volume": 401,
+      "unique_categories": 13,
+      "cluster": 3
+    },
+    {
+      "customer_id": 3246,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 3259,
+      "frequency": 18,
+      "unique_products": 40,
+      "total_volume": 265,
+      "unique_categories": 10,
+      "cluster": 3
+    },
+    {
+      "customer_id": 3394,
+      "frequency": 3,
+      "unique_products": 24,
+      "total_volume": 41,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 3455,
+      "frequency": 10,
+      "unique_products": 24,
+      "total_volume": 30,
+      "unique_categories": 8,
+      "cluster": 0
+    },
+    {
+      "customer_id": 3458,
+      "frequency": 1,
+      "unique_products": 5,
+      "total_volume": 5,
+      "unique_categories": 5,
+      "cluster": 1
+    },
+    {
+      "customer_id": 3493,
+      "frequency": 1,
+      "unique_products": 5,
+      "total_volume": 5,
+      "unique_categories": 3,
+      "cluster": 1
+    },
+    {
+      "customer_id": 3516,
+      "frequency": 5,
+      "unique_products": 39,
+      "total_volume": 40,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 3681,
+      "frequency": 16,
+      "unique_products": 37,
+      "total_volume": 192,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 3791,
+      "frequency": 1,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 3831,
+      "frequency": 1,
+      "unique_products": 14,
+      "total_volume": 14,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 3842,
+      "frequency": 22,
+      "unique_products": 107,
+      "total_volume": 297,
+      "unique_categories": 18,
+      "cluster": 3
+    },
+    {
+      "customer_id": 3872,
+      "frequency": 1,
+      "unique_products": 6,
+      "total_volume": 6,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 4027,
+      "frequency": 5,
+      "unique_products": 25,
+      "total_volume": 66,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 4138,
+      "frequency": 1,
+      "unique_products": 3,
+      "total_volume": 3,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 4140,
+      "frequency": 13,
+      "unique_products": 77,
+      "total_volume": 248,
+      "unique_categories": 15,
+      "cluster": 3
+    },
+    {
+      "customer_id": 4224,
+      "frequency": 13,
+      "unique_products": 97,
+      "total_volume": 410,
+      "unique_categories": 15,
+      "cluster": 3
+    },
+    {
+      "customer_id": 4314,
+      "frequency": 24,
+      "unique_products": 55,
+      "total_volume": 214,
+      "unique_categories": 12,
+      "cluster": 3
+    },
+    {
+      "customer_id": 4406,
+      "frequency": 1,
+      "unique_products": 4,
+      "total_volume": 4,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 4487,
+      "frequency": 3,
+      "unique_products": 14,
+      "total_volume": 15,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 4520,
+      "frequency": 43,
+      "unique_products": 86,
+      "total_volume": 314,
+      "unique_categories": 14,
+      "cluster": 2
+    },
+    {
+      "customer_id": 4609,
+      "frequency": 6,
+      "unique_products": 24,
+      "total_volume": 29,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 4727,
+      "frequency": 22,
+      "unique_products": 60,
+      "total_volume": 186,
+      "unique_categories": 10,
+      "cluster": 3
+    },
+    {
+      "customer_id": 5087,
+      "frequency": 6,
+      "unique_products": 28,
+      "total_volume": 33,
+      "unique_categories": 13,
+      "cluster": 0
+    },
+    {
+      "customer_id": 5094,
+      "frequency": 2,
+      "unique_products": 14,
+      "total_volume": 14,
+      "unique_categories": 5,
+      "cluster": 1
+    },
+    {
+      "customer_id": 5115,
+      "frequency": 6,
+      "unique_products": 18,
+      "total_volume": 21,
+      "unique_categories": 7,
+      "cluster": 1
+    },
+    {
+      "customer_id": 5184,
+      "frequency": 5,
+      "unique_products": 32,
+      "total_volume": 36,
+      "unique_categories": 12,
+      "cluster": 0
+    },
+    {
+      "customer_id": 5226,
+      "frequency": 2,
+      "unique_products": 13,
+      "total_volume": 13,
+      "unique_categories": 8,
+      "cluster": 1
+    },
+    {
+      "customer_id": 5245,
+      "frequency": 5,
+      "unique_products": 42,
+      "total_volume": 43,
+      "unique_categories": 12,
+      "cluster": 0
+    },
+    {
+      "customer_id": 5279,
+      "frequency": 15,
+      "unique_products": 60,
+      "total_volume": 75,
+      "unique_categories": 17,
+      "cluster": 3
+    },
+    {
+      "customer_id": 5322,
+      "frequency": 6,
+      "unique_products": 39,
+      "total_volume": 58,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 5331,
+      "frequency": 13,
+      "unique_products": 76,
+      "total_volume": 220,
+      "unique_categories": 12,
+      "cluster": 3
+    },
+    {
+      "customer_id": 5380,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 5394,
+      "frequency": 43,
+      "unique_products": 97,
+      "total_volume": 279,
+      "unique_categories": 17,
+      "cluster": 2
+    },
+    {
+      "customer_id": 5395,
+      "frequency": 10,
+      "unique_products": 26,
+      "total_volume": 64,
+      "unique_categories": 8,
+      "cluster": 0
+    },
+    {
+      "customer_id": 5399,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 5402,
+      "frequency": 31,
+      "unique_products": 24,
+      "total_volume": 67,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 5410,
+      "frequency": 1,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 5443,
+      "frequency": 4,
+      "unique_products": 24,
+      "total_volume": 60,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 5483,
+      "frequency": 6,
+      "unique_products": 14,
+      "total_volume": 23,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 5486,
+      "frequency": 10,
+      "unique_products": 41,
+      "total_volume": 51,
+      "unique_categories": 12,
+      "cluster": 0
+    },
+    {
+      "customer_id": 5529,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 5908,
+      "frequency": 2,
+      "unique_products": 3,
+      "total_volume": 4,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 5947,
+      "frequency": 4,
+      "unique_products": 10,
+      "total_volume": 13,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 6081,
+      "frequency": 16,
+      "unique_products": 45,
+      "total_volume": 107,
+      "unique_categories": 11,
+      "cluster": 0
+    },
+    {
+      "customer_id": 6108,
+      "frequency": 5,
+      "unique_products": 15,
+      "total_volume": 15,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 6147,
+      "frequency": 3,
+      "unique_products": 37,
+      "total_volume": 39,
+      "unique_categories": 15,
+      "cluster": 0
+    },
+    {
+      "customer_id": 6164,
+      "frequency": 6,
+      "unique_products": 24,
+      "total_volume": 27,
+      "unique_categories": 7,
+      "cluster": 0
+    },
+    {
+      "customer_id": 6169,
+      "frequency": 1,
+      "unique_products": 6,
+      "total_volume": 6,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 6183,
+      "frequency": 11,
+      "unique_products": 32,
+      "total_volume": 171,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 6201,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 6355,
+      "frequency": 8,
+      "unique_products": 67,
+      "total_volume": 82,
+      "unique_categories": 12,
+      "cluster": 0
+    },
+    {
+      "customer_id": 6408,
+      "frequency": 1,
+      "unique_products": 9,
+      "total_volume": 9,
+      "unique_categories": 8,
+      "cluster": 1
+    },
+    {
+      "customer_id": 6430,
+      "frequency": 11,
+      "unique_products": 44,
+      "total_volume": 67,
+      "unique_categories": 12,
+      "cluster": 0
+    },
+    {
+      "customer_id": 6602,
+      "frequency": 11,
+      "unique_products": 43,
+      "total_volume": 100,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 6654,
+      "frequency": 3,
+      "unique_products": 15,
+      "total_volume": 16,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 6735,
+      "frequency": 25,
+      "unique_products": 76,
+      "total_volume": 260,
+      "unique_categories": 13,
+      "cluster": 3
+    },
+    {
+      "customer_id": 6893,
+      "frequency": 11,
+      "unique_products": 42,
+      "total_volume": 66,
+      "unique_categories": 12,
+      "cluster": 0
+    },
+    {
+      "customer_id": 6992,
+      "frequency": 25,
+      "unique_products": 58,
+      "total_volume": 303,
+      "unique_categories": 12,
+      "cluster": 3
+    },
+    {
+      "customer_id": 7049,
+      "frequency": 2,
+      "unique_products": 15,
+      "total_volume": 17,
+      "unique_categories": 7,
+      "cluster": 1
+    },
+    {
+      "customer_id": 7070,
+      "frequency": 1,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 7093,
+      "frequency": 1,
+      "unique_products": 3,
+      "total_volume": 3,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 7123,
+      "frequency": 4,
+      "unique_products": 9,
+      "total_volume": 11,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 7284,
+      "frequency": 2,
+      "unique_products": 5,
+      "total_volume": 5,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 7295,
+      "frequency": 20,
+      "unique_products": 40,
+      "total_volume": 202,
+      "unique_categories": 9,
+      "cluster": 3
+    },
+    {
+      "customer_id": 7340,
+      "frequency": 15,
+      "unique_products": 51,
+      "total_volume": 137,
+      "unique_categories": 12,
+      "cluster": 3
+    },
+    {
+      "customer_id": 7352,
+      "frequency": 2,
+      "unique_products": 21,
+      "total_volume": 23,
+      "unique_categories": 11,
+      "cluster": 0
+    },
+    {
+      "customer_id": 7448,
+      "frequency": 10,
+      "unique_products": 30,
+      "total_volume": 68,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 7453,
+      "frequency": 13,
+      "unique_products": 48,
+      "total_volume": 70,
+      "unique_categories": 11,
+      "cluster": 0
+    },
+    {
+      "customer_id": 7454,
+      "frequency": 22,
+      "unique_products": 88,
+      "total_volume": 268,
+      "unique_categories": 18,
+      "cluster": 3
+    },
+    {
+      "customer_id": 7511,
+      "frequency": 3,
+      "unique_products": 23,
+      "total_volume": 31,
+      "unique_categories": 7,
+      "cluster": 0
+    },
+    {
+      "customer_id": 7549,
+      "frequency": 1,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 7674,
+      "frequency": 2,
+      "unique_products": 11,
+      "total_volume": 13,
+      "unique_categories": 7,
+      "cluster": 1
+    },
+    {
+      "customer_id": 7687,
+      "frequency": 21,
+      "unique_products": 83,
+      "total_volume": 202,
+      "unique_categories": 16,
+      "cluster": 3
+    },
+    {
+      "customer_id": 7746,
+      "frequency": 1,
+      "unique_products": 22,
+      "total_volume": 22,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 7786,
+      "frequency": 4,
+      "unique_products": 10,
+      "total_volume": 18,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 7825,
+      "frequency": 27,
+      "unique_products": 84,
+      "total_volume": 234,
+      "unique_categories": 14,
+      "cluster": 3
+    },
+    {
+      "customer_id": 7939,
+      "frequency": 30,
+      "unique_products": 93,
+      "total_volume": 237,
+      "unique_categories": 18,
+      "cluster": 3
+    },
+    {
+      "customer_id": 7945,
+      "frequency": 14,
+      "unique_products": 58,
+      "total_volume": 106,
+      "unique_categories": 13,
+      "cluster": 3
+    },
+    {
+      "customer_id": 7946,
+      "frequency": 24,
+      "unique_products": 55,
+      "total_volume": 360,
+      "unique_categories": 12,
+      "cluster": 3
+    },
+    {
+      "customer_id": 8095,
+      "frequency": 1,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 8165,
+      "frequency": 14,
+      "unique_products": 60,
+      "total_volume": 84,
+      "unique_categories": 13,
+      "cluster": 0
+    },
+    {
+      "customer_id": 8175,
+      "frequency": 41,
+      "unique_products": 137,
+      "total_volume": 349,
+      "unique_categories": 19,
+      "cluster": 2
+    },
+    {
+      "customer_id": 8256,
+      "frequency": 7,
+      "unique_products": 23,
+      "total_volume": 27,
+      "unique_categories": 12,
+      "cluster": 0
+    },
+    {
+      "customer_id": 8321,
+      "frequency": 66,
+      "unique_products": 50,
+      "total_volume": 919,
+      "unique_categories": 10,
+      "cluster": 2
+    },
+    {
+      "customer_id": 8455,
+      "frequency": 1,
+      "unique_products": 6,
+      "total_volume": 6,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 8487,
+      "frequency": 8,
+      "unique_products": 26,
+      "total_volume": 60,
+      "unique_categories": 7,
+      "cluster": 0
+    },
+    {
+      "customer_id": 8494,
+      "frequency": 6,
+      "unique_products": 41,
+      "total_volume": 64,
+      "unique_categories": 11,
+      "cluster": 0
+    },
+    {
+      "customer_id": 8526,
+      "frequency": 3,
+      "unique_products": 25,
+      "total_volume": 29,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 8542,
+      "frequency": 6,
+      "unique_products": 42,
+      "total_volume": 55,
+      "unique_categories": 11,
+      "cluster": 0
+    },
+    {
+      "customer_id": 8574,
+      "frequency": 27,
+      "unique_products": 41,
+      "total_volume": 200,
+      "unique_categories": 10,
+      "cluster": 3
+    },
+    {
+      "customer_id": 8582,
+      "frequency": 1,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 8592,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 8659,
+      "frequency": 1,
+      "unique_products": 4,
+      "total_volume": 4,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 8668,
+      "frequency": 1,
+      "unique_products": 4,
+      "total_volume": 4,
+      "unique_categories": 5,
+      "cluster": 1
+    },
+    {
+      "customer_id": 8811,
+      "frequency": 21,
+      "unique_products": 82,
+      "total_volume": 211,
+      "unique_categories": 18,
+      "cluster": 3
+    },
+    {
+      "customer_id": 8964,
+      "frequency": 4,
+      "unique_products": 20,
+      "total_volume": 25,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 9001,
+      "frequency": 36,
+      "unique_products": 95,
+      "total_volume": 193,
+      "unique_categories": 16,
+      "cluster": 3
+    },
+    {
+      "customer_id": 9031,
+      "frequency": 2,
+      "unique_products": 18,
+      "total_volume": 19,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 9069,
+      "frequency": 5,
+      "unique_products": 31,
+      "total_volume": 34,
+      "unique_categories": 11,
+      "cluster": 0
+    },
+    {
+      "customer_id": 9089,
+      "frequency": 10,
+      "unique_products": 68,
+      "total_volume": 98,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 9136,
+      "frequency": 3,
+      "unique_products": 29,
+      "total_volume": 34,
+      "unique_categories": 11,
+      "cluster": 0
+    },
+    {
+      "customer_id": 9139,
+      "frequency": 6,
+      "unique_products": 33,
+      "total_volume": 131,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 9172,
+      "frequency": 35,
+      "unique_products": 86,
+      "total_volume": 209,
+      "unique_categories": 16,
+      "cluster": 3
+    },
+    {
+      "customer_id": 9199,
+      "frequency": 2,
+      "unique_products": 28,
+      "total_volume": 28,
+      "unique_categories": 7,
+      "cluster": 0
+    },
+    {
+      "customer_id": 9211,
+      "frequency": 4,
+      "unique_products": 15,
+      "total_volume": 17,
+      "unique_categories": 7,
+      "cluster": 1
+    },
+    {
+      "customer_id": 9250,
+      "frequency": 24,
+      "unique_products": 108,
+      "total_volume": 329,
+      "unique_categories": 12,
+      "cluster": 3
+    },
+    {
+      "customer_id": 9303,
+      "frequency": 20,
+      "unique_products": 74,
+      "total_volume": 119,
+      "unique_categories": 13,
+      "cluster": 3
+    },
+    {
+      "customer_id": 9343,
+      "frequency": 11,
+      "unique_products": 33,
+      "total_volume": 60,
+      "unique_categories": 11,
+      "cluster": 0
+    },
+    {
+      "customer_id": 9357,
+      "frequency": 9,
+      "unique_products": 55,
+      "total_volume": 103,
+      "unique_categories": 14,
+      "cluster": 0
+    },
+    {
+      "customer_id": 9381,
+      "frequency": 2,
+      "unique_products": 8,
+      "total_volume": 8,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 9407,
+      "frequency": 3,
+      "unique_products": 6,
+      "total_volume": 6,
+      "unique_categories": 3,
+      "cluster": 1
+    },
+    {
+      "customer_id": 9427,
+      "frequency": 6,
+      "unique_products": 18,
+      "total_volume": 33,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 9550,
+      "frequency": 4,
+      "unique_products": 11,
+      "total_volume": 12,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 9561,
+      "frequency": 1,
+      "unique_products": 17,
+      "total_volume": 17,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 9580,
+      "frequency": 11,
+      "unique_products": 71,
+      "total_volume": 211,
+      "unique_categories": 11,
+      "cluster": 3
+    },
+    {
+      "customer_id": 9601,
+      "frequency": 28,
+      "unique_products": 81,
+      "total_volume": 273,
+      "unique_categories": 16,
+      "cluster": 3
+    },
+    {
+      "customer_id": 9710,
+      "frequency": 8,
+      "unique_products": 19,
+      "total_volume": 27,
+      "unique_categories": 12,
+      "cluster": 0
+    },
+    {
+      "customer_id": 9966,
+      "frequency": 1,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 10030,
+      "frequency": 21,
+      "unique_products": 41,
+      "total_volume": 128,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 10170,
+      "frequency": 6,
+      "unique_products": 22,
+      "total_volume": 36,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 10280,
+      "frequency": 17,
+      "unique_products": 13,
+      "total_volume": 37,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 10303,
+      "frequency": 2,
+      "unique_products": 3,
+      "total_volume": 3,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 10326,
+      "frequency": 2,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 10333,
+      "frequency": 3,
+      "unique_products": 5,
+      "total_volume": 5,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 10479,
+      "frequency": 5,
+      "unique_products": 16,
+      "total_volume": 22,
+      "unique_categories": 7,
+      "cluster": 1
+    },
+    {
+      "customer_id": 10573,
+      "frequency": 3,
+      "unique_products": 8,
+      "total_volume": 11,
+      "unique_categories": 7,
+      "cluster": 1
+    },
+    {
+      "customer_id": 10662,
+      "frequency": 5,
+      "unique_products": 26,
+      "total_volume": 29,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 10753,
+      "frequency": 10,
+      "unique_products": 37,
+      "total_volume": 62,
+      "unique_categories": 8,
+      "cluster": 0
+    },
+    {
+      "customer_id": 10782,
+      "frequency": 7,
+      "unique_products": 23,
+      "total_volume": 26,
+      "unique_categories": 7,
+      "cluster": 0
+    },
+    {
+      "customer_id": 10806,
+      "frequency": 8,
+      "unique_products": 29,
+      "total_volume": 34,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 10847,
+      "frequency": 1,
+      "unique_products": 6,
+      "total_volume": 6,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 10891,
+      "frequency": 1,
+      "unique_products": 3,
+      "total_volume": 3,
+      "unique_categories": 3,
+      "cluster": 1
+    },
+    {
+      "customer_id": 10908,
+      "frequency": 6,
+      "unique_products": 63,
+      "total_volume": 101,
+      "unique_categories": 11,
+      "cluster": 0
+    },
+    {
+      "customer_id": 10912,
+      "frequency": 7,
+      "unique_products": 41,
+      "total_volume": 60,
+      "unique_categories": 11,
+      "cluster": 0
+    },
+    {
+      "customer_id": 10977,
+      "frequency": 12,
+      "unique_products": 43,
+      "total_volume": 55,
+      "unique_categories": 13,
+      "cluster": 0
+    },
+    {
+      "customer_id": 11005,
+      "frequency": 2,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 11033,
+      "frequency": 19,
+      "unique_products": 63,
+      "total_volume": 182,
+      "unique_categories": 13,
+      "cluster": 3
+    },
+    {
+      "customer_id": 11284,
+      "frequency": 1,
+      "unique_products": 6,
+      "total_volume": 6,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 11339,
+      "frequency": 3,
+      "unique_products": 25,
+      "total_volume": 34,
+      "unique_categories": 12,
+      "cluster": 0
+    },
+    {
+      "customer_id": 11353,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 11386,
+      "frequency": 15,
+      "unique_products": 100,
+      "total_volume": 176,
+      "unique_categories": 18,
+      "cluster": 3
+    },
+    {
+      "customer_id": 11451,
+      "frequency": 12,
+      "unique_products": 69,
+      "total_volume": 91,
+      "unique_categories": 16,
+      "cluster": 3
+    },
+    {
+      "customer_id": 11505,
+      "frequency": 2,
+      "unique_products": 9,
+      "total_volume": 11,
+      "unique_categories": 7,
+      "cluster": 1
+    },
+    {
+      "customer_id": 11545,
+      "frequency": 5,
+      "unique_products": 23,
+      "total_volume": 37,
+      "unique_categories": 8,
+      "cluster": 0
+    },
+    {
+      "customer_id": 11671,
+      "frequency": 13,
+      "unique_products": 46,
+      "total_volume": 64,
+      "unique_categories": 14,
+      "cluster": 0
+    },
+    {
+      "customer_id": 11702,
+      "frequency": 2,
+      "unique_products": 3,
+      "total_volume": 3,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 11889,
+      "frequency": 5,
+      "unique_products": 41,
+      "total_volume": 91,
+      "unique_categories": 11,
+      "cluster": 0
+    },
+    {
+      "customer_id": 11972,
+      "frequency": 3,
+      "unique_products": 16,
+      "total_volume": 17,
+      "unique_categories": 7,
+      "cluster": 1
+    },
+    {
+      "customer_id": 11983,
+      "frequency": 5,
+      "unique_products": 32,
+      "total_volume": 34,
+      "unique_categories": 12,
+      "cluster": 0
+    },
+    {
+      "customer_id": 12011,
+      "frequency": 11,
+      "unique_products": 110,
+      "total_volume": 273,
+      "unique_categories": 19,
+      "cluster": 3
+    },
+    {
+      "customer_id": 12020,
+      "frequency": 1,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 12027,
+      "frequency": 11,
+      "unique_products": 79,
+      "total_volume": 180,
+      "unique_categories": 17,
+      "cluster": 3
+    },
+    {
+      "customer_id": 12165,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 12173,
+      "frequency": 13,
+      "unique_products": 25,
+      "total_volume": 55,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 12319,
+      "frequency": 1,
+      "unique_products": 12,
+      "total_volume": 12,
+      "unique_categories": 7,
+      "cluster": 1
+    },
+    {
+      "customer_id": 12401,
+      "frequency": 3,
+      "unique_products": 5,
+      "total_volume": 5,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 12482,
+      "frequency": 17,
+      "unique_products": 59,
+      "total_volume": 157,
+      "unique_categories": 15,
+      "cluster": 3
+    },
+    {
+      "customer_id": 12490,
+      "frequency": 43,
+      "unique_products": 41,
+      "total_volume": 246,
+      "unique_categories": 10,
+      "cluster": 3
+    },
+    {
+      "customer_id": 12545,
+      "frequency": 2,
+      "unique_products": 28,
+      "total_volume": 28,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 12589,
+      "frequency": 6,
+      "unique_products": 36,
+      "total_volume": 119,
+      "unique_categories": 8,
+      "cluster": 0
+    },
+    {
+      "customer_id": 12641,
+      "frequency": 1,
+      "unique_products": 4,
+      "total_volume": 4,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 12655,
+      "frequency": 20,
+      "unique_products": 52,
+      "total_volume": 190,
+      "unique_categories": 9,
+      "cluster": 3
+    },
+    {
+      "customer_id": 12751,
+      "frequency": 33,
+      "unique_products": 50,
+      "total_volume": 105,
+      "unique_categories": 12,
+      "cluster": 3
+    },
+    {
+      "customer_id": 12877,
+      "frequency": 13,
+      "unique_products": 54,
+      "total_volume": 122,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 12899,
+      "frequency": 60,
+      "unique_products": 135,
+      "total_volume": 532,
+      "unique_categories": 19,
+      "cluster": 2
+    },
+    {
+      "customer_id": 12967,
+      "frequency": 1,
+      "unique_products": 5,
+      "total_volume": 5,
+      "unique_categories": 5,
+      "cluster": 1
+    },
+    {
+      "customer_id": 13013,
+      "frequency": 1,
+      "unique_products": 3,
+      "total_volume": 3,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 13164,
+      "frequency": 1,
+      "unique_products": 4,
+      "total_volume": 4,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 13186,
+      "frequency": 2,
+      "unique_products": 41,
+      "total_volume": 42,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 13191,
+      "frequency": 5,
+      "unique_products": 15,
+      "total_volume": 17,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 13256,
+      "frequency": 1,
+      "unique_products": 7,
+      "total_volume": 7,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 13281,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 13287,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 13370,
+      "frequency": 3,
+      "unique_products": 10,
+      "total_volume": 13,
+      "unique_categories": 5,
+      "cluster": 1
+    },
+    {
+      "customer_id": 13391,
+      "frequency": 1,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 13449,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 13521,
+      "frequency": 40,
+      "unique_products": 87,
+      "total_volume": 599,
+      "unique_categories": 14,
+      "cluster": 2
+    },
+    {
+      "customer_id": 13609,
+      "frequency": 2,
+      "unique_products": 4,
+      "total_volume": 4,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 13723,
+      "frequency": 1,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 13800,
+      "frequency": 1,
+      "unique_products": 6,
+      "total_volume": 6,
+      "unique_categories": 3,
+      "cluster": 1
+    },
+    {
+      "customer_id": 13832,
+      "frequency": 13,
+      "unique_products": 77,
+      "total_volume": 195,
+      "unique_categories": 17,
+      "cluster": 3
+    },
+    {
+      "customer_id": 13947,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 13977,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 13983,
+      "frequency": 2,
+      "unique_products": 8,
+      "total_volume": 9,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 14143,
+      "frequency": 5,
+      "unique_products": 10,
+      "total_volume": 12,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 14269,
+      "frequency": 1,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 1,
+      "cluster": 1
+    },
+    {
+      "customer_id": 14356,
+      "frequency": 14,
+      "unique_products": 66,
+      "total_volume": 93,
+      "unique_categories": 17,
+      "cluster": 3
+    },
+    {
+      "customer_id": 14400,
+      "frequency": 17,
+      "unique_products": 76,
+      "total_volume": 343,
+      "unique_categories": 14,
+      "cluster": 3
+    },
+    {
+      "customer_id": 14640,
+      "frequency": 1,
+      "unique_products": 5,
+      "total_volume": 5,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 14830,
+      "frequency": 10,
+      "unique_products": 50,
+      "total_volume": 72,
+      "unique_categories": 14,
+      "cluster": 0
+    },
+    {
+      "customer_id": 14840,
+      "frequency": 20,
+      "unique_products": 91,
+      "total_volume": 192,
+      "unique_categories": 14,
+      "cluster": 3
+    },
+    {
+      "customer_id": 14895,
+      "frequency": 1,
+      "unique_products": 3,
+      "total_volume": 3,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 14917,
+      "frequency": 33,
+      "unique_products": 44,
+      "total_volume": 137,
+      "unique_categories": 13,
+      "cluster": 3
+    },
+    {
+      "customer_id": 14933,
+      "frequency": 13,
+      "unique_products": 44,
+      "total_volume": 221,
+      "unique_categories": 10,
+      "cluster": 3
+    },
+    {
+      "customer_id": 14978,
+      "frequency": 15,
+      "unique_products": 56,
+      "total_volume": 110,
+      "unique_categories": 15,
+      "cluster": 3
+    },
+    {
+      "customer_id": 14989,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 15025,
+      "frequency": 1,
+      "unique_products": 22,
+      "total_volume": 22,
+      "unique_categories": 13,
+      "cluster": 0
+    },
+    {
+      "customer_id": 15044,
+      "frequency": 5,
+      "unique_products": 27,
+      "total_volume": 50,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 15097,
+      "frequency": 1,
+      "unique_products": 6,
+      "total_volume": 6,
+      "unique_categories": 8,
+      "cluster": 1
+    },
+    {
+      "customer_id": 15115,
+      "frequency": 1,
+      "unique_products": 10,
+      "total_volume": 10,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 15231,
+      "frequency": 17,
+      "unique_products": 72,
+      "total_volume": 191,
+      "unique_categories": 14,
+      "cluster": 3
+    },
+    {
+      "customer_id": 15258,
+      "frequency": 6,
+      "unique_products": 43,
+      "total_volume": 50,
+      "unique_categories": 11,
+      "cluster": 0
+    },
+    {
+      "customer_id": 15447,
+      "frequency": 3,
+      "unique_products": 60,
+      "total_volume": 93,
+      "unique_categories": 12,
+      "cluster": 0
+    },
+    {
+      "customer_id": 15548,
+      "frequency": 11,
+      "unique_products": 28,
+      "total_volume": 34,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 15578,
+      "frequency": 2,
+      "unique_products": 5,
+      "total_volume": 5,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 15592,
+      "frequency": 18,
+      "unique_products": 37,
+      "total_volume": 171,
+      "unique_categories": 8,
+      "cluster": 0
+    },
+    {
+      "customer_id": 15623,
+      "frequency": 1,
+      "unique_products": 5,
+      "total_volume": 5,
+      "unique_categories": 5,
+      "cluster": 1
+    },
+    {
+      "customer_id": 15635,
+      "frequency": 39,
+      "unique_products": 42,
+      "total_volume": 303,
+      "unique_categories": 9,
+      "cluster": 3
+    },
+    {
+      "customer_id": 15696,
+      "frequency": 33,
+      "unique_products": 49,
+      "total_volume": 521,
+      "unique_categories": 12,
+      "cluster": 2
+    },
+    {
+      "customer_id": 15706,
+      "frequency": 3,
+      "unique_products": 26,
+      "total_volume": 30,
+      "unique_categories": 8,
+      "cluster": 0
+    },
+    {
+      "customer_id": 15727,
+      "frequency": 2,
+      "unique_products": 7,
+      "total_volume": 7,
+      "unique_categories": 8,
+      "cluster": 1
+    },
+    {
+      "customer_id": 15741,
+      "frequency": 1,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 15854,
+      "frequency": 2,
+      "unique_products": 9,
+      "total_volume": 9,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 15958,
+      "frequency": 2,
+      "unique_products": 4,
+      "total_volume": 4,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 16083,
+      "frequency": 1,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 16109,
+      "frequency": 64,
+      "unique_products": 183,
+      "total_volume": 682,
+      "unique_categories": 21,
+      "cluster": 2
+    },
+    {
+      "customer_id": 16187,
+      "frequency": 1,
+      "unique_products": 21,
+      "total_volume": 21,
+      "unique_categories": 8,
+      "cluster": 0
+    },
+    {
+      "customer_id": 16317,
+      "frequency": 5,
+      "unique_products": 38,
+      "total_volume": 51,
+      "unique_categories": 11,
+      "cluster": 0
+    },
+    {
+      "customer_id": 16325,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 16398,
+      "frequency": 2,
+      "unique_products": 3,
+      "total_volume": 3,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 16402,
+      "frequency": 35,
+      "unique_products": 51,
+      "total_volume": 431,
+      "unique_categories": 10,
+      "cluster": 3
+    },
+    {
+      "customer_id": 16463,
+      "frequency": 11,
+      "unique_products": 26,
+      "total_volume": 39,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 16484,
+      "frequency": 30,
+      "unique_products": 44,
+      "total_volume": 262,
+      "unique_categories": 10,
+      "cluster": 3
+    },
+    {
+      "customer_id": 16598,
+      "frequency": 12,
+      "unique_products": 48,
+      "total_volume": 147,
+      "unique_categories": 13,
+      "cluster": 0
+    },
+    {
+      "customer_id": 16646,
+      "frequency": 14,
+      "unique_products": 51,
+      "total_volume": 65,
+      "unique_categories": 12,
+      "cluster": 0
+    },
+    {
+      "customer_id": 16761,
+      "frequency": 3,
+      "unique_products": 13,
+      "total_volume": 16,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 16774,
+      "frequency": 1,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 16879,
+      "frequency": 10,
+      "unique_products": 117,
+      "total_volume": 270,
+      "unique_categories": 16,
+      "cluster": 3
+    },
+    {
+      "customer_id": 17011,
+      "frequency": 1,
+      "unique_products": 4,
+      "total_volume": 4,
+      "unique_categories": 1,
+      "cluster": 1
+    },
+    {
+      "customer_id": 17022,
+      "frequency": 33,
+      "unique_products": 156,
+      "total_volume": 723,
+      "unique_categories": 18,
+      "cluster": 2
+    },
+    {
+      "customer_id": 17054,
+      "frequency": 2,
+      "unique_products": 13,
+      "total_volume": 14,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 17055,
+      "frequency": 4,
+      "unique_products": 26,
+      "total_volume": 26,
+      "unique_categories": 12,
+      "cluster": 0
+    },
+    {
+      "customer_id": 17101,
+      "frequency": 6,
+      "unique_products": 27,
+      "total_volume": 31,
+      "unique_categories": 8,
+      "cluster": 0
+    },
+    {
+      "customer_id": 17136,
+      "frequency": 13,
+      "unique_products": 87,
+      "total_volume": 200,
+      "unique_categories": 17,
+      "cluster": 3
+    },
+    {
+      "customer_id": 17148,
+      "frequency": 32,
+      "unique_products": 126,
+      "total_volume": 387,
+      "unique_categories": 18,
+      "cluster": 2
+    },
+    {
+      "customer_id": 17184,
+      "frequency": 2,
+      "unique_products": 4,
+      "total_volume": 4,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 17198,
+      "frequency": 2,
+      "unique_products": 56,
+      "total_volume": 73,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 17229,
+      "frequency": 28,
+      "unique_products": 38,
+      "total_volume": 270,
+      "unique_categories": 10,
+      "cluster": 3
+    },
+    {
+      "customer_id": 17523,
+      "frequency": 22,
+      "unique_products": 90,
+      "total_volume": 225,
+      "unique_categories": 15,
+      "cluster": 3
+    },
+    {
+      "customer_id": 17579,
+      "frequency": 1,
+      "unique_products": 8,
+      "total_volume": 8,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 17666,
+      "frequency": 13,
+      "unique_products": 73,
+      "total_volume": 162,
+      "unique_categories": 14,
+      "cluster": 3
+    },
+    {
+      "customer_id": 17752,
+      "frequency": 23,
+      "unique_products": 42,
+      "total_volume": 247,
+      "unique_categories": 9,
+      "cluster": 3
+    },
+    {
+      "customer_id": 17774,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 1,
+      "cluster": 1
+    },
+    {
+      "customer_id": 17828,
+      "frequency": 10,
+      "unique_products": 31,
+      "total_volume": 73,
+      "unique_categories": 7,
+      "cluster": 0
+    },
+    {
+      "customer_id": 17850,
+      "frequency": 1,
+      "unique_products": 14,
+      "total_volume": 14,
+      "unique_categories": 8,
+      "cluster": 1
+    },
+    {
+      "customer_id": 17877,
+      "frequency": 12,
+      "unique_products": 77,
+      "total_volume": 146,
+      "unique_categories": 18,
+      "cluster": 3
+    },
+    {
+      "customer_id": 18107,
+      "frequency": 1,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 18187,
+      "frequency": 7,
+      "unique_products": 27,
+      "total_volume": 36,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 18244,
+      "frequency": 12,
+      "unique_products": 33,
+      "total_volume": 119,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 18287,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 18355,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 18365,
+      "frequency": 1,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 1,
+      "cluster": 1
+    },
+    {
+      "customer_id": 18407,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 18475,
+      "frequency": 29,
+      "unique_products": 72,
+      "total_volume": 259,
+      "unique_categories": 13,
+      "cluster": 3
+    },
+    {
+      "customer_id": 18549,
+      "frequency": 2,
+      "unique_products": 72,
+      "total_volume": 73,
+      "unique_categories": 11,
+      "cluster": 0
+    },
+    {
+      "customer_id": 18655,
+      "frequency": 2,
+      "unique_products": 70,
+      "total_volume": 71,
+      "unique_categories": 15,
+      "cluster": 0
+    },
+    {
+      "customer_id": 18680,
+      "frequency": 23,
+      "unique_products": 51,
+      "total_volume": 268,
+      "unique_categories": 10,
+      "cluster": 3
+    },
+    {
+      "customer_id": 18800,
+      "frequency": 3,
+      "unique_products": 13,
+      "total_volume": 18,
+      "unique_categories": 7,
+      "cluster": 1
+    },
+    {
+      "customer_id": 18857,
+      "frequency": 2,
+      "unique_products": 7,
+      "total_volume": 7,
+      "unique_categories": 7,
+      "cluster": 1
+    },
+    {
+      "customer_id": 18890,
+      "frequency": 1,
+      "unique_products": 4,
+      "total_volume": 4,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 18941,
+      "frequency": 2,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 1,
+      "cluster": 1
+    },
+    {
+      "customer_id": 18979,
+      "frequency": 38,
+      "unique_products": 102,
+      "total_volume": 338,
+      "unique_categories": 19,
+      "cluster": 2
+    },
+    {
+      "customer_id": 18984,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 19086,
+      "frequency": 10,
+      "unique_products": 149,
+      "total_volume": 701,
+      "unique_categories": 16,
+      "cluster": 2
+    },
+    {
+      "customer_id": 19133,
+      "frequency": 1,
+      "unique_products": 21,
+      "total_volume": 21,
+      "unique_categories": 8,
+      "cluster": 0
+    },
+    {
+      "customer_id": 19179,
+      "frequency": 3,
+      "unique_products": 5,
+      "total_volume": 6,
+      "unique_categories": 5,
+      "cluster": 1
+    },
+    {
+      "customer_id": 19181,
+      "frequency": 22,
+      "unique_products": 41,
+      "total_volume": 233,
+      "unique_categories": 10,
+      "cluster": 3
+    },
+    {
+      "customer_id": 19329,
+      "frequency": 14,
+      "unique_products": 32,
+      "total_volume": 82,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 19358,
+      "frequency": 1,
+      "unique_products": 4,
+      "total_volume": 4,
+      "unique_categories": 3,
+      "cluster": 1
+    },
+    {
+      "customer_id": 19411,
+      "frequency": 14,
+      "unique_products": 33,
+      "total_volume": 155,
+      "unique_categories": 8,
+      "cluster": 0
+    },
+    {
+      "customer_id": 19423,
+      "frequency": 1,
+      "unique_products": 5,
+      "total_volume": 5,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 19460,
+      "frequency": 3,
+      "unique_products": 27,
+      "total_volume": 37,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 19581,
+      "frequency": 2,
+      "unique_products": 5,
+      "total_volume": 5,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 19582,
+      "frequency": 3,
+      "unique_products": 6,
+      "total_volume": 8,
+      "unique_categories": 5,
+      "cluster": 1
+    },
+    {
+      "customer_id": 19675,
+      "frequency": 30,
+      "unique_products": 83,
+      "total_volume": 299,
+      "unique_categories": 11,
+      "cluster": 3
+    },
+    {
+      "customer_id": 19757,
+      "frequency": 32,
+      "unique_products": 56,
+      "total_volume": 188,
+      "unique_categories": 11,
+      "cluster": 3
+    },
+    {
+      "customer_id": 19808,
+      "frequency": 1,
+      "unique_products": 3,
+      "total_volume": 3,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 19844,
+      "frequency": 1,
+      "unique_products": 3,
+      "total_volume": 3,
+      "unique_categories": 3,
+      "cluster": 1
+    },
+    {
+      "customer_id": 20004,
+      "frequency": 1,
+      "unique_products": 12,
+      "total_volume": 12,
+      "unique_categories": 7,
+      "cluster": 1
+    },
+    {
+      "customer_id": 20008,
+      "frequency": 2,
+      "unique_products": 4,
+      "total_volume": 5,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 20021,
+      "frequency": 1,
+      "unique_products": 7,
+      "total_volume": 7,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 20034,
+      "frequency": 17,
+      "unique_products": 111,
+      "total_volume": 325,
+      "unique_categories": 16,
+      "cluster": 3
+    },
+    {
+      "customer_id": 20081,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 20086,
+      "frequency": 7,
+      "unique_products": 21,
+      "total_volume": 53,
+      "unique_categories": 7,
+      "cluster": 0
+    },
+    {
+      "customer_id": 20099,
+      "frequency": 1,
+      "unique_products": 3,
+      "total_volume": 3,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 20122,
+      "frequency": 9,
+      "unique_products": 15,
+      "total_volume": 19,
+      "unique_categories": 8,
+      "cluster": 0
+    },
+    {
+      "customer_id": 20135,
+      "frequency": 24,
+      "unique_products": 29,
+      "total_volume": 72,
+      "unique_categories": 12,
+      "cluster": 0
+    },
+    {
+      "customer_id": 20142,
+      "frequency": 1,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 1,
+      "cluster": 1
+    },
+    {
+      "customer_id": 20244,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 20297,
+      "frequency": 1,
+      "unique_products": 4,
+      "total_volume": 4,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 20342,
+      "frequency": 2,
+      "unique_products": 11,
+      "total_volume": 14,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 20344,
+      "frequency": 28,
+      "unique_products": 45,
+      "total_volume": 311,
+      "unique_categories": 10,
+      "cluster": 3
+    },
+    {
+      "customer_id": 20423,
+      "frequency": 8,
+      "unique_products": 17,
+      "total_volume": 31,
+      "unique_categories": 7,
+      "cluster": 0
+    },
+    {
+      "customer_id": 20453,
+      "frequency": 4,
+      "unique_products": 6,
+      "total_volume": 7,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 20554,
+      "frequency": 1,
+      "unique_products": 4,
+      "total_volume": 4,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 20589,
+      "frequency": 2,
+      "unique_products": 5,
+      "total_volume": 5,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 20639,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 20655,
+      "frequency": 4,
+      "unique_products": 71,
+      "total_volume": 112,
+      "unique_categories": 13,
+      "cluster": 0
+    },
+    {
+      "customer_id": 20705,
+      "frequency": 8,
+      "unique_products": 52,
+      "total_volume": 55,
+      "unique_categories": 17,
+      "cluster": 0
+    },
+    {
+      "customer_id": 20720,
+      "frequency": 14,
+      "unique_products": 47,
+      "total_volume": 236,
+      "unique_categories": 9,
+      "cluster": 3
+    },
+    {
+      "customer_id": 20726,
+      "frequency": 1,
+      "unique_products": 5,
+      "total_volume": 5,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 20738,
+      "frequency": 1,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 20780,
+      "frequency": 16,
+      "unique_products": 34,
+      "total_volume": 164,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 20835,
+      "frequency": 4,
+      "unique_products": 7,
+      "total_volume": 7,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 20840,
+      "frequency": 1,
+      "unique_products": 3,
+      "total_volume": 3,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 20938,
+      "frequency": 6,
+      "unique_products": 18,
+      "total_volume": 23,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 20957,
+      "frequency": 7,
+      "unique_products": 29,
+      "total_volume": 42,
+      "unique_categories": 8,
+      "cluster": 0
+    },
+    {
+      "customer_id": 21000,
+      "frequency": 2,
+      "unique_products": 12,
+      "total_volume": 12,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 21059,
+      "frequency": 13,
+      "unique_products": 28,
+      "total_volume": 53,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 21173,
+      "frequency": 43,
+      "unique_products": 46,
+      "total_volume": 131,
+      "unique_categories": 18,
+      "cluster": 3
+    },
+    {
+      "customer_id": 21183,
+      "frequency": 9,
+      "unique_products": 60,
+      "total_volume": 133,
+      "unique_categories": 12,
+      "cluster": 0
+    },
+    {
+      "customer_id": 21196,
+      "frequency": 2,
+      "unique_products": 5,
+      "total_volume": 5,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 21205,
+      "frequency": 9,
+      "unique_products": 36,
+      "total_volume": 97,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 21262,
+      "frequency": 3,
+      "unique_products": 16,
+      "total_volume": 18,
+      "unique_categories": 7,
+      "cluster": 1
+    },
+    {
+      "customer_id": 21331,
+      "frequency": 12,
+      "unique_products": 42,
+      "total_volume": 81,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 21335,
+      "frequency": 12,
+      "unique_products": 86,
+      "total_volume": 265,
+      "unique_categories": 12,
+      "cluster": 3
+    },
+    {
+      "customer_id": 21376,
+      "frequency": 2,
+      "unique_products": 8,
+      "total_volume": 8,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 21449,
+      "frequency": 26,
+      "unique_products": 108,
+      "total_volume": 397,
+      "unique_categories": 21,
+      "cluster": 2
+    },
+    {
+      "customer_id": 21653,
+      "frequency": 14,
+      "unique_products": 84,
+      "total_volume": 195,
+      "unique_categories": 15,
+      "cluster": 3
+    },
+    {
+      "customer_id": 21772,
+      "frequency": 6,
+      "unique_products": 26,
+      "total_volume": 26,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 21803,
+      "frequency": 1,
+      "unique_products": 12,
+      "total_volume": 12,
+      "unique_categories": 8,
+      "cluster": 1
+    },
+    {
+      "customer_id": 21837,
+      "frequency": 1,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 1,
+      "cluster": 1
+    },
+    {
+      "customer_id": 21966,
+      "frequency": 4,
+      "unique_products": 34,
+      "total_volume": 52,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 21995,
+      "frequency": 14,
+      "unique_products": 57,
+      "total_volume": 88,
+      "unique_categories": 13,
+      "cluster": 0
+    },
+    {
+      "customer_id": 22061,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 22077,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 22141,
+      "frequency": 1,
+      "unique_products": 5,
+      "total_volume": 5,
+      "unique_categories": 5,
+      "cluster": 1
+    },
+    {
+      "customer_id": 22209,
+      "frequency": 1,
+      "unique_products": 5,
+      "total_volume": 5,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 22286,
+      "frequency": 1,
+      "unique_products": 11,
+      "total_volume": 11,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 22341,
+      "frequency": 29,
+      "unique_products": 44,
+      "total_volume": 275,
+      "unique_categories": 10,
+      "cluster": 3
+    },
+    {
+      "customer_id": 22346,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 22511,
+      "frequency": 5,
+      "unique_products": 20,
+      "total_volume": 31,
+      "unique_categories": 12,
+      "cluster": 0
+    },
+    {
+      "customer_id": 22521,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 22593,
+      "frequency": 11,
+      "unique_products": 49,
+      "total_volume": 115,
+      "unique_categories": 12,
+      "cluster": 0
+    },
+    {
+      "customer_id": 22612,
+      "frequency": 12,
+      "unique_products": 39,
+      "total_volume": 59,
+      "unique_categories": 12,
+      "cluster": 0
+    },
+    {
+      "customer_id": 22623,
+      "frequency": 2,
+      "unique_products": 20,
+      "total_volume": 27,
+      "unique_categories": 12,
+      "cluster": 0
+    },
+    {
+      "customer_id": 22802,
+      "frequency": 1,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 22912,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 22961,
+      "frequency": 2,
+      "unique_products": 8,
+      "total_volume": 8,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 23125,
+      "frequency": 3,
+      "unique_products": 4,
+      "total_volume": 8,
+      "unique_categories": 5,
+      "cluster": 1
+    },
+    {
+      "customer_id": 23174,
+      "frequency": 12,
+      "unique_products": 66,
+      "total_volume": 173,
+      "unique_categories": 16,
+      "cluster": 3
+    },
+    {
+      "customer_id": 23231,
+      "frequency": 17,
+      "unique_products": 65,
+      "total_volume": 127,
+      "unique_categories": 14,
+      "cluster": 3
+    },
+    {
+      "customer_id": 23233,
+      "frequency": 1,
+      "unique_products": 4,
+      "total_volume": 4,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 23273,
+      "frequency": 2,
+      "unique_products": 4,
+      "total_volume": 4,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 23301,
+      "frequency": 13,
+      "unique_products": 72,
+      "total_volume": 127,
+      "unique_categories": 14,
+      "cluster": 3
+    },
+    {
+      "customer_id": 23336,
+      "frequency": 4,
+      "unique_products": 3,
+      "total_volume": 5,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 23338,
+      "frequency": 6,
+      "unique_products": 18,
+      "total_volume": 48,
+      "unique_categories": 7,
+      "cluster": 0
+    },
+    {
+      "customer_id": 23386,
+      "frequency": 9,
+      "unique_products": 80,
+      "total_volume": 105,
+      "unique_categories": 13,
+      "cluster": 3
+    },
+    {
+      "customer_id": 23492,
+      "frequency": 1,
+      "unique_products": 3,
+      "total_volume": 3,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 23508,
+      "frequency": 2,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 23567,
+      "frequency": 5,
+      "unique_products": 18,
+      "total_volume": 23,
+      "unique_categories": 7,
+      "cluster": 1
+    },
+    {
+      "customer_id": 23613,
+      "frequency": 3,
+      "unique_products": 5,
+      "total_volume": 8,
+      "unique_categories": 3,
+      "cluster": 1
+    },
+    {
+      "customer_id": 23661,
+      "frequency": 4,
+      "unique_products": 40,
+      "total_volume": 49,
+      "unique_categories": 12,
+      "cluster": 0
+    },
+    {
+      "customer_id": 23991,
+      "frequency": 3,
+      "unique_products": 13,
+      "total_volume": 16,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 24166,
+      "frequency": 1,
+      "unique_products": 20,
+      "total_volume": 20,
+      "unique_categories": 11,
+      "cluster": 0
+    },
+    {
+      "customer_id": 24236,
+      "frequency": 25,
+      "unique_products": 80,
+      "total_volume": 261,
+      "unique_categories": 12,
+      "cluster": 3
+    },
+    {
+      "customer_id": 24304,
+      "frequency": 27,
+      "unique_products": 35,
+      "total_volume": 114,
+      "unique_categories": 10,
+      "cluster": 3
+    },
+    {
+      "customer_id": 24308,
+      "frequency": 35,
+      "unique_products": 45,
+      "total_volume": 245,
+      "unique_categories": 12,
+      "cluster": 3
+    },
+    {
+      "customer_id": 24387,
+      "frequency": 2,
+      "unique_products": 6,
+      "total_volume": 6,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 24440,
+      "frequency": 2,
+      "unique_products": 3,
+      "total_volume": 3,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 24642,
+      "frequency": 1,
+      "unique_products": 13,
+      "total_volume": 13,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 24832,
+      "frequency": 3,
+      "unique_products": 3,
+      "total_volume": 3,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 24956,
+      "frequency": 45,
+      "unique_products": 48,
+      "total_volume": 459,
+      "unique_categories": 10,
+      "cluster": 2
+    },
+    {
+      "customer_id": 24965,
+      "frequency": 2,
+      "unique_products": 3,
+      "total_volume": 4,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 25272,
+      "frequency": 3,
+      "unique_products": 21,
+      "total_volume": 25,
+      "unique_categories": 12,
+      "cluster": 0
+    },
+    {
+      "customer_id": 25434,
+      "frequency": 11,
+      "unique_products": 34,
+      "total_volume": 120,
+      "unique_categories": 8,
+      "cluster": 0
+    },
+    {
+      "customer_id": 25487,
+      "frequency": 6,
+      "unique_products": 7,
+      "total_volume": 8,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 25537,
+      "frequency": 25,
+      "unique_products": 99,
+      "total_volume": 240,
+      "unique_categories": 17,
+      "cluster": 3
+    },
+    {
+      "customer_id": 25634,
+      "frequency": 7,
+      "unique_products": 20,
+      "total_volume": 24,
+      "unique_categories": 7,
+      "cluster": 0
+    },
+    {
+      "customer_id": 25652,
+      "frequency": 5,
+      "unique_products": 3,
+      "total_volume": 7,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 25691,
+      "frequency": 12,
+      "unique_products": 75,
+      "total_volume": 154,
+      "unique_categories": 14,
+      "cluster": 3
+    },
+    {
+      "customer_id": 25753,
+      "frequency": 3,
+      "unique_products": 8,
+      "total_volume": 8,
+      "unique_categories": 5,
+      "cluster": 1
+    },
+    {
+      "customer_id": 25774,
+      "frequency": 1,
+      "unique_products": 9,
+      "total_volume": 9,
+      "unique_categories": 3,
+      "cluster": 1
+    },
+    {
+      "customer_id": 25792,
+      "frequency": 1,
+      "unique_products": 20,
+      "total_volume": 20,
+      "unique_categories": 12,
+      "cluster": 0
+    },
+    {
+      "customer_id": 25854,
+      "frequency": 11,
+      "unique_products": 88,
+      "total_volume": 267,
+      "unique_categories": 13,
+      "cluster": 3
+    },
+    {
+      "customer_id": 25868,
+      "frequency": 17,
+      "unique_products": 33,
+      "total_volume": 58,
+      "unique_categories": 12,
+      "cluster": 0
+    },
+    {
+      "customer_id": 25877,
+      "frequency": 1,
+      "unique_products": 7,
+      "total_volume": 7,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 25964,
+      "frequency": 8,
+      "unique_products": 35,
+      "total_volume": 79,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 26063,
+      "frequency": 1,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 26217,
+      "frequency": 1,
+      "unique_products": 12,
+      "total_volume": 12,
+      "unique_categories": 5,
+      "cluster": 1
+    },
+    {
+      "customer_id": 26265,
+      "frequency": 11,
+      "unique_products": 32,
+      "total_volume": 45,
+      "unique_categories": 11,
+      "cluster": 0
+    },
+    {
+      "customer_id": 26377,
+      "frequency": 1,
+      "unique_products": 7,
+      "total_volume": 7,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 26407,
+      "frequency": 34,
+      "unique_products": 131,
+      "total_volume": 375,
+      "unique_categories": 18,
+      "cluster": 2
+    },
+    {
+      "customer_id": 26468,
+      "frequency": 2,
+      "unique_products": 5,
+      "total_volume": 5,
+      "unique_categories": 3,
+      "cluster": 1
+    },
+    {
+      "customer_id": 26563,
+      "frequency": 6,
+      "unique_products": 50,
+      "total_volume": 90,
+      "unique_categories": 11,
+      "cluster": 0
+    },
+    {
+      "customer_id": 26592,
+      "frequency": 2,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 26667,
+      "frequency": 2,
+      "unique_products": 3,
+      "total_volume": 3,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 26704,
+      "frequency": 4,
+      "unique_products": 33,
+      "total_volume": 39,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 26751,
+      "frequency": 2,
+      "unique_products": 21,
+      "total_volume": 28,
+      "unique_categories": 8,
+      "cluster": 0
+    },
+    {
+      "customer_id": 26908,
+      "frequency": 5,
+      "unique_products": 15,
+      "total_volume": 18,
+      "unique_categories": 7,
+      "cluster": 1
+    },
+    {
+      "customer_id": 26916,
+      "frequency": 2,
+      "unique_products": 13,
+      "total_volume": 16,
+      "unique_categories": 8,
+      "cluster": 1
+    },
+    {
+      "customer_id": 26993,
+      "frequency": 1,
+      "unique_products": 3,
+      "total_volume": 3,
+      "unique_categories": 3,
+      "cluster": 1
+    },
+    {
+      "customer_id": 27156,
+      "frequency": 2,
+      "unique_products": 8,
+      "total_volume": 8,
+      "unique_categories": 5,
+      "cluster": 1
+    },
+    {
+      "customer_id": 27220,
+      "frequency": 2,
+      "unique_products": 7,
+      "total_volume": 9,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 27222,
+      "frequency": 1,
+      "unique_products": 6,
+      "total_volume": 6,
+      "unique_categories": 5,
+      "cluster": 1
+    },
+    {
+      "customer_id": 27244,
+      "frequency": 1,
+      "unique_products": 3,
+      "total_volume": 3,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 27258,
+      "frequency": 1,
+      "unique_products": 6,
+      "total_volume": 6,
+      "unique_categories": 5,
+      "cluster": 1
+    },
+    {
+      "customer_id": 27325,
+      "frequency": 9,
+      "unique_products": 36,
+      "total_volume": 63,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 27484,
+      "frequency": 1,
+      "unique_products": 17,
+      "total_volume": 17,
+      "unique_categories": 11,
+      "cluster": 0
+    },
+    {
+      "customer_id": 27489,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 27496,
+      "frequency": 4,
+      "unique_products": 81,
+      "total_volume": 106,
+      "unique_categories": 17,
+      "cluster": 3
+    },
+    {
+      "customer_id": 27533,
+      "frequency": 8,
+      "unique_products": 50,
+      "total_volume": 93,
+      "unique_categories": 12,
+      "cluster": 0
+    },
+    {
+      "customer_id": 27581,
+      "frequency": 8,
+      "unique_products": 51,
+      "total_volume": 75,
+      "unique_categories": 12,
+      "cluster": 0
+    },
+    {
+      "customer_id": 27596,
+      "frequency": 15,
+      "unique_products": 62,
+      "total_volume": 103,
+      "unique_categories": 13,
+      "cluster": 3
+    },
+    {
+      "customer_id": 27807,
+      "frequency": 28,
+      "unique_products": 105,
+      "total_volume": 202,
+      "unique_categories": 17,
+      "cluster": 3
+    },
+    {
+      "customer_id": 27811,
+      "frequency": 2,
+      "unique_products": 19,
+      "total_volume": 20,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 27833,
+      "frequency": 6,
+      "unique_products": 16,
+      "total_volume": 18,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 27928,
+      "frequency": 7,
+      "unique_products": 50,
+      "total_volume": 92,
+      "unique_categories": 14,
+      "cluster": 0
+    },
+    {
+      "customer_id": 27993,
+      "frequency": 19,
+      "unique_products": 51,
+      "total_volume": 70,
+      "unique_categories": 12,
+      "cluster": 0
+    },
+    {
+      "customer_id": 28076,
+      "frequency": 2,
+      "unique_products": 6,
+      "total_volume": 8,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 28110,
+      "frequency": 1,
+      "unique_products": 6,
+      "total_volume": 6,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 28215,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 28275,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 28283,
+      "frequency": 1,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 28301,
+      "frequency": 14,
+      "unique_products": 65,
+      "total_volume": 98,
+      "unique_categories": 15,
+      "cluster": 3
+    },
+    {
+      "customer_id": 28349,
+      "frequency": 28,
+      "unique_products": 52,
+      "total_volume": 193,
+      "unique_categories": 12,
+      "cluster": 3
+    },
+    {
+      "customer_id": 28378,
+      "frequency": 1,
+      "unique_products": 5,
+      "total_volume": 5,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 28395,
+      "frequency": 17,
+      "unique_products": 46,
+      "total_volume": 68,
+      "unique_categories": 14,
+      "cluster": 0
+    },
+    {
+      "customer_id": 28456,
+      "frequency": 14,
+      "unique_products": 12,
+      "total_volume": 31,
+      "unique_categories": 7,
+      "cluster": 0
+    },
+    {
+      "customer_id": 28460,
+      "frequency": 7,
+      "unique_products": 58,
+      "total_volume": 214,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 28484,
+      "frequency": 4,
+      "unique_products": 15,
+      "total_volume": 19,
+      "unique_categories": 8,
+      "cluster": 0
+    },
+    {
+      "customer_id": 28571,
+      "frequency": 17,
+      "unique_products": 109,
+      "total_volume": 529,
+      "unique_categories": 19,
+      "cluster": 2
+    },
+    {
+      "customer_id": 28587,
+      "frequency": 1,
+      "unique_products": 15,
+      "total_volume": 15,
+      "unique_categories": 11,
+      "cluster": 0
+    },
+    {
+      "customer_id": 28624,
+      "frequency": 19,
+      "unique_products": 37,
+      "total_volume": 161,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 28690,
+      "frequency": 7,
+      "unique_products": 55,
+      "total_volume": 128,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 28865,
+      "frequency": 21,
+      "unique_products": 107,
+      "total_volume": 309,
+      "unique_categories": 13,
+      "cluster": 3
+    },
+    {
+      "customer_id": 28874,
+      "frequency": 49,
+      "unique_products": 97,
+      "total_volume": 418,
+      "unique_categories": 20,
+      "cluster": 2
+    },
+    {
+      "customer_id": 29095,
+      "frequency": 1,
+      "unique_products": 7,
+      "total_volume": 7,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 29114,
+      "frequency": 1,
+      "unique_products": 5,
+      "total_volume": 5,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 29132,
+      "frequency": 18,
+      "unique_products": 73,
+      "total_volume": 154,
+      "unique_categories": 17,
+      "cluster": 3
+    },
+    {
+      "customer_id": 29194,
+      "frequency": 11,
+      "unique_products": 39,
+      "total_volume": 81,
+      "unique_categories": 12,
+      "cluster": 0
+    },
+    {
+      "customer_id": 29357,
+      "frequency": 2,
+      "unique_products": 42,
+      "total_volume": 50,
+      "unique_categories": 12,
+      "cluster": 0
+    },
+    {
+      "customer_id": 29464,
+      "frequency": 3,
+      "unique_products": 8,
+      "total_volume": 10,
+      "unique_categories": 8,
+      "cluster": 1
+    },
+    {
+      "customer_id": 29496,
+      "frequency": 4,
+      "unique_products": 22,
+      "total_volume": 25,
+      "unique_categories": 11,
+      "cluster": 0
+    },
+    {
+      "customer_id": 29572,
+      "frequency": 16,
+      "unique_products": 40,
+      "total_volume": 61,
+      "unique_categories": 14,
+      "cluster": 0
+    },
+    {
+      "customer_id": 29606,
+      "frequency": 8,
+      "unique_products": 25,
+      "total_volume": 62,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 29624,
+      "frequency": 2,
+      "unique_products": 17,
+      "total_volume": 20,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 29659,
+      "frequency": 9,
+      "unique_products": 39,
+      "total_volume": 57,
+      "unique_categories": 12,
+      "cluster": 0
+    },
+    {
+      "customer_id": 29669,
+      "frequency": 2,
+      "unique_products": 5,
+      "total_volume": 5,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 29889,
+      "frequency": 1,
+      "unique_products": 7,
+      "total_volume": 7,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 29936,
+      "frequency": 18,
+      "unique_products": 102,
+      "total_volume": 207,
+      "unique_categories": 19,
+      "cluster": 3
+    },
+    {
+      "customer_id": 30022,
+      "frequency": 6,
+      "unique_products": 20,
+      "total_volume": 27,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 30037,
+      "frequency": 2,
+      "unique_products": 17,
+      "total_volume": 18,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 30202,
+      "frequency": 1,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 30241,
+      "frequency": 7,
+      "unique_products": 31,
+      "total_volume": 45,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 30258,
+      "frequency": 35,
+      "unique_products": 22,
+      "total_volume": 171,
+      "unique_categories": 9,
+      "cluster": 3
+    },
+    {
+      "customer_id": 30278,
+      "frequency": 15,
+      "unique_products": 32,
+      "total_volume": 35,
+      "unique_categories": 15,
+      "cluster": 0
+    },
+    {
+      "customer_id": 30332,
+      "frequency": 8,
+      "unique_products": 18,
+      "total_volume": 51,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 30354,
+      "frequency": 1,
+      "unique_products": 4,
+      "total_volume": 4,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 30371,
+      "frequency": 2,
+      "unique_products": 15,
+      "total_volume": 20,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 30374,
+      "frequency": 1,
+      "unique_products": 6,
+      "total_volume": 6,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 30492,
+      "frequency": 1,
+      "unique_products": 9,
+      "total_volume": 9,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 30573,
+      "frequency": 30,
+      "unique_products": 158,
+      "total_volume": 834,
+      "unique_categories": 15,
+      "cluster": 2
+    },
+    {
+      "customer_id": 30614,
+      "frequency": 1,
+      "unique_products": 3,
+      "total_volume": 3,
+      "unique_categories": 5,
+      "cluster": 1
+    },
+    {
+      "customer_id": 30621,
+      "frequency": 1,
+      "unique_products": 4,
+      "total_volume": 4,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 30671,
+      "frequency": 25,
+      "unique_products": 30,
+      "total_volume": 104,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 30928,
+      "frequency": 1,
+      "unique_products": 4,
+      "total_volume": 4,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 30946,
+      "frequency": 2,
+      "unique_products": 12,
+      "total_volume": 13,
+      "unique_categories": 8,
+      "cluster": 1
+    },
+    {
+      "customer_id": 30989,
+      "frequency": 7,
+      "unique_products": 35,
+      "total_volume": 98,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 31006,
+      "frequency": 6,
+      "unique_products": 15,
+      "total_volume": 20,
+      "unique_categories": 8,
+      "cluster": 0
+    },
+    {
+      "customer_id": 31065,
+      "frequency": 15,
+      "unique_products": 33,
+      "total_volume": 68,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 31119,
+      "frequency": 10,
+      "unique_products": 28,
+      "total_volume": 40,
+      "unique_categories": 12,
+      "cluster": 0
+    },
+    {
+      "customer_id": 31146,
+      "frequency": 12,
+      "unique_products": 43,
+      "total_volume": 131,
+      "unique_categories": 13,
+      "cluster": 0
+    },
+    {
+      "customer_id": 31163,
+      "frequency": 33,
+      "unique_products": 75,
+      "total_volume": 414,
+      "unique_categories": 13,
+      "cluster": 3
+    },
+    {
+      "customer_id": 31195,
+      "frequency": 7,
+      "unique_products": 27,
+      "total_volume": 124,
+      "unique_categories": 8,
+      "cluster": 0
+    },
+    {
+      "customer_id": 31196,
+      "frequency": 1,
+      "unique_products": 4,
+      "total_volume": 4,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 31236,
+      "frequency": 44,
+      "unique_products": 46,
+      "total_volume": 340,
+      "unique_categories": 12,
+      "cluster": 3
+    },
+    {
+      "customer_id": 31245,
+      "frequency": 1,
+      "unique_products": 4,
+      "total_volume": 4,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 31261,
+      "frequency": 6,
+      "unique_products": 11,
+      "total_volume": 18,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 31342,
+      "frequency": 1,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 31362,
+      "frequency": 12,
+      "unique_products": 38,
+      "total_volume": 56,
+      "unique_categories": 13,
+      "cluster": 0
+    },
+    {
+      "customer_id": 31370,
+      "frequency": 7,
+      "unique_products": 33,
+      "total_volume": 63,
+      "unique_categories": 12,
+      "cluster": 0
+    },
+    {
+      "customer_id": 31455,
+      "frequency": 2,
+      "unique_products": 20,
+      "total_volume": 26,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 31489,
+      "frequency": 2,
+      "unique_products": 17,
+      "total_volume": 17,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 31522,
+      "frequency": 2,
+      "unique_products": 13,
+      "total_volume": 15,
+      "unique_categories": 8,
+      "cluster": 1
+    },
+    {
+      "customer_id": 31523,
+      "frequency": 2,
+      "unique_products": 9,
+      "total_volume": 9,
+      "unique_categories": 7,
+      "cluster": 1
+    },
+    {
+      "customer_id": 31582,
+      "frequency": 2,
+      "unique_products": 3,
+      "total_volume": 3,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 31593,
+      "frequency": 29,
+      "unique_products": 87,
+      "total_volume": 331,
+      "unique_categories": 17,
+      "cluster": 3
+    },
+    {
+      "customer_id": 31652,
+      "frequency": 3,
+      "unique_products": 10,
+      "total_volume": 13,
+      "unique_categories": 8,
+      "cluster": 1
+    },
+    {
+      "customer_id": 31674,
+      "frequency": 1,
+      "unique_products": 3,
+      "total_volume": 3,
+      "unique_categories": 1,
+      "cluster": 1
+    },
+    {
+      "customer_id": 31685,
+      "frequency": 2,
+      "unique_products": 10,
+      "total_volume": 11,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 31772,
+      "frequency": 20,
+      "unique_products": 115,
+      "total_volume": 331,
+      "unique_categories": 21,
+      "cluster": 3
+    },
+    {
+      "customer_id": 31775,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 31788,
+      "frequency": 5,
+      "unique_products": 19,
+      "total_volume": 25,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 31808,
+      "frequency": 37,
+      "unique_products": 81,
+      "total_volume": 161,
+      "unique_categories": 14,
+      "cluster": 3
+    },
+    {
+      "customer_id": 31863,
+      "frequency": 4,
+      "unique_products": 22,
+      "total_volume": 24,
+      "unique_categories": 11,
+      "cluster": 0
+    },
+    {
+      "customer_id": 31909,
+      "frequency": 31,
+      "unique_products": 76,
+      "total_volume": 179,
+      "unique_categories": 13,
+      "cluster": 3
+    },
+    {
+      "customer_id": 31951,
+      "frequency": 4,
+      "unique_products": 49,
+      "total_volume": 64,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 31975,
+      "frequency": 4,
+      "unique_products": 38,
+      "total_volume": 42,
+      "unique_categories": 11,
+      "cluster": 0
+    },
+    {
+      "customer_id": 32000,
+      "frequency": 4,
+      "unique_products": 56,
+      "total_volume": 59,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 32043,
+      "frequency": 3,
+      "unique_products": 9,
+      "total_volume": 10,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 32084,
+      "frequency": 1,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 32121,
+      "frequency": 5,
+      "unique_products": 26,
+      "total_volume": 39,
+      "unique_categories": 13,
+      "cluster": 0
+    },
+    {
+      "customer_id": 32259,
+      "frequency": 2,
+      "unique_products": 3,
+      "total_volume": 3,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 32265,
+      "frequency": 2,
+      "unique_products": 11,
+      "total_volume": 11,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 32305,
+      "frequency": 1,
+      "unique_products": 3,
+      "total_volume": 3,
+      "unique_categories": 5,
+      "cluster": 1
+    },
+    {
+      "customer_id": 32311,
+      "frequency": 1,
+      "unique_products": 7,
+      "total_volume": 7,
+      "unique_categories": 3,
+      "cluster": 1
+    },
+    {
+      "customer_id": 32409,
+      "frequency": 2,
+      "unique_products": 4,
+      "total_volume": 4,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 32531,
+      "frequency": 5,
+      "unique_products": 27,
+      "total_volume": 35,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 32573,
+      "frequency": 14,
+      "unique_products": 28,
+      "total_volume": 59,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 32582,
+      "frequency": 1,
+      "unique_products": 4,
+      "total_volume": 4,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 32649,
+      "frequency": 4,
+      "unique_products": 32,
+      "total_volume": 33,
+      "unique_categories": 14,
+      "cluster": 0
+    },
+    {
+      "customer_id": 32823,
+      "frequency": 4,
+      "unique_products": 9,
+      "total_volume": 11,
+      "unique_categories": 3,
+      "cluster": 1
+    },
+    {
+      "customer_id": 32855,
+      "frequency": 1,
+      "unique_products": 3,
+      "total_volume": 3,
+      "unique_categories": 5,
+      "cluster": 1
+    },
+    {
+      "customer_id": 32863,
+      "frequency": 4,
+      "unique_products": 46,
+      "total_volume": 75,
+      "unique_categories": 13,
+      "cluster": 0
+    },
+    {
+      "customer_id": 32878,
+      "frequency": 2,
+      "unique_products": 40,
+      "total_volume": 45,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 32908,
+      "frequency": 2,
+      "unique_products": 11,
+      "total_volume": 12,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 33017,
+      "frequency": 2,
+      "unique_products": 3,
+      "total_volume": 3,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 33136,
+      "frequency": 1,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 33147,
+      "frequency": 10,
+      "unique_products": 34,
+      "total_volume": 78,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 33188,
+      "frequency": 2,
+      "unique_products": 8,
+      "total_volume": 8,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 33192,
+      "frequency": 16,
+      "unique_products": 59,
+      "total_volume": 110,
+      "unique_categories": 12,
+      "cluster": 3
+    },
+    {
+      "customer_id": 33218,
+      "frequency": 63,
+      "unique_products": 51,
+      "total_volume": 458,
+      "unique_categories": 11,
+      "cluster": 2
+    },
+    {
+      "customer_id": 33247,
+      "frequency": 1,
+      "unique_products": 5,
+      "total_volume": 5,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 33353,
+      "frequency": 3,
+      "unique_products": 12,
+      "total_volume": 14,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 33361,
+      "frequency": 3,
+      "unique_products": 15,
+      "total_volume": 18,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 33444,
+      "frequency": 3,
+      "unique_products": 8,
+      "total_volume": 9,
+      "unique_categories": 5,
+      "cluster": 1
+    },
+    {
+      "customer_id": 33453,
+      "frequency": 4,
+      "unique_products": 8,
+      "total_volume": 8,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 33477,
+      "frequency": 1,
+      "unique_products": 6,
+      "total_volume": 6,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 33604,
+      "frequency": 5,
+      "unique_products": 1,
+      "total_volume": 5,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 33610,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 33719,
+      "frequency": 1,
+      "unique_products": 7,
+      "total_volume": 7,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 33768,
+      "frequency": 1,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 34025,
+      "frequency": 30,
+      "unique_products": 117,
+      "total_volume": 571,
+      "unique_categories": 13,
+      "cluster": 2
+    },
+    {
+      "customer_id": 34061,
+      "frequency": 4,
+      "unique_products": 10,
+      "total_volume": 13,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 34116,
+      "frequency": 12,
+      "unique_products": 29,
+      "total_volume": 59,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 34125,
+      "frequency": 5,
+      "unique_products": 7,
+      "total_volume": 8,
+      "unique_categories": 3,
+      "cluster": 1
+    },
+    {
+      "customer_id": 34159,
+      "frequency": 4,
+      "unique_products": 9,
+      "total_volume": 11,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 34161,
+      "frequency": 8,
+      "unique_products": 25,
+      "total_volume": 33,
+      "unique_categories": 8,
+      "cluster": 0
+    },
+    {
+      "customer_id": 34193,
+      "frequency": 28,
+      "unique_products": 45,
+      "total_volume": 322,
+      "unique_categories": 10,
+      "cluster": 3
+    },
+    {
+      "customer_id": 34210,
+      "frequency": 6,
+      "unique_products": 14,
+      "total_volume": 15,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 34229,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 34261,
+      "frequency": 1,
+      "unique_products": 3,
+      "total_volume": 3,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 34387,
+      "frequency": 1,
+      "unique_products": 13,
+      "total_volume": 13,
+      "unique_categories": 7,
+      "cluster": 1
+    },
+    {
+      "customer_id": 34396,
+      "frequency": 12,
+      "unique_products": 34,
+      "total_volume": 83,
+      "unique_categories": 8,
+      "cluster": 0
+    },
+    {
+      "customer_id": 34551,
+      "frequency": 28,
+      "unique_products": 67,
+      "total_volume": 473,
+      "unique_categories": 17,
+      "cluster": 2
+    },
+    {
+      "customer_id": 34605,
+      "frequency": 2,
+      "unique_products": 5,
+      "total_volume": 6,
+      "unique_categories": 8,
+      "cluster": 1
+    },
+    {
+      "customer_id": 34612,
+      "frequency": 12,
+      "unique_products": 29,
+      "total_volume": 59,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 34637,
+      "frequency": 3,
+      "unique_products": 18,
+      "total_volume": 18,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 34645,
+      "frequency": 3,
+      "unique_products": 10,
+      "total_volume": 12,
+      "unique_categories": 8,
+      "cluster": 1
+    },
+    {
+      "customer_id": 34655,
+      "frequency": 1,
+      "unique_products": 4,
+      "total_volume": 4,
+      "unique_categories": 3,
+      "cluster": 1
+    },
+    {
+      "customer_id": 34692,
+      "frequency": 14,
+      "unique_products": 77,
+      "total_volume": 162,
+      "unique_categories": 10,
+      "cluster": 3
+    },
+    {
+      "customer_id": 34719,
+      "frequency": 11,
+      "unique_products": 116,
+      "total_volume": 247,
+      "unique_categories": 18,
+      "cluster": 3
+    },
+    {
+      "customer_id": 34802,
+      "frequency": 3,
+      "unique_products": 9,
+      "total_volume": 9,
+      "unique_categories": 3,
+      "cluster": 1
+    },
+    {
+      "customer_id": 34815,
+      "frequency": 9,
+      "unique_products": 37,
+      "total_volume": 72,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 34846,
+      "frequency": 4,
+      "unique_products": 5,
+      "total_volume": 6,
+      "unique_categories": 3,
+      "cluster": 1
+    },
+    {
+      "customer_id": 34984,
+      "frequency": 6,
+      "unique_products": 56,
+      "total_volume": 85,
+      "unique_categories": 15,
+      "cluster": 0
+    },
+    {
+      "customer_id": 35011,
+      "frequency": 7,
+      "unique_products": 40,
+      "total_volume": 57,
+      "unique_categories": 11,
+      "cluster": 0
+    },
+    {
+      "customer_id": 35071,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 35179,
+      "frequency": 9,
+      "unique_products": 53,
+      "total_volume": 82,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 35190,
+      "frequency": 5,
+      "unique_products": 23,
+      "total_volume": 26,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 35208,
+      "frequency": 3,
+      "unique_products": 9,
+      "total_volume": 9,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 35251,
+      "frequency": 5,
+      "unique_products": 26,
+      "total_volume": 38,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 35362,
+      "frequency": 17,
+      "unique_products": 48,
+      "total_volume": 130,
+      "unique_categories": 12,
+      "cluster": 3
+    },
+    {
+      "customer_id": 35363,
+      "frequency": 3,
+      "unique_products": 14,
+      "total_volume": 18,
+      "unique_categories": 7,
+      "cluster": 1
+    },
+    {
+      "customer_id": 35365,
+      "frequency": 14,
+      "unique_products": 61,
+      "total_volume": 163,
+      "unique_categories": 13,
+      "cluster": 3
+    },
+    {
+      "customer_id": 35439,
+      "frequency": 2,
+      "unique_products": 71,
+      "total_volume": 99,
+      "unique_categories": 14,
+      "cluster": 0
+    },
+    {
+      "customer_id": 35445,
+      "frequency": 31,
+      "unique_products": 49,
+      "total_volume": 153,
+      "unique_categories": 14,
+      "cluster": 3
+    },
+    {
+      "customer_id": 35465,
+      "frequency": 3,
+      "unique_products": 42,
+      "total_volume": 46,
+      "unique_categories": 11,
+      "cluster": 0
+    },
+    {
+      "customer_id": 35490,
+      "frequency": 2,
+      "unique_products": 3,
+      "total_volume": 3,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 35545,
+      "frequency": 23,
+      "unique_products": 77,
+      "total_volume": 180,
+      "unique_categories": 14,
+      "cluster": 3
+    },
+    {
+      "customer_id": 35712,
+      "frequency": 9,
+      "unique_products": 13,
+      "total_volume": 20,
+      "unique_categories": 5,
+      "cluster": 1
+    },
+    {
+      "customer_id": 35753,
+      "frequency": 2,
+      "unique_products": 7,
+      "total_volume": 7,
+      "unique_categories": 3,
+      "cluster": 1
+    },
+    {
+      "customer_id": 35834,
+      "frequency": 4,
+      "unique_products": 57,
+      "total_volume": 75,
+      "unique_categories": 14,
+      "cluster": 0
+    },
+    {
+      "customer_id": 35894,
+      "frequency": 4,
+      "unique_products": 21,
+      "total_volume": 23,
+      "unique_categories": 8,
+      "cluster": 0
+    },
+    {
+      "customer_id": 35904,
+      "frequency": 1,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 35947,
+      "frequency": 1,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 35978,
+      "frequency": 5,
+      "unique_products": 30,
+      "total_volume": 57,
+      "unique_categories": 8,
+      "cluster": 0
+    },
+    {
+      "customer_id": 36046,
+      "frequency": 17,
+      "unique_products": 50,
+      "total_volume": 105,
+      "unique_categories": 15,
+      "cluster": 3
+    },
+    {
+      "customer_id": 36072,
+      "frequency": 18,
+      "unique_products": 90,
+      "total_volume": 159,
+      "unique_categories": 18,
+      "cluster": 3
+    },
+    {
+      "customer_id": 36131,
+      "frequency": 1,
+      "unique_products": 4,
+      "total_volume": 4,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 36142,
+      "frequency": 26,
+      "unique_products": 84,
+      "total_volume": 205,
+      "unique_categories": 14,
+      "cluster": 3
+    },
+    {
+      "customer_id": 36335,
+      "frequency": 2,
+      "unique_products": 4,
+      "total_volume": 4,
+      "unique_categories": 3,
+      "cluster": 1
+    },
+    {
+      "customer_id": 36392,
+      "frequency": 2,
+      "unique_products": 4,
+      "total_volume": 4,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 36415,
+      "frequency": 16,
+      "unique_products": 30,
+      "total_volume": 55,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 36496,
+      "frequency": 8,
+      "unique_products": 23,
+      "total_volume": 25,
+      "unique_categories": 8,
+      "cluster": 0
+    },
+    {
+      "customer_id": 36554,
+      "frequency": 11,
+      "unique_products": 62,
+      "total_volume": 115,
+      "unique_categories": 16,
+      "cluster": 3
+    },
+    {
+      "customer_id": 36676,
+      "frequency": 1,
+      "unique_products": 4,
+      "total_volume": 4,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 36756,
+      "frequency": 10,
+      "unique_products": 36,
+      "total_volume": 74,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 36798,
+      "frequency": 31,
+      "unique_products": 111,
+      "total_volume": 393,
+      "unique_categories": 13,
+      "cluster": 2
+    },
+    {
+      "customer_id": 37254,
+      "frequency": 13,
+      "unique_products": 26,
+      "total_volume": 45,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 37470,
+      "frequency": 1,
+      "unique_products": 14,
+      "total_volume": 14,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 37525,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 37537,
+      "frequency": 18,
+      "unique_products": 74,
+      "total_volume": 130,
+      "unique_categories": 16,
+      "cluster": 3
+    },
+    {
+      "customer_id": 37722,
+      "frequency": 1,
+      "unique_products": 3,
+      "total_volume": 3,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 37761,
+      "frequency": 18,
+      "unique_products": 37,
+      "total_volume": 77,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 37784,
+      "frequency": 1,
+      "unique_products": 21,
+      "total_volume": 21,
+      "unique_categories": 11,
+      "cluster": 0
+    },
+    {
+      "customer_id": 38133,
+      "frequency": 1,
+      "unique_products": 3,
+      "total_volume": 3,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 38157,
+      "frequency": 1,
+      "unique_products": 26,
+      "total_volume": 26,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 38165,
+      "frequency": 8,
+      "unique_products": 22,
+      "total_volume": 40,
+      "unique_categories": 8,
+      "cluster": 0
+    },
+    {
+      "customer_id": 38253,
+      "frequency": 2,
+      "unique_products": 7,
+      "total_volume": 10,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 38306,
+      "frequency": 3,
+      "unique_products": 10,
+      "total_volume": 17,
+      "unique_categories": 7,
+      "cluster": 1
+    },
+    {
+      "customer_id": 38382,
+      "frequency": 5,
+      "unique_products": 20,
+      "total_volume": 39,
+      "unique_categories": 8,
+      "cluster": 0
+    },
+    {
+      "customer_id": 38610,
+      "frequency": 9,
+      "unique_products": 44,
+      "total_volume": 54,
+      "unique_categories": 11,
+      "cluster": 0
+    },
+    {
+      "customer_id": 38655,
+      "frequency": 10,
+      "unique_products": 83,
+      "total_volume": 178,
+      "unique_categories": 17,
+      "cluster": 3
+    },
+    {
+      "customer_id": 38662,
+      "frequency": 1,
+      "unique_products": 4,
+      "total_volume": 4,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 38715,
+      "frequency": 9,
+      "unique_products": 33,
+      "total_volume": 40,
+      "unique_categories": 6,
+      "cluster": 0
+    },
+    {
+      "customer_id": 38723,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 38732,
+      "frequency": 24,
+      "unique_products": 112,
+      "total_volume": 290,
+      "unique_categories": 20,
+      "cluster": 3
+    },
+    {
+      "customer_id": 38734,
+      "frequency": 25,
+      "unique_products": 56,
+      "total_volume": 152,
+      "unique_categories": 13,
+      "cluster": 3
+    },
+    {
+      "customer_id": 38868,
+      "frequency": 2,
+      "unique_products": 8,
+      "total_volume": 9,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 38984,
+      "frequency": 24,
+      "unique_products": 44,
+      "total_volume": 208,
+      "unique_categories": 10,
+      "cluster": 3
+    },
+    {
+      "customer_id": 39078,
+      "frequency": 6,
+      "unique_products": 94,
+      "total_volume": 197,
+      "unique_categories": 17,
+      "cluster": 3
+    },
+    {
+      "customer_id": 39113,
+      "frequency": 1,
+      "unique_products": 3,
+      "total_volume": 3,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 39170,
+      "frequency": 1,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 39196,
+      "frequency": 2,
+      "unique_products": 4,
+      "total_volume": 4,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 39269,
+      "frequency": 3,
+      "unique_products": 10,
+      "total_volume": 10,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 39285,
+      "frequency": 5,
+      "unique_products": 4,
+      "total_volume": 8,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 39414,
+      "frequency": 2,
+      "unique_products": 10,
+      "total_volume": 10,
+      "unique_categories": 5,
+      "cluster": 1
+    },
+    {
+      "customer_id": 39480,
+      "frequency": 3,
+      "unique_products": 29,
+      "total_volume": 45,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 39538,
+      "frequency": 5,
+      "unique_products": 63,
+      "total_volume": 69,
+      "unique_categories": 14,
+      "cluster": 0
+    },
+    {
+      "customer_id": 39553,
+      "frequency": 1,
+      "unique_products": 28,
+      "total_volume": 28,
+      "unique_categories": 7,
+      "cluster": 0
+    },
+    {
+      "customer_id": 39559,
+      "frequency": 1,
+      "unique_products": 30,
+      "total_volume": 30,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 39606,
+      "frequency": 2,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 39707,
+      "frequency": 1,
+      "unique_products": 3,
+      "total_volume": 3,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 39743,
+      "frequency": 3,
+      "unique_products": 45,
+      "total_volume": 56,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 39870,
+      "frequency": 1,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 39892,
+      "frequency": 4,
+      "unique_products": 51,
+      "total_volume": 55,
+      "unique_categories": 12,
+      "cluster": 0
+    },
+    {
+      "customer_id": 39963,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 39987,
+      "frequency": 2,
+      "unique_products": 28,
+      "total_volume": 28,
+      "unique_categories": 7,
+      "cluster": 0
+    },
+    {
+      "customer_id": 40011,
+      "frequency": 1,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 1,
+      "cluster": 1
+    },
+    {
+      "customer_id": 40027,
+      "frequency": 2,
+      "unique_products": 4,
+      "total_volume": 4,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 40095,
+      "frequency": 1,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 40126,
+      "frequency": 3,
+      "unique_products": 15,
+      "total_volume": 16,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 40209,
+      "frequency": 2,
+      "unique_products": 43,
+      "total_volume": 46,
+      "unique_categories": 11,
+      "cluster": 0
+    },
+    {
+      "customer_id": 40249,
+      "frequency": 4,
+      "unique_products": 28,
+      "total_volume": 36,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 40277,
+      "frequency": 3,
+      "unique_products": 11,
+      "total_volume": 12,
+      "unique_categories": 7,
+      "cluster": 1
+    },
+    {
+      "customer_id": 40330,
+      "frequency": 1,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 3,
+      "cluster": 1
+    },
+    {
+      "customer_id": 40356,
+      "frequency": 2,
+      "unique_products": 3,
+      "total_volume": 3,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 40470,
+      "frequency": 5,
+      "unique_products": 44,
+      "total_volume": 113,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 40494,
+      "frequency": 1,
+      "unique_products": 11,
+      "total_volume": 11,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 40495,
+      "frequency": 1,
+      "unique_products": 21,
+      "total_volume": 21,
+      "unique_categories": 7,
+      "cluster": 1
+    },
+    {
+      "customer_id": 40574,
+      "frequency": 2,
+      "unique_products": 8,
+      "total_volume": 11,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 40600,
+      "frequency": 4,
+      "unique_products": 6,
+      "total_volume": 7,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 40632,
+      "frequency": 3,
+      "unique_products": 25,
+      "total_volume": 29,
+      "unique_categories": 12,
+      "cluster": 0
+    },
+    {
+      "customer_id": 40746,
+      "frequency": 26,
+      "unique_products": 85,
+      "total_volume": 202,
+      "unique_categories": 15,
+      "cluster": 3
+    },
+    {
+      "customer_id": 40755,
+      "frequency": 5,
+      "unique_products": 11,
+      "total_volume": 13,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 40763,
+      "frequency": 6,
+      "unique_products": 45,
+      "total_volume": 60,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 40810,
+      "frequency": 4,
+      "unique_products": 14,
+      "total_volume": 15,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 40812,
+      "frequency": 35,
+      "unique_products": 62,
+      "total_volume": 310,
+      "unique_categories": 11,
+      "cluster": 3
+    },
+    {
+      "customer_id": 40924,
+      "frequency": 1,
+      "unique_products": 7,
+      "total_volume": 7,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 40986,
+      "frequency": 45,
+      "unique_products": 44,
+      "total_volume": 328,
+      "unique_categories": 9,
+      "cluster": 3
+    },
+    {
+      "customer_id": 41034,
+      "frequency": 1,
+      "unique_products": 32,
+      "total_volume": 32,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 41045,
+      "frequency": 52,
+      "unique_products": 46,
+      "total_volume": 368,
+      "unique_categories": 10,
+      "cluster": 2
+    },
+    {
+      "customer_id": 41098,
+      "frequency": 17,
+      "unique_products": 58,
+      "total_volume": 227,
+      "unique_categories": 11,
+      "cluster": 3
+    },
+    {
+      "customer_id": 41100,
+      "frequency": 18,
+      "unique_products": 35,
+      "total_volume": 116,
+      "unique_categories": 8,
+      "cluster": 0
+    },
+    {
+      "customer_id": 41259,
+      "frequency": 18,
+      "unique_products": 20,
+      "total_volume": 76,
+      "unique_categories": 8,
+      "cluster": 0
+    },
+    {
+      "customer_id": 41370,
+      "frequency": 1,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 1,
+      "cluster": 1
+    },
+    {
+      "customer_id": 41380,
+      "frequency": 1,
+      "unique_products": 10,
+      "total_volume": 10,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 41435,
+      "frequency": 6,
+      "unique_products": 14,
+      "total_volume": 15,
+      "unique_categories": 7,
+      "cluster": 1
+    },
+    {
+      "customer_id": 41441,
+      "frequency": 11,
+      "unique_products": 46,
+      "total_volume": 66,
+      "unique_categories": 11,
+      "cluster": 0
+    },
+    {
+      "customer_id": 41521,
+      "frequency": 1,
+      "unique_products": 14,
+      "total_volume": 14,
+      "unique_categories": 5,
+      "cluster": 1
+    },
+    {
+      "customer_id": 41683,
+      "frequency": 24,
+      "unique_products": 47,
+      "total_volume": 88,
+      "unique_categories": 13,
+      "cluster": 3
+    },
+    {
+      "customer_id": 41705,
+      "frequency": 16,
+      "unique_products": 57,
+      "total_volume": 82,
+      "unique_categories": 16,
+      "cluster": 3
+    },
+    {
+      "customer_id": 41706,
+      "frequency": 1,
+      "unique_products": 8,
+      "total_volume": 8,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 41736,
+      "frequency": 3,
+      "unique_products": 15,
+      "total_volume": 15,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 41763,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 41891,
+      "frequency": 8,
+      "unique_products": 71,
+      "total_volume": 159,
+      "unique_categories": 14,
+      "cluster": 3
+    },
+    {
+      "customer_id": 41921,
+      "frequency": 2,
+      "unique_products": 24,
+      "total_volume": 31,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 42076,
+      "frequency": 7,
+      "unique_products": 56,
+      "total_volume": 144,
+      "unique_categories": 18,
+      "cluster": 3
+    },
+    {
+      "customer_id": 42131,
+      "frequency": 1,
+      "unique_products": 5,
+      "total_volume": 5,
+      "unique_categories": 5,
+      "cluster": 1
+    },
+    {
+      "customer_id": 42330,
+      "frequency": 5,
+      "unique_products": 22,
+      "total_volume": 25,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 42336,
+      "frequency": 4,
+      "unique_products": 17,
+      "total_volume": 19,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 42389,
+      "frequency": 4,
+      "unique_products": 26,
+      "total_volume": 31,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 42464,
+      "frequency": 9,
+      "unique_products": 52,
+      "total_volume": 88,
+      "unique_categories": 16,
+      "cluster": 0
+    },
+    {
+      "customer_id": 42542,
+      "frequency": 14,
+      "unique_products": 56,
+      "total_volume": 102,
+      "unique_categories": 14,
+      "cluster": 3
+    },
+    {
+      "customer_id": 42561,
+      "frequency": 1,
+      "unique_products": 16,
+      "total_volume": 16,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 42573,
+      "frequency": 3,
+      "unique_products": 10,
+      "total_volume": 12,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 42635,
+      "frequency": 38,
+      "unique_products": 94,
+      "total_volume": 372,
+      "unique_categories": 16,
+      "cluster": 2
+    },
+    {
+      "customer_id": 42664,
+      "frequency": 1,
+      "unique_products": 7,
+      "total_volume": 7,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 42806,
+      "frequency": 1,
+      "unique_products": 24,
+      "total_volume": 24,
+      "unique_categories": 8,
+      "cluster": 0
+    },
+    {
+      "customer_id": 42933,
+      "frequency": 1,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 43047,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 43101,
+      "frequency": 3,
+      "unique_products": 3,
+      "total_volume": 3,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 43125,
+      "frequency": 11,
+      "unique_products": 51,
+      "total_volume": 102,
+      "unique_categories": 11,
+      "cluster": 0
+    },
+    {
+      "customer_id": 43135,
+      "frequency": 1,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 1,
+      "cluster": 1
+    },
+    {
+      "customer_id": 43191,
+      "frequency": 1,
+      "unique_products": 3,
+      "total_volume": 3,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 43245,
+      "frequency": 34,
+      "unique_products": 116,
+      "total_volume": 539,
+      "unique_categories": 17,
+      "cluster": 2
+    },
+    {
+      "customer_id": 43273,
+      "frequency": 25,
+      "unique_products": 117,
+      "total_volume": 227,
+      "unique_categories": 18,
+      "cluster": 3
+    },
+    {
+      "customer_id": 43279,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 43419,
+      "frequency": 2,
+      "unique_products": 1,
+      "total_volume": 2,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 43456,
+      "frequency": 18,
+      "unique_products": 104,
+      "total_volume": 207,
+      "unique_categories": 17,
+      "cluster": 3
+    },
+    {
+      "customer_id": 43477,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 43529,
+      "frequency": 1,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 43617,
+      "frequency": 28,
+      "unique_products": 67,
+      "total_volume": 138,
+      "unique_categories": 9,
+      "cluster": 3
+    },
+    {
+      "customer_id": 43625,
+      "frequency": 3,
+      "unique_products": 4,
+      "total_volume": 5,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 43711,
+      "frequency": 9,
+      "unique_products": 66,
+      "total_volume": 156,
+      "unique_categories": 12,
+      "cluster": 3
+    },
+    {
+      "customer_id": 43714,
+      "frequency": 2,
+      "unique_products": 4,
+      "total_volume": 4,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 43836,
+      "frequency": 15,
+      "unique_products": 67,
+      "total_volume": 127,
+      "unique_categories": 11,
+      "cluster": 3
+    },
+    {
+      "customer_id": 43935,
+      "frequency": 10,
+      "unique_products": 39,
+      "total_volume": 79,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 44237,
+      "frequency": 2,
+      "unique_products": 20,
+      "total_volume": 24,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 44278,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 44528,
+      "frequency": 4,
+      "unique_products": 36,
+      "total_volume": 40,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 44655,
+      "frequency": 6,
+      "unique_products": 44,
+      "total_volume": 63,
+      "unique_categories": 12,
+      "cluster": 0
+    },
+    {
+      "customer_id": 44706,
+      "frequency": 1,
+      "unique_products": 3,
+      "total_volume": 3,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 44797,
+      "frequency": 2,
+      "unique_products": 1,
+      "total_volume": 2,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 44836,
+      "frequency": 1,
+      "unique_products": 5,
+      "total_volume": 5,
+      "unique_categories": 7,
+      "cluster": 1
+    },
+    {
+      "customer_id": 44861,
+      "frequency": 2,
+      "unique_products": 7,
+      "total_volume": 9,
+      "unique_categories": 5,
+      "cluster": 1
+    },
+    {
+      "customer_id": 44887,
+      "frequency": 12,
+      "unique_products": 31,
+      "total_volume": 90,
+      "unique_categories": 8,
+      "cluster": 0
+    },
+    {
+      "customer_id": 44963,
+      "frequency": 28,
+      "unique_products": 104,
+      "total_volume": 212,
+      "unique_categories": 19,
+      "cluster": 3
+    },
+    {
+      "customer_id": 44987,
+      "frequency": 5,
+      "unique_products": 19,
+      "total_volume": 20,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 45063,
+      "frequency": 11,
+      "unique_products": 84,
+      "total_volume": 137,
+      "unique_categories": 15,
+      "cluster": 3
+    },
+    {
+      "customer_id": 45220,
+      "frequency": 9,
+      "unique_products": 43,
+      "total_volume": 129,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 45257,
+      "frequency": 1,
+      "unique_products": 6,
+      "total_volume": 6,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 45341,
+      "frequency": 2,
+      "unique_products": 8,
+      "total_volume": 8,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 45445,
+      "frequency": 10,
+      "unique_products": 41,
+      "total_volume": 135,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 45463,
+      "frequency": 8,
+      "unique_products": 30,
+      "total_volume": 33,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 45561,
+      "frequency": 5,
+      "unique_products": 17,
+      "total_volume": 18,
+      "unique_categories": 5,
+      "cluster": 1
+    },
+    {
+      "customer_id": 45615,
+      "frequency": 1,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 45693,
+      "frequency": 2,
+      "unique_products": 6,
+      "total_volume": 6,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 45725,
+      "frequency": 39,
+      "unique_products": 86,
+      "total_volume": 467,
+      "unique_categories": 14,
+      "cluster": 2
+    },
+    {
+      "customer_id": 45748,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 45966,
+      "frequency": 7,
+      "unique_products": 19,
+      "total_volume": 24,
+      "unique_categories": 7,
+      "cluster": 0
+    },
+    {
+      "customer_id": 46110,
+      "frequency": 16,
+      "unique_products": 51,
+      "total_volume": 83,
+      "unique_categories": 12,
+      "cluster": 0
+    },
+    {
+      "customer_id": 46111,
+      "frequency": 5,
+      "unique_products": 4,
+      "total_volume": 5,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 46133,
+      "frequency": 3,
+      "unique_products": 20,
+      "total_volume": 23,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 46135,
+      "frequency": 8,
+      "unique_products": 42,
+      "total_volume": 64,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 46194,
+      "frequency": 4,
+      "unique_products": 23,
+      "total_volume": 24,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 46307,
+      "frequency": 14,
+      "unique_products": 37,
+      "total_volume": 155,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 46434,
+      "frequency": 11,
+      "unique_products": 14,
+      "total_volume": 39,
+      "unique_categories": 8,
+      "cluster": 0
+    },
+    {
+      "customer_id": 46560,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 46638,
+      "frequency": 3,
+      "unique_products": 4,
+      "total_volume": 4,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 46681,
+      "frequency": 11,
+      "unique_products": 46,
+      "total_volume": 75,
+      "unique_categories": 12,
+      "cluster": 0
+    },
+    {
+      "customer_id": 46722,
+      "frequency": 4,
+      "unique_products": 20,
+      "total_volume": 23,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 46838,
+      "frequency": 1,
+      "unique_products": 3,
+      "total_volume": 3,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 46917,
+      "frequency": 13,
+      "unique_products": 96,
+      "total_volume": 185,
+      "unique_categories": 18,
+      "cluster": 3
+    },
+    {
+      "customer_id": 47084,
+      "frequency": 5,
+      "unique_products": 12,
+      "total_volume": 30,
+      "unique_categories": 8,
+      "cluster": 0
+    },
+    {
+      "customer_id": 47379,
+      "frequency": 1,
+      "unique_products": 3,
+      "total_volume": 3,
+      "unique_categories": 3,
+      "cluster": 1
+    },
+    {
+      "customer_id": 47406,
+      "frequency": 2,
+      "unique_products": 7,
+      "total_volume": 7,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 47530,
+      "frequency": 47,
+      "unique_products": 126,
+      "total_volume": 752,
+      "unique_categories": 15,
+      "cluster": 2
+    },
+    {
+      "customer_id": 47572,
+      "frequency": 23,
+      "unique_products": 40,
+      "total_volume": 252,
+      "unique_categories": 9,
+      "cluster": 3
+    },
+    {
+      "customer_id": 47575,
+      "frequency": 1,
+      "unique_products": 13,
+      "total_volume": 13,
+      "unique_categories": 5,
+      "cluster": 1
+    },
+    {
+      "customer_id": 47577,
+      "frequency": 1,
+      "unique_products": 11,
+      "total_volume": 11,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 47618,
+      "frequency": 5,
+      "unique_products": 51,
+      "total_volume": 59,
+      "unique_categories": 15,
+      "cluster": 0
+    },
+    {
+      "customer_id": 47646,
+      "frequency": 4,
+      "unique_products": 14,
+      "total_volume": 16,
+      "unique_categories": 8,
+      "cluster": 0
+    },
+    {
+      "customer_id": 47672,
+      "frequency": 10,
+      "unique_products": 55,
+      "total_volume": 85,
+      "unique_categories": 14,
+      "cluster": 0
+    },
+    {
+      "customer_id": 47699,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 47746,
+      "frequency": 16,
+      "unique_products": 86,
+      "total_volume": 333,
+      "unique_categories": 15,
+      "cluster": 3
+    },
+    {
+      "customer_id": 47939,
+      "frequency": 8,
+      "unique_products": 27,
+      "total_volume": 54,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 47997,
+      "frequency": 4,
+      "unique_products": 49,
+      "total_volume": 52,
+      "unique_categories": 14,
+      "cluster": 0
+    },
+    {
+      "customer_id": 48032,
+      "frequency": 14,
+      "unique_products": 39,
+      "total_volume": 68,
+      "unique_categories": 8,
+      "cluster": 0
+    },
+    {
+      "customer_id": 48089,
+      "frequency": 1,
+      "unique_products": 3,
+      "total_volume": 3,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 48253,
+      "frequency": 6,
+      "unique_products": 52,
+      "total_volume": 76,
+      "unique_categories": 15,
+      "cluster": 0
+    },
+    {
+      "customer_id": 48395,
+      "frequency": 1,
+      "unique_products": 3,
+      "total_volume": 3,
+      "unique_categories": 3,
+      "cluster": 1
+    },
+    {
+      "customer_id": 48423,
+      "frequency": 1,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 48467,
+      "frequency": 1,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 48549,
+      "frequency": 2,
+      "unique_products": 10,
+      "total_volume": 11,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 48551,
+      "frequency": 27,
+      "unique_products": 48,
+      "total_volume": 646,
+      "unique_categories": 10,
+      "cluster": 2
+    },
+    {
+      "customer_id": 48572,
+      "frequency": 2,
+      "unique_products": 21,
+      "total_volume": 22,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 48574,
+      "frequency": 26,
+      "unique_products": 46,
+      "total_volume": 256,
+      "unique_categories": 10,
+      "cluster": 3
+    },
+    {
+      "customer_id": 48600,
+      "frequency": 7,
+      "unique_products": 28,
+      "total_volume": 47,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 48672,
+      "frequency": 12,
+      "unique_products": 49,
+      "total_volume": 59,
+      "unique_categories": 13,
+      "cluster": 0
+    },
+    {
+      "customer_id": 48728,
+      "frequency": 1,
+      "unique_products": 3,
+      "total_volume": 3,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 48822,
+      "frequency": 1,
+      "unique_products": 5,
+      "total_volume": 5,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 48882,
+      "frequency": 1,
+      "unique_products": 3,
+      "total_volume": 3,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 48932,
+      "frequency": 13,
+      "unique_products": 73,
+      "total_volume": 94,
+      "unique_categories": 16,
+      "cluster": 3
+    },
+    {
+      "customer_id": 48962,
+      "frequency": 3,
+      "unique_products": 28,
+      "total_volume": 29,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 49085,
+      "frequency": 17,
+      "unique_products": 14,
+      "total_volume": 29,
+      "unique_categories": 6,
+      "cluster": 0
+    },
+    {
+      "customer_id": 49153,
+      "frequency": 18,
+      "unique_products": 42,
+      "total_volume": 133,
+      "unique_categories": 11,
+      "cluster": 0
+    },
+    {
+      "customer_id": 49297,
+      "frequency": 11,
+      "unique_products": 123,
+      "total_volume": 334,
+      "unique_categories": 18,
+      "cluster": 3
+    },
+    {
+      "customer_id": 49325,
+      "frequency": 1,
+      "unique_products": 3,
+      "total_volume": 3,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 49333,
+      "frequency": 3,
+      "unique_products": 31,
+      "total_volume": 39,
+      "unique_categories": 14,
+      "cluster": 0
+    },
+    {
+      "customer_id": 49338,
+      "frequency": 4,
+      "unique_products": 22,
+      "total_volume": 26,
+      "unique_categories": 12,
+      "cluster": 0
+    },
+    {
+      "customer_id": 49395,
+      "frequency": 6,
+      "unique_products": 31,
+      "total_volume": 34,
+      "unique_categories": 14,
+      "cluster": 0
+    },
+    {
+      "customer_id": 49632,
+      "frequency": 1,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 49673,
+      "frequency": 1,
+      "unique_products": 16,
+      "total_volume": 16,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 49867,
+      "frequency": 15,
+      "unique_products": 27,
+      "total_volume": 37,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 49895,
+      "frequency": 3,
+      "unique_products": 23,
+      "total_volume": 25,
+      "unique_categories": 8,
+      "cluster": 0
+    },
+    {
+      "customer_id": 49974,
+      "frequency": 3,
+      "unique_products": 9,
+      "total_volume": 11,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 50004,
+      "frequency": 4,
+      "unique_products": 37,
+      "total_volume": 69,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 50043,
+      "frequency": 7,
+      "unique_products": 13,
+      "total_volume": 14,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 50044,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 50047,
+      "frequency": 2,
+      "unique_products": 5,
+      "total_volume": 5,
+      "unique_categories": 5,
+      "cluster": 1
+    },
+    {
+      "customer_id": 50058,
+      "frequency": 6,
+      "unique_products": 44,
+      "total_volume": 86,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 50139,
+      "frequency": 4,
+      "unique_products": 44,
+      "total_volume": 55,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 50142,
+      "frequency": 2,
+      "unique_products": 11,
+      "total_volume": 11,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 50174,
+      "frequency": 4,
+      "unique_products": 17,
+      "total_volume": 28,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 50262,
+      "frequency": 11,
+      "unique_products": 38,
+      "total_volume": 39,
+      "unique_categories": 13,
+      "cluster": 0
+    },
+    {
+      "customer_id": 50328,
+      "frequency": 2,
+      "unique_products": 5,
+      "total_volume": 5,
+      "unique_categories": 7,
+      "cluster": 1
+    },
+    {
+      "customer_id": 50375,
+      "frequency": 16,
+      "unique_products": 20,
+      "total_volume": 45,
+      "unique_categories": 8,
+      "cluster": 0
+    },
+    {
+      "customer_id": 50427,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 50446,
+      "frequency": 3,
+      "unique_products": 17,
+      "total_volume": 17,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 50797,
+      "frequency": 2,
+      "unique_products": 25,
+      "total_volume": 31,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 50973,
+      "frequency": 4,
+      "unique_products": 55,
+      "total_volume": 57,
+      "unique_categories": 15,
+      "cluster": 0
+    },
+    {
+      "customer_id": 51010,
+      "frequency": 1,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 3,
+      "cluster": 1
+    },
+    {
+      "customer_id": 51028,
+      "frequency": 6,
+      "unique_products": 27,
+      "total_volume": 32,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 51052,
+      "frequency": 1,
+      "unique_products": 6,
+      "total_volume": 6,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 51171,
+      "frequency": 1,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 51216,
+      "frequency": 11,
+      "unique_products": 58,
+      "total_volume": 79,
+      "unique_categories": 13,
+      "cluster": 0
+    },
+    {
+      "customer_id": 51260,
+      "frequency": 3,
+      "unique_products": 7,
+      "total_volume": 7,
+      "unique_categories": 5,
+      "cluster": 1
+    },
+    {
+      "customer_id": 51348,
+      "frequency": 20,
+      "unique_products": 47,
+      "total_volume": 196,
+      "unique_categories": 10,
+      "cluster": 3
+    },
+    {
+      "customer_id": 51373,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 51448,
+      "frequency": 3,
+      "unique_products": 3,
+      "total_volume": 5,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 51452,
+      "frequency": 6,
+      "unique_products": 11,
+      "total_volume": 19,
+      "unique_categories": 8,
+      "cluster": 0
+    },
+    {
+      "customer_id": 51526,
+      "frequency": 5,
+      "unique_products": 14,
+      "total_volume": 15,
+      "unique_categories": 5,
+      "cluster": 1
+    },
+    {
+      "customer_id": 51870,
+      "frequency": 3,
+      "unique_products": 47,
+      "total_volume": 58,
+      "unique_categories": 13,
+      "cluster": 0
+    },
+    {
+      "customer_id": 51917,
+      "frequency": 2,
+      "unique_products": 17,
+      "total_volume": 22,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 51951,
+      "frequency": 2,
+      "unique_products": 35,
+      "total_volume": 36,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 52062,
+      "frequency": 4,
+      "unique_products": 13,
+      "total_volume": 14,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 52117,
+      "frequency": 1,
+      "unique_products": 3,
+      "total_volume": 3,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 52142,
+      "frequency": 2,
+      "unique_products": 18,
+      "total_volume": 20,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 52146,
+      "frequency": 24,
+      "unique_products": 94,
+      "total_volume": 149,
+      "unique_categories": 15,
+      "cluster": 3
+    },
+    {
+      "customer_id": 52280,
+      "frequency": 2,
+      "unique_products": 7,
+      "total_volume": 7,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 52383,
+      "frequency": 2,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 1,
+      "cluster": 1
+    },
+    {
+      "customer_id": 52397,
+      "frequency": 4,
+      "unique_products": 7,
+      "total_volume": 10,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 52527,
+      "frequency": 1,
+      "unique_products": 7,
+      "total_volume": 7,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 52536,
+      "frequency": 14,
+      "unique_products": 36,
+      "total_volume": 211,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 52606,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 52761,
+      "frequency": 4,
+      "unique_products": 15,
+      "total_volume": 16,
+      "unique_categories": 8,
+      "cluster": 0
+    },
+    {
+      "customer_id": 52853,
+      "frequency": 12,
+      "unique_products": 47,
+      "total_volume": 65,
+      "unique_categories": 12,
+      "cluster": 0
+    },
+    {
+      "customer_id": 52857,
+      "frequency": 4,
+      "unique_products": 14,
+      "total_volume": 20,
+      "unique_categories": 8,
+      "cluster": 0
+    },
+    {
+      "customer_id": 52881,
+      "frequency": 10,
+      "unique_products": 33,
+      "total_volume": 39,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 53096,
+      "frequency": 13,
+      "unique_products": 51,
+      "total_volume": 147,
+      "unique_categories": 11,
+      "cluster": 0
+    },
+    {
+      "customer_id": 53111,
+      "frequency": 1,
+      "unique_products": 5,
+      "total_volume": 5,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 53141,
+      "frequency": 20,
+      "unique_products": 71,
+      "total_volume": 137,
+      "unique_categories": 16,
+      "cluster": 3
+    },
+    {
+      "customer_id": 53148,
+      "frequency": 13,
+      "unique_products": 40,
+      "total_volume": 70,
+      "unique_categories": 12,
+      "cluster": 0
+    },
+    {
+      "customer_id": 53312,
+      "frequency": 1,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 53349,
+      "frequency": 21,
+      "unique_products": 111,
+      "total_volume": 252,
+      "unique_categories": 17,
+      "cluster": 3
+    },
+    {
+      "customer_id": 53400,
+      "frequency": 89,
+      "unique_products": 150,
+      "total_volume": 742,
+      "unique_categories": 17,
+      "cluster": 2
+    },
+    {
+      "customer_id": 53469,
+      "frequency": 1,
+      "unique_products": 6,
+      "total_volume": 6,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 53486,
+      "frequency": 1,
+      "unique_products": 29,
+      "total_volume": 29,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 53523,
+      "frequency": 26,
+      "unique_products": 101,
+      "total_volume": 485,
+      "unique_categories": 19,
+      "cluster": 2
+    },
+    {
+      "customer_id": 53559,
+      "frequency": 1,
+      "unique_products": 3,
+      "total_volume": 3,
+      "unique_categories": 5,
+      "cluster": 1
+    },
+    {
+      "customer_id": 53568,
+      "frequency": 1,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 53691,
+      "frequency": 14,
+      "unique_products": 123,
+      "total_volume": 327,
+      "unique_categories": 14,
+      "cluster": 3
+    },
+    {
+      "customer_id": 53760,
+      "frequency": 1,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 53855,
+      "frequency": 14,
+      "unique_products": 53,
+      "total_volume": 107,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 53940,
+      "frequency": 1,
+      "unique_products": 5,
+      "total_volume": 5,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 53981,
+      "frequency": 1,
+      "unique_products": 3,
+      "total_volume": 3,
+      "unique_categories": 1,
+      "cluster": 1
+    },
+    {
+      "customer_id": 54126,
+      "frequency": 11,
+      "unique_products": 12,
+      "total_volume": 37,
+      "unique_categories": 7,
+      "cluster": 0
+    },
+    {
+      "customer_id": 54138,
+      "frequency": 12,
+      "unique_products": 49,
+      "total_volume": 87,
+      "unique_categories": 13,
+      "cluster": 0
+    },
+    {
+      "customer_id": 54190,
+      "frequency": 14,
+      "unique_products": 46,
+      "total_volume": 78,
+      "unique_categories": 14,
+      "cluster": 0
+    },
+    {
+      "customer_id": 54381,
+      "frequency": 3,
+      "unique_products": 61,
+      "total_volume": 92,
+      "unique_categories": 13,
+      "cluster": 0
+    },
+    {
+      "customer_id": 54383,
+      "frequency": 28,
+      "unique_products": 113,
+      "total_volume": 307,
+      "unique_categories": 16,
+      "cluster": 3
+    },
+    {
+      "customer_id": 54384,
+      "frequency": 1,
+      "unique_products": 2,
+      "total_volume": 2,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 54390,
+      "frequency": 1,
+      "unique_products": 4,
+      "total_volume": 4,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 54457,
+      "frequency": 6,
+      "unique_products": 74,
+      "total_volume": 138,
+      "unique_categories": 13,
+      "cluster": 3
+    },
+    {
+      "customer_id": 54561,
+      "frequency": 6,
+      "unique_products": 15,
+      "total_volume": 25,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 54635,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 54637,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 1,
+      "cluster": 1
+    },
+    {
+      "customer_id": 54735,
+      "frequency": 4,
+      "unique_products": 14,
+      "total_volume": 14,
+      "unique_categories": 7,
+      "cluster": 1
+    },
+    {
+      "customer_id": 54850,
+      "frequency": 1,
+      "unique_products": 3,
+      "total_volume": 3,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 54879,
+      "frequency": 1,
+      "unique_products": 5,
+      "total_volume": 5,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 55129,
+      "frequency": 3,
+      "unique_products": 30,
+      "total_volume": 37,
+      "unique_categories": 7,
+      "cluster": 0
+    },
+    {
+      "customer_id": 55144,
+      "frequency": 3,
+      "unique_products": 11,
+      "total_volume": 14,
+      "unique_categories": 7,
+      "cluster": 1
+    },
+    {
+      "customer_id": 55223,
+      "frequency": 1,
+      "unique_products": 7,
+      "total_volume": 7,
+      "unique_categories": 7,
+      "cluster": 1
+    },
+    {
+      "customer_id": 55291,
+      "frequency": 6,
+      "unique_products": 33,
+      "total_volume": 57,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 55303,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 55370,
+      "frequency": 17,
+      "unique_products": 85,
+      "total_volume": 204,
+      "unique_categories": 15,
+      "cluster": 3
+    },
+    {
+      "customer_id": 55378,
+      "frequency": 2,
+      "unique_products": 22,
+      "total_volume": 33,
+      "unique_categories": 8,
+      "cluster": 0
+    },
+    {
+      "customer_id": 55453,
+      "frequency": 8,
+      "unique_products": 36,
+      "total_volume": 47,
+      "unique_categories": 11,
+      "cluster": 0
+    },
+    {
+      "customer_id": 55497,
+      "frequency": 9,
+      "unique_products": 28,
+      "total_volume": 48,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 55510,
+      "frequency": 10,
+      "unique_products": 34,
+      "total_volume": 76,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 55526,
+      "frequency": 1,
+      "unique_products": 19,
+      "total_volume": 19,
+      "unique_categories": 5,
+      "cluster": 1
+    },
+    {
+      "customer_id": 55535,
+      "frequency": 21,
+      "unique_products": 90,
+      "total_volume": 276,
+      "unique_categories": 14,
+      "cluster": 3
+    },
+    {
+      "customer_id": 55664,
+      "frequency": 2,
+      "unique_products": 29,
+      "total_volume": 34,
+      "unique_categories": 13,
+      "cluster": 0
+    },
+    {
+      "customer_id": 55704,
+      "frequency": 2,
+      "unique_products": 1,
+      "total_volume": 2,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 55709,
+      "frequency": 1,
+      "unique_products": 9,
+      "total_volume": 9,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 55750,
+      "frequency": 16,
+      "unique_products": 90,
+      "total_volume": 169,
+      "unique_categories": 15,
+      "cluster": 3
+    },
+    {
+      "customer_id": 55764,
+      "frequency": 21,
+      "unique_products": 59,
+      "total_volume": 214,
+      "unique_categories": 10,
+      "cluster": 3
+    },
+    {
+      "customer_id": 55765,
+      "frequency": 49,
+      "unique_products": 138,
+      "total_volume": 508,
+      "unique_categories": 21,
+      "cluster": 2
+    },
+    {
+      "customer_id": 55824,
+      "frequency": 9,
+      "unique_products": 42,
+      "total_volume": 65,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 55908,
+      "frequency": 3,
+      "unique_products": 16,
+      "total_volume": 17,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 56002,
+      "frequency": 2,
+      "unique_products": 20,
+      "total_volume": 22,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 56062,
+      "frequency": 1,
+      "unique_products": 14,
+      "total_volume": 14,
+      "unique_categories": 7,
+      "cluster": 1
+    },
+    {
+      "customer_id": 56110,
+      "frequency": 1,
+      "unique_products": 11,
+      "total_volume": 11,
+      "unique_categories": 8,
+      "cluster": 1
+    },
+    {
+      "customer_id": 56233,
+      "frequency": 1,
+      "unique_products": 23,
+      "total_volume": 23,
+      "unique_categories": 7,
+      "cluster": 1
+    },
+    {
+      "customer_id": 56317,
+      "frequency": 7,
+      "unique_products": 54,
+      "total_volume": 121,
+      "unique_categories": 14,
+      "cluster": 0
+    },
+    {
+      "customer_id": 56349,
+      "frequency": 4,
+      "unique_products": 18,
+      "total_volume": 18,
+      "unique_categories": 11,
+      "cluster": 0
+    },
+    {
+      "customer_id": 56400,
+      "frequency": 24,
+      "unique_products": 95,
+      "total_volume": 218,
+      "unique_categories": 16,
+      "cluster": 3
+    },
+    {
+      "customer_id": 56421,
+      "frequency": 13,
+      "unique_products": 70,
+      "total_volume": 212,
+      "unique_categories": 12,
+      "cluster": 3
+    },
+    {
+      "customer_id": 56466,
+      "frequency": 7,
+      "unique_products": 19,
+      "total_volume": 37,
+      "unique_categories": 7,
+      "cluster": 0
+    },
+    {
+      "customer_id": 56522,
+      "frequency": 38,
+      "unique_products": 54,
+      "total_volume": 179,
+      "unique_categories": 12,
+      "cluster": 3
+    },
+    {
+      "customer_id": 56553,
+      "frequency": 4,
+      "unique_products": 25,
+      "total_volume": 28,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 56573,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 56580,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 56734,
+      "frequency": 3,
+      "unique_products": 10,
+      "total_volume": 12,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 56779,
+      "frequency": 1,
+      "unique_products": 32,
+      "total_volume": 32,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 56847,
+      "frequency": 10,
+      "unique_products": 10,
+      "total_volume": 23,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 56883,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 56946,
+      "frequency": 18,
+      "unique_products": 36,
+      "total_volume": 113,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 56956,
+      "frequency": 3,
+      "unique_products": 17,
+      "total_volume": 17,
+      "unique_categories": 8,
+      "cluster": 0
+    },
+    {
+      "customer_id": 56961,
+      "frequency": 1,
+      "unique_products": 17,
+      "total_volume": 17,
+      "unique_categories": 11,
+      "cluster": 0
+    },
+    {
+      "customer_id": 56987,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 0,
+      "cluster": 1
+    },
+    {
+      "customer_id": 57018,
+      "frequency": 3,
+      "unique_products": 11,
+      "total_volume": 13,
+      "unique_categories": 8,
+      "cluster": 1
+    },
+    {
+      "customer_id": 57054,
+      "frequency": 1,
+      "unique_products": 8,
+      "total_volume": 8,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 57086,
+      "frequency": 3,
+      "unique_products": 37,
+      "total_volume": 54,
+      "unique_categories": 12,
+      "cluster": 0
+    },
+    {
+      "customer_id": 57092,
+      "frequency": 1,
+      "unique_products": 7,
+      "total_volume": 7,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 57178,
+      "frequency": 10,
+      "unique_products": 45,
+      "total_volume": 73,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 57226,
+      "frequency": 6,
+      "unique_products": 44,
+      "total_volume": 64,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 57227,
+      "frequency": 2,
+      "unique_products": 12,
+      "total_volume": 14,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 57230,
+      "frequency": 11,
+      "unique_products": 46,
+      "total_volume": 73,
+      "unique_categories": 14,
+      "cluster": 0
+    },
+    {
+      "customer_id": 57305,
+      "frequency": 1,
+      "unique_products": 3,
+      "total_volume": 3,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 57309,
+      "frequency": 13,
+      "unique_products": 29,
+      "total_volume": 59,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 57421,
+      "frequency": 6,
+      "unique_products": 36,
+      "total_volume": 59,
+      "unique_categories": 13,
+      "cluster": 0
+    },
+    {
+      "customer_id": 57460,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 1,
+      "cluster": 1
+    },
+    {
+      "customer_id": 57506,
+      "frequency": 11,
+      "unique_products": 32,
+      "total_volume": 42,
+      "unique_categories": 13,
+      "cluster": 0
+    },
+    {
+      "customer_id": 57525,
+      "frequency": 3,
+      "unique_products": 29,
+      "total_volume": 57,
+      "unique_categories": 11,
+      "cluster": 0
+    },
+    {
+      "customer_id": 57594,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 57641,
+      "frequency": 24,
+      "unique_products": 145,
+      "total_volume": 442,
+      "unique_categories": 19,
+      "cluster": 2
+    },
+    {
+      "customer_id": 57658,
+      "frequency": 16,
+      "unique_products": 64,
+      "total_volume": 124,
+      "unique_categories": 14,
+      "cluster": 3
+    },
+    {
+      "customer_id": 57665,
+      "frequency": 3,
+      "unique_products": 34,
+      "total_volume": 37,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 57773,
+      "frequency": 7,
+      "unique_products": 15,
+      "total_volume": 16,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 57798,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 1,
+      "cluster": 1
+    },
+    {
+      "customer_id": 57801,
+      "frequency": 3,
+      "unique_products": 13,
+      "total_volume": 15,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 57803,
+      "frequency": 2,
+      "unique_products": 3,
+      "total_volume": 3,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 57856,
+      "frequency": 4,
+      "unique_products": 48,
+      "total_volume": 61,
+      "unique_categories": 12,
+      "cluster": 0
+    },
+    {
+      "customer_id": 57872,
+      "frequency": 24,
+      "unique_products": 115,
+      "total_volume": 455,
+      "unique_categories": 18,
+      "cluster": 2
+    },
+    {
+      "customer_id": 57912,
+      "frequency": 1,
+      "unique_products": 9,
+      "total_volume": 9,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 57981,
+      "frequency": 1,
+      "unique_products": 13,
+      "total_volume": 13,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 57984,
+      "frequency": 1,
+      "unique_products": 8,
+      "total_volume": 8,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 58030,
+      "frequency": 15,
+      "unique_products": 32,
+      "total_volume": 44,
+      "unique_categories": 12,
+      "cluster": 0
+    },
+    {
+      "customer_id": 58152,
+      "frequency": 1,
+      "unique_products": 6,
+      "total_volume": 6,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 58157,
+      "frequency": 3,
+      "unique_products": 8,
+      "total_volume": 8,
+      "unique_categories": 5,
+      "cluster": 1
+    },
+    {
+      "customer_id": 58262,
+      "frequency": 10,
+      "unique_products": 54,
+      "total_volume": 122,
+      "unique_categories": 12,
+      "cluster": 0
+    },
+    {
+      "customer_id": 58289,
+      "frequency": 17,
+      "unique_products": 55,
+      "total_volume": 119,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 58302,
+      "frequency": 6,
+      "unique_products": 28,
+      "total_volume": 54,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 58304,
+      "frequency": 6,
+      "unique_products": 20,
+      "total_volume": 24,
+      "unique_categories": 12,
+      "cluster": 0
+    },
+    {
+      "customer_id": 58308,
+      "frequency": 2,
+      "unique_products": 17,
+      "total_volume": 23,
+      "unique_categories": 8,
+      "cluster": 0
+    },
+    {
+      "customer_id": 58583,
+      "frequency": 2,
+      "unique_products": 31,
+      "total_volume": 36,
+      "unique_categories": 8,
+      "cluster": 0
+    },
+    {
+      "customer_id": 58593,
+      "frequency": 2,
+      "unique_products": 14,
+      "total_volume": 14,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 58672,
+      "frequency": 2,
+      "unique_products": 10,
+      "total_volume": 12,
+      "unique_categories": 7,
+      "cluster": 1
+    },
+    {
+      "customer_id": 58724,
+      "frequency": 5,
+      "unique_products": 24,
+      "total_volume": 30,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 58725,
+      "frequency": 7,
+      "unique_products": 28,
+      "total_volume": 80,
+      "unique_categories": 8,
+      "cluster": 0
+    },
+    {
+      "customer_id": 58785,
+      "frequency": 3,
+      "unique_products": 42,
+      "total_volume": 46,
+      "unique_categories": 15,
+      "cluster": 0
+    },
+    {
+      "customer_id": 58797,
+      "frequency": 11,
+      "unique_products": 62,
+      "total_volume": 154,
+      "unique_categories": 11,
+      "cluster": 3
+    },
+    {
+      "customer_id": 58828,
+      "frequency": 6,
+      "unique_products": 11,
+      "total_volume": 19,
+      "unique_categories": 5,
+      "cluster": 1
+    },
+    {
+      "customer_id": 58888,
+      "frequency": 10,
+      "unique_products": 55,
+      "total_volume": 72,
+      "unique_categories": 13,
+      "cluster": 0
+    },
+    {
+      "customer_id": 58926,
+      "frequency": 3,
+      "unique_products": 26,
+      "total_volume": 62,
+      "unique_categories": 7,
+      "cluster": 0
+    },
+    {
+      "customer_id": 58933,
+      "frequency": 2,
+      "unique_products": 5,
+      "total_volume": 5,
+      "unique_categories": 3,
+      "cluster": 1
+    },
+    {
+      "customer_id": 58987,
+      "frequency": 1,
+      "unique_products": 8,
+      "total_volume": 8,
+      "unique_categories": 4,
+      "cluster": 1
+    },
+    {
+      "customer_id": 59044,
+      "frequency": 7,
+      "unique_products": 78,
+      "total_volume": 130,
+      "unique_categories": 11,
+      "cluster": 3
+    },
+    {
+      "customer_id": 59061,
+      "frequency": 4,
+      "unique_products": 8,
+      "total_volume": 10,
+      "unique_categories": 6,
+      "cluster": 1
+    },
+    {
+      "customer_id": 59386,
+      "frequency": 6,
+      "unique_products": 22,
+      "total_volume": 23,
+      "unique_categories": 11,
+      "cluster": 0
+    },
+    {
+      "customer_id": 59456,
+      "frequency": 2,
+      "unique_products": 7,
+      "total_volume": 7,
+      "unique_categories": 7,
+      "cluster": 1
+    },
+    {
+      "customer_id": 59489,
+      "frequency": 37,
+      "unique_products": 129,
+      "total_volume": 609,
+      "unique_categories": 16,
+      "cluster": 2
+    },
+    {
+      "customer_id": 59628,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 59629,
+      "frequency": 6,
+      "unique_products": 25,
+      "total_volume": 57,
+      "unique_categories": 10,
+      "cluster": 0
+    },
+    {
+      "customer_id": 59688,
+      "frequency": 6,
+      "unique_products": 19,
+      "total_volume": 27,
+      "unique_categories": 9,
+      "cluster": 0
+    },
+    {
+      "customer_id": 59698,
+      "frequency": 7,
+      "unique_products": 56,
+      "total_volume": 108,
+      "unique_categories": 11,
+      "cluster": 0
+    },
+    {
+      "customer_id": 59703,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 59739,
+      "frequency": 3,
+      "unique_products": 13,
+      "total_volume": 17,
+      "unique_categories": 8,
+      "cluster": 1
+    },
+    {
+      "customer_id": 59893,
+      "frequency": 1,
+      "unique_products": 1,
+      "total_volume": 1,
+      "unique_categories": 2,
+      "cluster": 1
+    },
+    {
+      "customer_id": 59933,
+      "frequency": 30,
+      "unique_products": 102,
+      "total_volume": 598,
+      "unique_categories": 19,
+      "cluster": 2
+    },
+    {
+      "customer_id": 59977,
+      "frequency": 6,
+      "unique_products": 53,
+      "total_volume": 104,
+      "unique_categories": 12,
+      "cluster": 0
+    },
+    {
+      "customer_id": 60069,
+      "frequency": 17,
+      "unique_products": 89,
+      "total_volume": 184,
+      "unique_categories": 19,
+      "cluster": 3
+    }
+  ],
+  "generated_at": "2025-11-23T21:54:21.243229"
+}

@@ -1,0 +1,146 @@
+{
+  "n_clusters": 4,
+  "visualization_data": {
+    "cluster_statistics": [
+      {
+        "cluster": 0,
+        "n_customers": 48075,
+        "avg_frequency": 6.970192407696308,
+        "avg_unique_products": 31.96303692147686,
+        "avg_total_volume": 54.43161726469059,
+        "avg_unique_categories": 10.352532501300052
+      },
+      {
+        "cluster": 1,
+        "n_customers": 55870,
+        "avg_frequency": 1.9305172722391266,
+        "avg_unique_products": 6.365938786468588,
+        "avg_total_volume": 7.2459101485591555,
+        "avg_unique_categories": 3.7918202971183104
+      },
+      {
+        "cluster": 2,
+        "n_customers": 5695,
+        "avg_frequency": 42.81387181738367,
+        "avg_unique_products": 116.15891132572432,
+        "avg_total_volume": 534.123090430202,
+        "avg_unique_categories": 16.953643546971026
+      },
+      {
+        "cluster": 3,
+        "n_customers": 21546,
+        "avg_frequency": 19.59584145549058,
+        "avg_unique_products": 74.30242272347536,
+        "avg_total_volume": 210.17047247749002,
+        "avg_unique_categories": 14.26733500417711
+      }
+    ],
+    "cluster_labels": {
+      "0": "Exploradores / Diversificadores",
+      "1": "Clientes Ocasionales / Nuevos",
+      "2": "VIP / Compradores Premium",
+      "3": "VIP / Compradores Premium"
+    },
+    "distribution": {
+      "0": 48075,
+      "1": 55870,
+      "2": 5695,
+      "3": 21546
+    }
+  },
+  "cluster_summary": {
+    "cluster_0": {
+      "cluster_id": 0,
+      "label": "Exploradores / Diversificadores",
+      "description": "Clientes que buscan variedad: 32 productos distintos y 10.4 categorías diferentes, aunque con frecuencia moderada (7.0 transacciones). Valoran la diversidad y experimentación.",
+      "n_customers": 48075,
+      "percentage": 36.64644093119693,
+      "metrics": {
+        "avg_frequency": 6.970192407696308,
+        "avg_unique_products": 31.96303692147686,
+        "avg_total_volume": 54.43161726469059,
+        "avg_unique_categories": 10.352532501300052,
+        "min_frequency": 1,
+        "max_frequency": 44,
+        "min_volume": 5,
+        "max_volume": 280
+      },
+      "business_recommendations": [
+        "Mostrar productos nuevos y tendencias del mercado",
+        "Destacar diversidad de catálogo y categorías especiales",
+        "Campañas de descubrimiento con muestras o pruebas",
+        "Recomendaciones de productos similares a los que les gustan"
+      ]
+    },
+    "cluster_1": {
+      "cluster_id": 1,
+      "label": "Clientes Ocasionales / Nuevos",
+      "description": "Clientes con bajo compromiso: 1.9 transacciones y 7 productos. Compran productos limitados (6 distintos) en pocas categorías (3.8). Pueden estar empezando o ser clientes ocasionales.",
+      "n_customers": 55870,
+      "percentage": 42.58838595581846,
+      "metrics": {
+        "avg_frequency": 1.9305172722391266,
+        "avg_unique_products": 6.365938786468588,
+        "avg_total_volume": 7.2459101485591555,
+        "avg_unique_categories": 3.7918202971183104,
+        "min_frequency": 1,
+        "max_frequency": 26,
+        "min_volume": 1,
+        "max_volume": 89
+      },
+      "business_recommendations": [
+        "Campañas de bienvenida para nuevos clientes",
+        "Ofertas de reactivación con descuentos especiales",
+        "Programas de referencia para atraer amigos",
+        "Comunicación educativa sobre beneficios y productos"
+      ]
+    },
+    "cluster_2": {
+      "cluster_id": 2,
+      "label": "VIP / Compradores Premium",
+      "description": "Clientes con alta frecuencia de compra (42.8 transacciones en promedio), alto volumen de productos (534 productos), amplia diversidad de productos (116 productos distintos) y exploran múltiples categorías (17.0 categorías). Son los clientes más valiosos.",
+      "n_customers": 5695,
+      "percentage": 4.341164453524004,
+      "metrics": {
+        "avg_frequency": 42.81387181738367,
+        "avg_unique_products": 116.15891132572432,
+        "avg_total_volume": 534.123090430202,
+        "avg_unique_categories": 16.953643546971026,
+        "min_frequency": 8,
+        "max_frequency": 535,
+        "min_volume": 167,
+        "max_volume": 2860
+      },
+      "business_recommendations": [
+        "Programa de fidelización premium con beneficios exclusivos",
+        "Acceso anticipado a nuevos productos y ofertas especiales",
+        "Asesor personalizado o atención prioritaria",
+        "Descuentos por volumen y puntos de recompensa"
+      ]
+    },
+    "cluster_3": {
+      "cluster_id": 3,
+      "label": "VIP / Compradores Premium",
+      "description": "Clientes con alta frecuencia de compra (19.6 transacciones en promedio), alto volumen de productos (210 productos), amplia diversidad de productos (74 productos distintos) y exploran múltiples categorías (14.3 categorías). Son los clientes más valiosos.",
+      "n_customers": 21546,
+      "percentage": 16.42400865946061,
+      "metrics": {
+        "avg_frequency": 19.59584145549058,
+        "avg_unique_products": 74.30242272347536,
+        "avg_total_volume": 210.17047247749002,
+        "avg_unique_categories": 14.26733500417711,
+        "min_frequency": 1,
+        "max_frequency": 67,
+        "min_volume": 56,
+        "max_volume": 565
+      },
+      "business_recommendations": [
+        "Programa de fidelización premium con beneficios exclusivos",
+        "Acceso anticipado a nuevos productos y ofertas especiales",
+        "Asesor personalizado o atención prioritaria",
+        "Descuentos por volumen y puntos de recompensa"
+      ]
+    }
+  },
+  "generated_at": "2025-11-23T21:55:20.059588"
+}

@@ -1,6 +1,8 @@
 """
-Módulo para análisis de clientes.
-Incluye frecuencia de compra, tiempo entre compras y segmentación RFM.
+Módulo para análisis y segmentación de clientes usando K-Means.
+
+Implementa clustering para identificar grupos de clientes según su
+comportamiento de compra.
 """
 
 from pyspark.sql import DataFrame, SparkSession
@@ -11,23 +13,23 @@ from pyspark.sql.functions import (
     avg,
     min as spark_min,
     max as spark_max,
-    datediff,
-    to_date,
-    current_date,
-    lag,
+    countDistinct,
+    size,
+    split,
+    trim,
     desc,
-    row_number,
-    ntile,
-    when,
+    to_date,
     lit,
 )
-from pyspark.sql.window import Window
-from typing import Dict, Any
-from datetime import timedelta
+from pyspark.ml.feature import VectorAssembler, StandardScaler
+from pyspark.ml.clustering import KMeans
+from pyspark.ml.evaluation import ClusteringEvaluator
+from typing import Dict, Any, Tuple
+import os
 
 
 class CustomerAnalyzer:
-    """Clase para realizar análisis de clientes."""
+    """Clase para realizar análisis y segmentación de clientes con K-Means."""
 
     def __init__(self, spark: SparkSession):
         """
@@ -38,225 +40,364 @@ class CustomerAnalyzer:
         """
         self.spark = spark
 
-    def analyze_purchase_frequency(self, df: DataFrame) -> DataFrame:
+    def prepare_customer_features(
+        self,
+        df_transactions: DataFrame,
+        df_transactions_exploded: DataFrame,
+        df_product_categories: DataFrame = None,
+    ) -> DataFrame:
         """
-        Analiza la frecuencia de compra por cliente.
+        Prepara features para clustering de clientes.
+
+        Features requeridas según enunciado:
+        - Frecuencia: número de transacciones
+        - Número de productos distintos: diversidad de productos
+        - Volumen total: total de productos comprados
+        - Diversidad de categorías: número de categorías distintas compradas
 
         Args:
-            df: DataFrame con transacciones
+            df_transactions: DataFrame de transacciones sin explotar
+            df_transactions_exploded: DataFrame de transacciones explotadas
+            df_product_categories: DataFrame de relación producto-categoría (opcional)
 
         Returns:
-            DataFrame con frecuencias de compra
+            DataFrame con features por cliente
         """
-        print("\n🛒 Análisis de Frecuencia de Compra")
-        print("-" * 60)
+        print("\n🔧 Preparando features para segmentación de clientes...")
+        print("-" * 70)
 
-        df_frequency = (
-            df.groupBy("customer_id")
-            .agg(
-                count("*").alias("num_compras"),
-                spark_min("transaction_date").alias("primera_compra"),
-                spark_max("transaction_date").alias("ultima_compra"),
+        # Feature 1: Frecuencia (número de transacciones)
+        df_frequency = df_transactions.groupBy("customer_id").agg(
+            count("*").alias("frequency")
+        )
+
+        # Feature 2: Número de productos distintos (diversidad de productos)
+        df_unique_products = df_transactions_exploded.groupBy("customer_id").agg(
+            countDistinct("product_id").alias("unique_products")
+        )
+
+        # Feature 3: Volumen total (total de productos comprados)
+        df_volume = df_transactions.groupBy("customer_id").agg(
+            spark_sum(size(split(trim(col("products")), " "))).alias("total_volume")
+        )
+
+        # Feature 4: Diversidad de categorías
+        if df_product_categories is not None:
+            # Join con categorías de productos
+            df_exploded_with_cats = df_transactions_exploded.join(
+                df_product_categories, "product_id", "left"
             )
-            .orderBy(desc("num_compras"))
-        )
-
-        # Estadísticas generales
-        stats = df_frequency.select(
-            avg("num_compras").alias("promedio_compras"),
-            spark_min("num_compras").alias("min_compras"),
-            spark_max("num_compras").alias("max_compras"),
-        ).collect()[0]
-
-        print(f"📊 Promedio de compras por cliente: {stats['promedio_compras']:.2f}")
-        print(f"📉 Mínimo de compras: {stats['min_compras']}")
-        print(f"📈 Máximo de compras: {stats['max_compras']}")
-
-        # Distribución de frecuencias
-        print(f"\n📋 Distribución de frecuencia de compra:")
-        df_frequency.groupBy("num_compras").agg(
-            count("*").alias("num_clientes")
-        ).orderBy("num_compras").show(20, truncate=False)
-
-        # Top 10 clientes más frecuentes
-        print(f"\n👥 Top 10 clientes con más compras:")
-        df_frequency.show(10, truncate=False)
-
-        return df_frequency
-
-    def analyze_time_between_purchases(self, df: DataFrame) -> DataFrame:
-        """
-        Analiza el tiempo promedio entre compras por cliente.
-
-        Args:
-            df: DataFrame con transacciones
-
-        Returns:
-            DataFrame con tiempos entre compras
-        """
-        print("\n⏱️ Análisis de Tiempo Entre Compras")
-        print("-" * 60)
-
-        # Preparar datos con fechas ordenadas por cliente
-        df_with_date = df.withColumn("date", to_date(col("transaction_date")))
-
-        # Ventana particionada por cliente, ordenada por fecha
-        window_spec = Window.partitionBy("customer_id").orderBy("date")
-
-        # Calcular diferencia entre compras consecutivas
-        df_time_diff = (
-            df_with_date.withColumn("prev_date", lag("date").over(window_spec))
-            .withColumn("days_between", datediff(col("date"), col("prev_date")))
-            .filter(col("days_between").isNotNull())
-        )
-
-        # Calcular tiempo promedio por cliente
-        df_avg_time = (
-            df_time_diff.groupBy("customer_id")
-            .agg(
-                avg("days_between").alias("promedio_dias_entre_compras"),
-                spark_min("days_between").alias("min_dias"),
-                spark_max("days_between").alias("max_dias"),
-                count("*").alias("num_intervalos"),
+            df_unique_categories = df_exploded_with_cats.groupBy("customer_id").agg(
+                countDistinct("category_id").alias("unique_categories")
             )
-            .filter(col("num_intervalos") >= 1)
-            .orderBy("promedio_dias_entre_compras")
-        )
-
-        # Estadísticas generales
-        stats = df_avg_time.select(
-            avg("promedio_dias_entre_compras").alias("promedio_general"),
-            spark_min("promedio_dias_entre_compras").alias("min_promedio"),
-            spark_max("promedio_dias_entre_compras").alias("max_promedio"),
-        ).collect()[0]
-
-        print(
-            f"📊 Tiempo promedio entre compras (global): {stats['promedio_general']:.2f} días"
-        )
-        print(f"📉 Mínimo tiempo promedio: {stats['min_promedio']:.2f} días")
-        print(f"📈 Máximo tiempo promedio: {stats['max_promedio']:.2f} días")
-
-        print(f"\n📋 Distribución de tiempos entre compras:")
-        df_avg_time.show(20, truncate=False)
-
-        # Categorizar clientes por frecuencia
-        df_categorized = df_avg_time.withColumn(
-            "categoria_frecuencia",
-            when(col("promedio_dias_entre_compras") <= 7, "Muy Frecuente (≤7 días)")
-            .when(col("promedio_dias_entre_compras") <= 15, "Frecuente (8-15 días)")
-            .when(col("promedio_dias_entre_compras") <= 30, "Regular (16-30 días)")
-            .when(col("promedio_dias_entre_compras") <= 60, "Ocasional (31-60 días)")
-            .otherwise("Esporádico (>60 días)"),
-        )
-
-        print(f"\n📊 Categorización de clientes por frecuencia:")
-        df_categorized.groupBy("categoria_frecuencia").agg(
-            count("*").alias("num_clientes")
-        ).orderBy("num_clientes", ascending=False).show(truncate=False)
-
-        return df_avg_time
-
-    def rfm_segmentation(self, df: DataFrame, reference_date: str = None) -> DataFrame:
-        """
-        Realiza segmentación RFM (Recency, Frequency, Monetary).
-
-        Nota: Como no tenemos valor monetario, usaremos RF + cantidad de productos.
-
-        Args:
-            df: DataFrame con transacciones
-            reference_date: Fecha de referencia para calcular recency (default: última fecha en datos)
-
-        Returns:
-            DataFrame con segmentación RFM
-        """
-        print("\n📊 Segmentación de Clientes (RFM)")
-        print("-" * 60)
-
-        # Preparar datos
-        df_with_date = df.withColumn("date", to_date(col("transaction_date")))
-
-        # Si no hay fecha de referencia, usar la última fecha + 1 día
-        if reference_date is None:
-            max_date = df_with_date.select(spark_max("date")).collect()[0][0]
-            reference_date = (max_date + timedelta(days=1)).strftime("%Y-%m-%d")
-
-        print(f"📅 Fecha de referencia para Recency: {reference_date}")
-
-        # Calcular RFM por cliente (Recency = días desde última compra hasta fecha de referencia)
-        df_rfm = (
-            df_with_date.groupBy("customer_id")
-            .agg(
-                spark_max("date").alias("ultima_compra"), count("*").alias("frequency")
+        else:
+            # Si no hay categorías, crear columna con 0
+            print(
+                "   ⚠️ No se proporcionó df_product_categories, usando 0 para diversidad de categorías"
             )
-            .withColumn("recency", datediff(lit(reference_date), col("ultima_compra")))
-            .drop("ultima_compra")
+            df_unique_categories = (
+                df_transactions.groupBy("customer_id")
+                .agg(count("*").alias("temp"))
+                .select("customer_id", lit(0).cast("int").alias("unique_categories"))
+            )
+
+        # Combinar todas las features
+        df_features = (
+            df_frequency.join(df_unique_products, "customer_id", "inner")
+            .join(df_volume, "customer_id", "inner")
+            .join(df_unique_categories, "customer_id", "inner")
         )
 
-        # Crear cuartiles para cada métrica (1 = mejor, 4 = peor)
-        # Para Recency: menor es mejor (más reciente)
-        # Para Frequency: mayor es mejor (más compras)
-
-        df_rfm_scored = df_rfm.withColumn(
-            "R_score", ntile(4).over(Window.orderBy(col("recency")))
-        ).withColumn(  # Menor recency = mejor score
-            "F_score", ntile(4).over(Window.orderBy(desc("frequency")))
-        )  # Mayor frequency = mejor score
-
-        # Invertir R_score para que 4 sea mejor (más reciente)
-        df_rfm_scored = df_rfm_scored.withColumn("R_score", 5 - col("R_score"))
-
-        # Crear segmentos basados en scores
-        df_rfm_scored = df_rfm_scored.withColumn(
-            "RFM_segment",
-            when((col("R_score") >= 4) & (col("F_score") >= 4), "Champions")
-            .when((col("R_score") >= 3) & (col("F_score") >= 3), "Loyal Customers")
-            .when((col("R_score") >= 4) & (col("F_score") <= 2), "Promising")
-            .when((col("R_score") <= 2) & (col("F_score") >= 4), "At Risk")
-            .when((col("R_score") <= 2) & (col("F_score") <= 2), "Lost")
-            .when((col("R_score") >= 3) & (col("F_score") <= 2), "Potential Loyalists")
-            .otherwise("Regular"),
+        # Convertir customer_id a int
+        df_features = df_features.withColumn(
+            "customer_id", col("customer_id").cast("int")
         )
 
-        print(f"\n📊 Distribución de segmentos RFM:")
-        df_rfm_scored.groupBy("RFM_segment").agg(
-            count("*").alias("num_clientes"),
-            avg("recency").alias("avg_recency"),
+        # Mostrar estadísticas
+        stats = df_features.select(
+            count("*").alias("total_customers"),
             avg("frequency").alias("avg_frequency"),
-        ).orderBy(desc("num_clientes")).show(truncate=False)
+            avg("total_volume").alias("avg_volume"),
+            avg("unique_products").alias("avg_unique_products"),
+            avg("unique_categories").alias("avg_unique_categories"),
+        ).collect()[0]
 
-        print(f"\n📋 Ejemplos de clientes por segmento:")
-        df_rfm_scored.orderBy(desc("R_score"), desc("F_score")).show(20, truncate=False)
+        print(f"📊 Total de clientes: {stats['total_customers']:,}")
+        print(f"📊 Frecuencia promedio: {stats['avg_frequency']:.2f} transacciones")
+        print(f"📊 Volumen total promedio: {stats['avg_volume']:.2f} productos")
+        print(f"📊 Productos distintos promedio: {stats['avg_unique_products']:.2f}")
+        print(f"📊 Categorías distintas promedio: {stats['avg_unique_categories']:.2f}")
 
-        return df_rfm_scored
+        return df_features
 
-    def generate_customer_summary(self, df: DataFrame) -> Dict[str, Any]:
+    def perform_kmeans_clustering(
+        self, df_features: DataFrame, n_clusters: int = 4
+    ) -> Tuple[DataFrame, Any]:
         """
-        Genera un resumen completo del análisis de clientes.
+        Ejecuta clustering K-Means en los clientes.
 
         Args:
-            df: DataFrame con transacciones
+            df_features: DataFrame con features de clientes
+            n_clusters: Número de clusters a crear
 
         Returns:
-            Diccionario con resumen
+            Tuple (DataFrame con asignaciones de clusters, modelo K-Means)
         """
-        print("\n" + "=" * 60)
-        print("👥 RESUMEN DE ANÁLISIS DE CLIENTES")
-        print("=" * 60)
+        print(f"\n🎯 Ejecutando K-Means con {n_clusters} clusters...")
+        print("-" * 70)
 
-        # Análisis de frecuencia
-        df_frequency = self.analyze_purchase_frequency(df)
+        # Seleccionar features numéricas para clustering (según enunciado)
+        feature_cols = [
+            "frequency",  # Frecuencia
+            "unique_products",  # Número de productos distintos
+            "total_volume",  # Volumen total
+            "unique_categories",  # Diversidad de categorías
+        ]
 
-        # Análisis de tiempo entre compras
-        df_time_between = self.analyze_time_between_purchases(df)
+        # Ensamblar features en vector
+        assembler = VectorAssembler(inputCols=feature_cols, outputCol="features_raw")
+        df_assembled = assembler.transform(df_features)
 
-        # Segmentación RFM
-        df_rfm = self.rfm_segmentation(df)
+        # Escalar features (importante para K-Means)
+        scaler = StandardScaler(
+            inputCol="features_raw", outputCol="features", withStd=True, withMean=True
+        )
+        scaler_model = scaler.fit(df_assembled)
+        df_scaled = scaler_model.transform(df_assembled)
 
-        print("=" * 60)
+        # Entrenar K-Means
+        kmeans = KMeans(
+            k=n_clusters,
+            featuresCol="features",
+            predictionCol="cluster",
+            seed=42,
+            maxIter=20,
+        )
+
+        model = kmeans.fit(df_scaled)
+        df_clustered = model.transform(df_scaled)
+
+        # Evaluar clustering
+        evaluator = ClusteringEvaluator(
+            featuresCol="features", predictionCol="cluster", metricName="silhouette"
+        )
+        silhouette = evaluator.evaluate(df_clustered)
+
+        print(f"✅ Clustering completado")
+        print(f"📊 Silhouette Score: {silhouette:.4f}")
+        print(f"📊 Centros de clusters: {n_clusters}")
+
+        # Seleccionar columnas relevantes
+        df_result = df_clustered.select(
+            "customer_id",
+            "frequency",
+            "unique_products",
+            "total_volume",
+            "unique_categories",
+            "cluster",
+        )
+
+        return df_result, model
+
+    def analyze_clusters(
+        self, df_clustered: DataFrame, n_clusters: int
+    ) -> Dict[str, Any]:
+        """
+        Analiza y describe los clusters encontrados.
+
+        Args:
+            df_clustered: DataFrame con clientes y sus clusters
+            n_clusters: Número de clusters
+
+        Returns:
+            Diccionario con descripción de cada cluster
+        """
+        print(f"\n📊 Analizando características de cada cluster...")
+        print("-" * 70)
+
+        cluster_profiles = {}
+        total_customers = df_clustered.count()
+
+        for cluster_id in range(n_clusters):
+            print(f"\n{'='*70}")
+            print(f"🏷️  CLUSTER {cluster_id}")
+            print(f"{'='*70}")
+
+            df_cluster = df_clustered.filter(col("cluster") == cluster_id)
+            n_customers = df_cluster.count()
+
+            stats = df_cluster.select(
+                avg("frequency").alias("avg_frequency"),
+                avg("unique_products").alias("avg_unique_products"),
+                avg("total_volume").alias("avg_volume"),
+                avg("unique_categories").alias("avg_unique_categories"),
+                spark_min("frequency").alias("min_frequency"),
+                spark_max("frequency").alias("max_frequency"),
+                spark_min("total_volume").alias("min_volume"),
+                spark_max("total_volume").alias("max_volume"),
+            ).collect()[0]
+
+            print(f"👥 Número de clientes: {n_customers:,}")
+            print(f"📊 Frecuencia promedio: {stats['avg_frequency']:.2f} transacciones")
+            print(
+                f"📊 Productos distintos promedio: {stats['avg_unique_products']:.2f}"
+            )
+            print(f"📊 Volumen total promedio: {stats['avg_volume']:.2f} productos")
+            print(
+                f"📊 Categorías distintas promedio: {stats['avg_unique_categories']:.2f}"
+            )
+
+            # Clasificar el cluster y generar descripción detallada
+            avg_freq = stats["avg_frequency"]
+            avg_vol = stats["avg_volume"]
+            avg_prod_dist = stats["avg_unique_products"]
+            avg_cat_dist = stats["avg_unique_categories"]
+
+            # Determinar tipo de cluster y generar descripción
+            if avg_freq > 15 and avg_vol > 50 and avg_cat_dist > 10:
+                cluster_label = "VIP / Compradores Premium"
+                description = (
+                    f"Clientes con alta frecuencia de compra ({avg_freq:.1f} transacciones en promedio), "
+                    f"alto volumen de productos ({avg_vol:.0f} productos), amplia diversidad de productos "
+                    f"({avg_prod_dist:.0f} productos distintos) y exploran múltiples categorías "
+                    f"({avg_cat_dist:.1f} categorías). Son los clientes más valiosos."
+                )
+                recommendations = [
+                    "Programa de fidelización premium con beneficios exclusivos",
+                    "Acceso anticipado a nuevos productos y ofertas especiales",
+                    "Asesor personalizado o atención prioritaria",
+                    "Descuentos por volumen y puntos de recompensa",
+                ]
+            elif avg_freq > 10:
+                cluster_label = "Clientes Frecuentes"
+                description = (
+                    f"Clientes que compran regularmente ({avg_freq:.1f} transacciones) con buen volumen "
+                    f"({avg_vol:.0f} productos). Suelen explorar {avg_prod_dist:.0f} productos distintos "
+                    f"y {avg_cat_dist:.1f} categorías. Tienen potencial de crecimiento."
+                )
+                recommendations = [
+                    "Cross-selling y up-selling de productos relacionados",
+                    "Recomendaciones personalizadas basadas en historial",
+                    "Programas de lealtad con recompensas progresivas",
+                    "Ofertas en categorías que aún no han explorado",
+                ]
+            elif avg_prod_dist > 20 or avg_cat_dist > 8:
+                cluster_label = "Exploradores / Diversificadores"
+                description = (
+                    f"Clientes que buscan variedad: {avg_prod_dist:.0f} productos distintos y "
+                    f"{avg_cat_dist:.1f} categorías diferentes, aunque con frecuencia moderada "
+                    f"({avg_freq:.1f} transacciones). Valoran la diversidad y experimentación."
+                )
+                recommendations = [
+                    "Mostrar productos nuevos y tendencias del mercado",
+                    "Destacar diversidad de catálogo y categorías especiales",
+                    "Campañas de descubrimiento con muestras o pruebas",
+                    "Recomendaciones de productos similares a los que les gustan",
+                ]
+            elif avg_freq < 5 and avg_vol < 20:
+                cluster_label = "Clientes Ocasionales / Nuevos"
+                description = (
+                    f"Clientes con bajo compromiso: {avg_freq:.1f} transacciones y {avg_vol:.0f} productos. "
+                    f"Compran productos limitados ({avg_prod_dist:.0f} distintos) en pocas categorías "
+                    f"({avg_cat_dist:.1f}). Pueden estar empezando o ser clientes ocasionales."
+                )
+                recommendations = [
+                    "Campañas de bienvenida para nuevos clientes",
+                    "Ofertas de reactivación con descuentos especiales",
+                    "Programas de referencia para atraer amigos",
+                    "Comunicación educativa sobre beneficios y productos",
+                ]
+            else:
+                cluster_label = "Clientes Regulares"
+                description = (
+                    f"Clientes con comportamiento promedio: {avg_freq:.1f} transacciones, "
+                    f"{avg_vol:.0f} productos, {avg_prod_dist:.0f} productos distintos y "
+                    f"{avg_cat_dist:.1f} categorías. Representan la base de clientes."
+                )
+                recommendations = [
+                    "Ofertas regulares para mantener el interés",
+                    "Recordatorios de productos frecuentemente comprados",
+                    "Programas de puntos o cashback",
+                    "Comunicación sobre nuevas categorías y productos",
+                ]
+
+            print(f"🏷️  Etiqueta: {cluster_label}")
+            print(f"📝 Descripción: {description}")
+            print(f"💡 Recomendaciones:")
+            for i, rec in enumerate(recommendations, 1):
+                print(f"   {i}. {rec}")
+
+            cluster_profiles[f"cluster_{cluster_id}"] = {
+                "cluster_id": cluster_id,
+                "label": cluster_label,
+                "description": description,
+                "n_customers": n_customers,
+                "percentage": (
+                    (n_customers / total_customers) * 100
+                    if total_customers > 0
+                    else 0.0
+                ),
+                "metrics": {
+                    "avg_frequency": float(avg_freq),
+                    "avg_unique_products": float(avg_prod_dist),
+                    "avg_total_volume": float(avg_vol),
+                    "avg_unique_categories": float(avg_cat_dist),
+                    "min_frequency": int(stats["min_frequency"]),
+                    "max_frequency": int(stats["max_frequency"]),
+                    "min_volume": int(stats["min_volume"]),
+                    "max_volume": int(stats["max_volume"]),
+                },
+                "business_recommendations": recommendations,
+            }
+
+        return cluster_profiles
+
+    def generate_customer_segmentation(
+        self,
+        df_transactions: DataFrame,
+        df_transactions_exploded: DataFrame,
+        df_product_categories: DataFrame = None,
+        n_clusters: int = 4,
+    ) -> Dict[str, Any]:
+        """
+        Genera segmentación completa de clientes usando K-Means.
+
+        Args:
+            df_transactions: DataFrame de transacciones
+            df_transactions_exploded: DataFrame de transacciones explotadas
+            df_product_categories: DataFrame de relación producto-categoría (opcional)
+            n_clusters: Número de clusters deseados
+
+        Returns:
+            Diccionario con resultados de segmentación
+        """
+        print("\n" + "=" * 70)
+        print("👥 SEGMENTACIÓN DE CLIENTES CON K-MEANS")
+        print("=" * 70)
+
+        # 1. Preparar features (incluyendo diversidad de categorías)
+        df_features = self.prepare_customer_features(
+            df_transactions, df_transactions_exploded, df_product_categories
+        )
+
+        # 2. Ejecutar clustering
+        df_clustered, model = self.perform_kmeans_clustering(df_features, n_clusters)
+
+        # 3. Analizar clusters
+        cluster_profiles = self.analyze_clusters(df_clustered, n_clusters)
+
+        # 4. Mostrar distribución de clusters
+        print(f"\n📊 Distribución de clientes por cluster:")
+        df_clustered.groupBy("cluster").agg(count("*").alias("n_customers")).orderBy(
+            "cluster"
+        ).show()
+
+        print("=" * 70)
+        print("✅ Segmentación completada exitosamente")
 
         return {
-            "frequency": df_frequency,
-            "time_between": df_time_between,
-            "rfm": df_rfm,
+            "clusters_df": df_clustered,
+            "cluster_summary": cluster_profiles,
+            "n_clusters": n_clusters,
+            "model": model,
         }
-

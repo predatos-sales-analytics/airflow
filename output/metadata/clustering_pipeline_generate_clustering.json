@@ -1,0 +1,17 @@
+{
+  "dag_id": "clustering_pipeline",
+  "task_id": "generate_clustering",
+  "execution_timestamp": "2025-11-23T21:55:20.064820",
+  "status": "success",
+  "n_clusters": 4,
+  "files_generated": [
+    "customer_clusters.json",
+    "cluster_summary.json",
+    "clustering_visualization.json"
+  ],
+  "deliverables": [
+    "Visualización del clustering",
+    "Descripción de cada grupo",
+    "Recomendaciones de negocio por cluster"
+  ]
+}
