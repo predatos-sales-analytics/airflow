@@ -175,7 +175,7 @@ class JSONExporter:
         value_col: str = "count",
     ):
         """
-        Exporta serie de tiempo para gráficos.
+        Exporta serie de tiempo para gráficos con estadísticas descriptivas.
 
         Args:
             df: DataFrame con serie temporal
@@ -183,8 +183,32 @@ class JSONExporter:
             date_col: Nombre de la columna de fecha
             value_col: Nombre de la columna de valores
         """
+        from pyspark.sql.functions import avg, min as spark_min, max as spark_max
+
         filepath = os.path.join(self.analytics_path, f"{series_name}.json")
 
+        # Calcular estadísticas descriptivas
+        stats_row = df.select(
+            avg(value_col).alias("promedio"),
+            spark_min(value_col).alias("minimo"),
+            spark_max(value_col).alias("maximo"),
+        ).collect()[0]
+
+        stats = {
+            "promedio": (
+                float(stats_row["promedio"])
+                if stats_row["promedio"] is not None
+                else None
+            ),
+            "minimo": (
+                float(stats_row["minimo"]) if stats_row["minimo"] is not None else None
+            ),
+            "maximo": (
+                float(stats_row["maximo"]) if stats_row["maximo"] is not None else None
+            ),
+        }
+
+        # Convertir datos a lista de diccionarios
         data = self._spark_to_dict_list(df)
 
         with open(filepath, "w", encoding="utf-8") as f:
@@ -193,6 +217,7 @@ class JSONExporter:
                     "series_name": series_name,
                     "date_column": date_col,
                     "value_column": value_col,
+                    "statistics": stats,
                     "data": data,
                     "generated_at": datetime.now().isoformat(),
                 },
@@ -258,6 +283,33 @@ class JSONExporter:
             )
 
         print(f"✅ Matriz de correlación exportada: {filepath}")
+        return filepath
+
+    def export_heatmap_data(
+        self, heatmap_data: Dict[str, Any], heatmap_name: str = "heatmap"
+    ):
+        """
+        Exporta datos normalizados para heatmap.
+
+        Args:
+            heatmap_data: Diccionario con datos normalizados para heatmap
+            heatmap_name: Nombre del heatmap
+        """
+        filepath = os.path.join(self.analytics_path, f"{heatmap_name}.json")
+
+        with open(filepath, "w", encoding="utf-8") as f:
+            json.dump(
+                {
+                    "heatmap_name": heatmap_name,
+                    "data": heatmap_data,
+                    "generated_at": datetime.now().isoformat(),
+                },
+                f,
+                indent=2,
+                ensure_ascii=False,
+            )
+
+        print(f"✅ Datos de heatmap exportados: {filepath}")
         return filepath
 
     def export_clustering_results(
