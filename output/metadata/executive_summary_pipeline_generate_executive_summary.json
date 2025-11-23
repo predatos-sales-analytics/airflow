@@ -1,0 +1,13 @@
+{
+  "dag_id": "executive_summary_pipeline",
+  "task_id": "generate_executive_summary",
+  "execution_timestamp": "2025-11-23T16:45:57.699480",
+  "status": "success",
+  "files_generated": [
+    "basic_metrics.json",
+    "top_10_products.json",
+    "top_10_customers.json",
+    "top_10_peak_days.json",
+    "top_10_categories.json"
+  ]
+}

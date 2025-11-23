@@ -1,0 +1,42 @@
+[
+  {
+    "product_id": 5,
+    "total_sold": 300526
+  },
+  {
+    "product_id": 10,
+    "total_sold": 290313
+  },
+  {
+    "product_id": 3,
+    "total_sold": 269855
+  },
+  {
+    "product_id": 4,
+    "total_sold": 260418
+  },
+  {
+    "product_id": 6,
+    "total_sold": 254644
+  },
+  {
+    "product_id": 8,
+    "total_sold": 253899
+  },
+  {
+    "product_id": 7,
+    "total_sold": 225877
+  },
+  {
+    "product_id": 16,
+    "total_sold": 224159
+  },
+  {
+    "product_id": 11,
+    "total_sold": 221968
+  },
+  {
+    "product_id": 9,
+    "total_sold": 212480
+  }
+]
