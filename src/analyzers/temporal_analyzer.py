@@ -1,6 +1,7 @@
 """
 Módulo para análisis temporal de ventas.
-Incluye análisis diarios, semanales, mensuales, picos y tendencias.
+
+Incluye análisis diarios, semanales, mensuales y picos.
 """
 
 from pyspark.sql import DataFrame, SparkSession
@@ -62,6 +63,7 @@ class TemporalAnalyzer:
                 count("*").alias("num_transacciones"),
                 countDistinct("customer_id").alias("clientes_unicos"),
             )
+            .withColumn("date", date_format(col("date"), "yyyy-MM-dd"))
             .orderBy("date")
         )
 
@@ -107,6 +109,10 @@ class TemporalAnalyzer:
                 spark_min("date").alias("inicio_semana"),
                 spark_max("date").alias("fin_semana"),
             )
+            .withColumn(
+                "inicio_semana", date_format(col("inicio_semana"), "yyyy-MM-dd")
+            )
+            .withColumn("fin_semana", date_format(col("fin_semana"), "yyyy-MM-dd"))
             .orderBy("year", "week")
         )
 
@@ -214,65 +220,6 @@ class TemporalAnalyzer:
 
         return df_dow
 
-    def analyze_trends(
-        self, df: DataFrame, date_column: str = "transaction_date"
-    ) -> DataFrame:
-        """
-        Analiza tendencias de ventas a lo largo del tiempo.
-
-        Args:
-            df: DataFrame con transacciones
-            date_column: Nombre de la columna de fecha
-
-        Returns:
-            DataFrame con tendencias
-        """
-        print("\n📈 Análisis de Tendencias")
-        print("-" * 60)
-
-        # Calcular ventas diarias con ventana móvil
-        df_daily = (
-            df.withColumn("date", to_date(col(date_column)))
-            .groupBy("date")
-            .agg(count("*").alias("num_transacciones"))
-            .orderBy("date")
-        )
-
-        # Ventana para calcular promedio móvil de 7 días
-        window_spec = Window.orderBy("date").rowsBetween(-6, 0)
-
-        df_trends = df_daily.withColumn(
-            "moving_avg_7d", avg("num_transacciones").over(window_spec)
-        )
-
-        print(
-            f"📊 Tendencias (promedio móvil de 7 días para suavizar variaciones diarias):"
-        )
-        df_trends.show(20, truncate=False)
-
-        # Detectar tendencia general (primera vs última semana)
-        first_week_avg = (
-            df_trends.limit(7).select(avg("num_transacciones")).collect()[0][0]
-        )
-        last_week_data = df_trends.orderBy(col("date").desc()).limit(7)
-        last_week_avg = last_week_data.select(avg("num_transacciones")).collect()[0][0]
-
-        trend_change = ((last_week_avg - first_week_avg) / first_week_avg) * 100
-
-        print(f"\n📊 Cambio en tendencia (primera vs última semana):")
-        print(f"   Primera semana promedio: {first_week_avg:.2f} transacciones/día")
-        print(f"   Última semana promedio: {last_week_avg:.2f} transacciones/día")
-        print(f"   Cambio: {trend_change:+.2f}%")
-
-        if trend_change > 5:
-            print(f"   ✅ Tendencia CRECIENTE")
-        elif trend_change < -5:
-            print(f"   ⚠️ Tendencia DECRECIENTE")
-        else:
-            print(f"   ➡️ Tendencia ESTABLE")
-
-        return df_trends
-
     def generate_temporal_summary(
         self, df: DataFrame, date_column: str = "transaction_date"
     ) -> Dict[str, Any]:
@@ -302,9 +249,6 @@ class TemporalAnalyzer:
         # Patrones por día de la semana
         df_dow = self.analyze_day_of_week_patterns(df, date_column)
 
-        # Tendencias
-        df_trends = self.analyze_trends(df, date_column)
-
         print("=" * 60)
 
         return {
@@ -312,6 +256,4 @@ class TemporalAnalyzer:
             "weekly": df_weekly,
             "monthly": df_monthly,
             "day_of_week": df_dow,
-            "trends": df_trends,
         }
-
