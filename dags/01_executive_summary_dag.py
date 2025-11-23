@@ -1,24 +1,22 @@
 """
 DAG 1: Resumen Ejecutivo
 
-Genera métricas clave para el dashboard:
-- Total de ventas (unidades)
-- Número de transacciones
-- Top 10 productos
-- Top 10 clientes
-- Días pico de compra
-- Categorías más rentables
-
-Frecuencia sugerida: Diaria
-Output: output/summary/*.json
+Ahora el procesamiento se delega a EMR Serverless. Airflow únicamente
+orquesta la ejecución y, opcionalmente, sincroniza los resultados a disco
+para que el frontend los consuma.
 """
 
+from __future__ import annotations
+
+import os
 from datetime import datetime, timedelta
-from airflow.decorators import dag, task
-from config.spark_config import create_spark_session, stop_spark_session
-from src.data_loader import DataLoader
-from src.summary_metrics import SummaryMetrics
-from src.json_exporter import JSONExporter
+
+from airflow.decorators import dag
+from airflow.exceptions import AirflowFailException
+from airflow.hooks.S3_hook import S3Hook
+from airflow.models import Variable
+from airflow.operators.python import PythonOperator
+from airflow.providers.amazon.aws.operators.emr import EmrServerlessStartJobOperator
 
 
 default_args = {
@@ -30,10 +28,117 @@ default_args = {
     "retry_delay": timedelta(minutes=5),
 }
 
+REQUIRED_CONFIG_KEYS = {
+    "application_id",
+    "execution_role_arn",
+    "entry_point",
+    "data_base_uri",
+    "output_prefix",
+}
+
+
+def parse_s3_uri(uri: str):
+    if not uri or not uri.startswith("s3://"):
+        raise AirflowFailException(f"URI S3 inválida: {uri}")
+    without_scheme = uri[5:]
+    bucket, _, key = without_scheme.partition("/")
+    if not bucket:
+        raise AirflowFailException(f"No se pudo obtener el bucket de {uri}")
+    return bucket, key.rstrip("/")
+
+
+def load_emr_config():
+    config = Variable.get("EXEC_SUMMARY_EMR_CONFIG", deserialize_json=True)
+    missing = REQUIRED_CONFIG_KEYS - set(config.keys())
+    if missing:
+        raise AirflowFailException(
+            f"EXEC_SUMMARY_EMR_CONFIG carece de las llaves requeridas: {missing}"
+        )
+    return config
+
+
+def build_entry_point_args(config: dict) -> list[str]:
+    args = [
+        "--output-prefix",
+        config["output_prefix"],
+        "--data-base-uri",
+        config["data_base_uri"],
+    ]
+
+    optional_map = {
+        "transactions_path": "--transactions-path",
+        "categories_path": "--categories-path",
+        "product_categories_path": "--product-categories-path",
+    }
+    for key, flag in optional_map.items():
+        if config.get(key):
+            args.extend([flag, config[key]])
+
+    top_n = config.get("top_n", 10)
+    args.extend(["--top-n", str(top_n)])
+    args.extend(["--dag-id", config.get("dag_id", "01_executive_summary")])
+    args.extend(["--task-id", config.get("task_id", "generate_executive_summary")])
+    return args
+
+
+def build_spark_submit_parameters(config: dict) -> str | None:
+    params = []
+    if config.get("py_files"):
+        params += ["--py-files", config["py_files"]]
+    params += config.get("extra_submit_params", [])
+    return " ".join(params) if params else None
+
+
+def build_configuration_overrides(config: dict) -> dict | None:
+    log_uri = config.get("log_uri")
+    if not log_uri and config.get("output_prefix"):
+        bucket, _ = parse_s3_uri(config["output_prefix"])
+        log_uri = f"s3://{bucket}/logs/"
+
+    if not log_uri:
+        return None
+
+    return {
+        "monitoringConfiguration": {
+            "s3MonitoringConfiguration": {
+                "logUri": log_uri,
+            }
+        }
+    }
+
+
+def download_results_from_s3(
+    bucket: str,
+    prefix: str,
+    local_dir: str,
+    aws_conn_id: str,
+    **_,
+):
+    hook = S3Hook(aws_conn_id=aws_conn_id)
+    os.makedirs(local_dir, exist_ok=True)
+    keys = hook.list_keys(bucket_name=bucket, prefix=prefix) or []
+
+    if not keys:
+        print(f"⚠️ No se encontraron archivos en s3://{bucket}/{prefix}")
+        return
+
+    for key in keys:
+        if key.endswith("/"):
+            continue
+        filename = os.path.basename(key)
+        destination = os.path.join(local_dir, filename)
+        hook.download_file(
+            key=key,
+            bucket_name=bucket,
+            local_path=destination,
+            preserve_file_name=True,
+        )
+        print(f"   ↳ Descargado {key} -> {destination}")
+
 
 @dag(
     dag_id="01_executive_summary",
-    description="Genera métricas del resumen ejecutivo para el dashboard",
+    description="Genera métricas del resumen ejecutivo usando EMR Serverless",
     default_args=default_args,
     schedule=None,  # Cambiar a "@daily" en producción
     start_date=datetime(2025, 1, 1),
@@ -41,124 +146,49 @@ default_args = {
     tags=["sales", "summary", "dashboard"],
 )
 def executive_summary_dag():
-    """DAG para generar el resumen ejecutivo."""
+    """DAG para generar el resumen ejecutivo en EMR Serverless."""
 
-    @task(task_id="generate_executive_summary")
-    def generate_summary():
-        """Genera todas las métricas del resumen ejecutivo."""
-        spark = None
-        try:
-            # Inicializar Spark
-            print("🚀 Inicializando Spark para Resumen Ejecutivo...")
-            spark = create_spark_session("ExecutiveSummary")
-            
-            # Inicializar componentes
-            data_loader = DataLoader(spark)
-            metrics_calculator = SummaryMetrics(spark)
-            exporter = JSONExporter()
-            
-            # Cargar datos
-            print("\n📂 Cargando datos desde PostgreSQL...")
-            print("   [1/5] Cargando transacciones...")
-            df_transactions = data_loader.load_transactions()
-            print(f"   ✅ Transacciones cargadas (schema: {df_transactions.columns})")
-            df_transactions.cache()
-            print("   → DataFrame cacheado")
-            
-            print("   [2/5] Explodiendo transacciones...")
-            df_transactions_exploded = data_loader.explode_transactions(df_transactions)
-            print("   ✅ Transacciones explodidas")
-            df_transactions_exploded.cache()
-            print("   → DataFrame cacheado")
-            
-            print("   [3/5] Cargando productos-categorías...")
-            df_product_categories = data_loader.load_product_categories()
-            print(f"   ✅ Productos-categorías cargadas")
-            df_product_categories.cache()
-            print("   → DataFrame cacheado")
+    config = load_emr_config()
+    aws_conn_id = config.get("aws_conn_id", "aws_default")
 
-            print("   [4/5] Cargando categorías...")
-            df_categories = data_loader.load_categories()
-            print(f"   ✅ Categorías cargadas")
-            df_categories.cache()
-            print("   → DataFrame cacheado")
-            
-            print("   [5/5] Todos los datos cargados correctamente")
-            
-            # Generar resumen ejecutivo
-            results = metrics_calculator.generate_executive_summary(
-                df_transactions,
-                df_transactions_exploded,
-                df_product_categories,
-                df_categories
-            )
-            
-            # Exportar resultados a JSON
-            print("\n💾 Exportando resultados a JSON...")
-            
-            # Métricas básicas
-            exporter.export_summary_metrics(
-                results["basic_metrics"],
-                filename="basic_metrics.json"
-            )
-            
-            # Top 10 productos
-            exporter.export_top_items(
-                results["top_products"],
-                item_type="products",
-                top_n=10
-            )
-            
-            # Top 10 clientes
-            exporter.export_top_items(
-                results["top_customers"],
-                item_type="customers",
-                top_n=10
-            )
-            
-            # Días pico
-            exporter.export_top_items(
-                results["peak_days"],
-                item_type="peak_days",
-                top_n=10
-            )
-            
-            # Top categorías
-            exporter.export_top_items(
-                results["top_categories"],
-                item_type="categories",
-                top_n=10
-            )
-            
-            # Metadata de ejecución
-            exporter.export_execution_metadata(
-                dag_id="01_executive_summary",
-                task_id="generate_executive_summary",
-                execution_info={
-                    "total_transactions": results["basic_metrics"]["total_transactions"],
-                    "total_sales_units": results["basic_metrics"]["total_sales_units"],
-                    "status": "success"
-                }
-            )
-            
-            # Liberar caché
-            df_transactions.unpersist()
-            df_transactions_exploded.unpersist()
-            df_product_categories.unpersist()
-            df_categories.unpersist()
-            
-            print("\n✅ Resumen ejecutivo generado y exportado exitosamente")
-            
-        except Exception as e:
-            print(f"\n❌ Error en Resumen Ejecutivo: {str(e)}")
-            raise
-        finally:
-            if spark:
-                stop_spark_session(spark)
+    job_driver = {
+        "sparkSubmit": {
+            "entryPoint": config["entry_point"],
+            "entryPointArguments": build_entry_point_args(config),
+        }
+    }
+    spark_submit_parameters = build_spark_submit_parameters(config)
+    if spark_submit_parameters:
+        job_driver["sparkSubmit"]["sparkSubmitParameters"] = spark_submit_parameters
 
-    # Definir flujo
-    generate_summary()
+    configuration_overrides = build_configuration_overrides(config)
+
+    run_emr_job = EmrServerlessStartJobOperator(
+        task_id="run_exec_summary_emr",
+        application_id=config["application_id"],
+        execution_role_arn=config["execution_role_arn"],
+        job_driver=job_driver,
+        configuration_overrides=configuration_overrides,
+        aws_conn_id="aws_default",
+        wait_for_completion=True
+    )
+
+    bucket, output_key = parse_s3_uri(config["output_prefix"])
+    summary_prefix = f"{output_key}/summary"
+    local_output = config.get("local_download_path", "/opt/airflow/output/summary")
+
+    sync_results = PythonOperator(
+        task_id="sync_summary_results",
+        python_callable=download_results_from_s3,
+        op_kwargs={
+            "bucket": bucket,
+            "prefix": summary_prefix,
+            "local_dir": local_output,
+            "aws_conn_id": aws_conn_id,
+        },
+    )
+
+    run_emr_job >> sync_results
 
 
-# Instanciar el DAG
 executive_summary_dag()
