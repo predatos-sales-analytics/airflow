@@ -104,9 +104,23 @@ class ExecutiveSummaryPipeline:
                 results["peak_days"], item_type="peak_days", top_n=10
             )
 
-            # Top categorías
+            # Días con más productos vendidos
+            self.exporter.export_top_items(
+                results["peak_days_by_products"],
+                item_type="peak_days_by_products",
+                top_n=10,
+            )
+
+            # Top categorías por volumen
             self.exporter.export_top_items(
                 results["top_categories"], item_type="categories", top_n=10
+            )
+
+            # Top categorías por cantidad de productos
+            self.exporter.export_top_items(
+                results["top_categories_by_products"],
+                item_type="categories_by_products",
+                top_n=10,
             )
 
             # Metadata de ejecución
@@ -120,7 +134,9 @@ class ExecutiveSummaryPipeline:
                         "top_10_products.json",
                         "top_10_customers.json",
                         "top_10_peak_days.json",
+                        "top_10_peak_days_by_products.json",
                         "top_10_categories.json",
+                        "top_10_categories_by_products.json",
                     ],
                 },
             )

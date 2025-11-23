@@ -1,0 +1,47 @@
+{
+  "type": "peak_days_by_products",
+  "top_n": 10,
+  "data": [
+    {
+      "date": "2013-03-03",
+      "total_products_sold": 97246
+    },
+    {
+      "date": "2013-02-03",
+      "total_products_sold": 95644
+    },
+    {
+      "date": "2013-03-02",
+      "total_products_sold": 93199
+    },
+    {
+      "date": "2013-06-01",
+      "total_products_sold": 92298
+    },
+    {
+      "date": "2013-02-02",
+      "total_products_sold": 89410
+    },
+    {
+      "date": "2013-02-17",
+      "total_products_sold": 87282
+    },
+    {
+      "date": "2013-06-03",
+      "total_products_sold": 86810
+    },
+    {
+      "date": "2013-06-15",
+      "total_products_sold": 85462
+    },
+    {
+      "date": "2013-04-28",
+      "total_products_sold": 84813
+    },
+    {
+      "date": "2013-03-17",
+      "total_products_sold": 84349
+    }
+  ],
+  "generated_at": "2025-11-23T19:46:15.397477"
+}

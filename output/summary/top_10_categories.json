@@ -1,52 +1,57 @@
-[
-  {
-    "category_id": null,
-    "category_name": null,
-    "total_volume": 5330800
-  },
-  {
-    "category_id": 6,
-    "category_name": "VERDURAS RAIZ,TUBERCULO Y BULBOS",
-    "total_volume": 1811523
-  },
-  {
-    "category_id": 7,
-    "category_name": "CARNES PROCESADAS AL VACIO",
-    "total_volume": 1811523
-  },
-  {
-    "category_id": 4,
-    "category_name": "CUIDADO DE LA ROPA",
-    "total_volume": 1410750
-  },
-  {
-    "category_id": 3,
-    "category_name": "VERDURAS DE FRUTOS",
-    "total_volume": 1410750
-  },
-  {
-    "category_id": 17,
-    "category_name": "JUGOS",
-    "total_volume": 729513
-  },
-  {
-    "category_id": 18,
-    "category_name": "VERDURAS DE HOJAS",
-    "total_volume": 729513
-  },
-  {
-    "category_id": 20,
-    "category_name": "AROMATICAS CONDIMENTOS",
-    "total_volume": 493388
-  },
-  {
-    "category_id": 25,
-    "category_name": "PASTAS COMESTIBLES",
-    "total_volume": 491896
-  },
-  {
-    "category_id": 28,
-    "category_name": "AROMATICAS MEDICINALES",
-    "total_volume": 294753
-  }
-]
+{
+  "type": "categories",
+  "top_n": 10,
+  "data": [
+    {
+      "category_id": null,
+      "category_name": null,
+      "total_volume": 5330800
+    },
+    {
+      "category_id": 6,
+      "category_name": "VERDURAS RAIZ,TUBERCULO Y BULBOS",
+      "total_volume": 1811523
+    },
+    {
+      "category_id": 7,
+      "category_name": "CARNES PROCESADAS AL VACIO",
+      "total_volume": 1811523
+    },
+    {
+      "category_id": 4,
+      "category_name": "CUIDADO DE LA ROPA",
+      "total_volume": 1410750
+    },
+    {
+      "category_id": 3,
+      "category_name": "VERDURAS DE FRUTOS",
+      "total_volume": 1410750
+    },
+    {
+      "category_id": 17,
+      "category_name": "JUGOS",
+      "total_volume": 729513
+    },
+    {
+      "category_id": 18,
+      "category_name": "VERDURAS DE HOJAS",
+      "total_volume": 729513
+    },
+    {
+      "category_id": 20,
+      "category_name": "AROMATICAS CONDIMENTOS",
+      "total_volume": 493388
+    },
+    {
+      "category_id": 25,
+      "category_name": "PASTAS COMESTIBLES",
+      "total_volume": 491896
+    },
+    {
+      "category_id": 28,
+      "category_name": "AROMATICAS MEDICINALES",
+      "total_volume": 294753
+    }
+  ],
+  "generated_at": "2025-11-23T19:46:18.870835"
+}

@@ -1,0 +1,57 @@
+{
+  "type": "categories_by_products",
+  "top_n": 10,
+  "data": [
+    {
+      "category_id": 2,
+      "category_name": "CONCESIONARIOS",
+      "num_products": 11629
+    },
+    {
+      "category_id": 9,
+      "category_name": "PASABOCAS",
+      "num_products": 5279
+    },
+    {
+      "category_id": 11,
+      "category_name": "CUIDADO DE LA COCINA",
+      "num_products": 4869
+    },
+    {
+      "category_id": 13,
+      "category_name": "GALLETAS",
+      "num_products": 4541
+    },
+    {
+      "category_id": 8,
+      "category_name": "QUESO",
+      "num_products": 4260
+    },
+    {
+      "category_id": 40,
+      "category_name": "MASCOTAS",
+      "num_products": 3693
+    },
+    {
+      "category_id": 48,
+      "category_name": "DESODORANTES",
+      "num_products": 3434
+    },
+    {
+      "category_id": 3,
+      "category_name": "VERDURAS DE FRUTOS",
+      "num_products": 2925
+    },
+    {
+      "category_id": 4,
+      "category_name": "CUIDADO DE LA ROPA",
+      "num_products": 2925
+    },
+    {
+      "category_id": 12,
+      "category_name": "YOGURT",
+      "num_products": 2877
+    }
+  ],
+  "generated_at": "2025-11-23T19:46:19.242602"
+}

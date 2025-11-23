@@ -1,42 +1,67 @@
-[
-  {
-    "product_id": 5,
-    "total_sold": 300526
-  },
-  {
-    "product_id": 10,
-    "total_sold": 290313
-  },
-  {
-    "product_id": 3,
-    "total_sold": 269855
-  },
-  {
-    "product_id": 4,
-    "total_sold": 260418
-  },
-  {
-    "product_id": 6,
-    "total_sold": 254644
-  },
-  {
-    "product_id": 8,
-    "total_sold": 253899
-  },
-  {
-    "product_id": 7,
-    "total_sold": 225877
-  },
-  {
-    "product_id": 16,
-    "total_sold": 224159
-  },
-  {
-    "product_id": 11,
-    "total_sold": 221968
-  },
-  {
-    "product_id": 9,
-    "total_sold": 212480
-  }
-]
+{
+  "type": "products",
+  "top_n": 10,
+  "data": [
+    {
+      "product_id": 5,
+      "category_id": 20,
+      "category_name": "AROMATICAS CONDIMENTOS",
+      "total_sold": 300526
+    },
+    {
+      "product_id": 5,
+      "category_id": 25,
+      "category_name": "PASTAS COMESTIBLES",
+      "total_sold": 300526
+    },
+    {
+      "product_id": 10,
+      "category_id": null,
+      "category_name": null,
+      "total_sold": 290313
+    },
+    {
+      "product_id": 3,
+      "category_id": 6,
+      "category_name": "VERDURAS RAIZ,TUBERCULO Y BULBOS",
+      "total_sold": 269855
+    },
+    {
+      "product_id": 3,
+      "category_id": 7,
+      "category_name": "CARNES PROCESADAS AL VACIO",
+      "total_sold": 269855
+    },
+    {
+      "product_id": 4,
+      "category_id": 6,
+      "category_name": "VERDURAS RAIZ,TUBERCULO Y BULBOS",
+      "total_sold": 260418
+    },
+    {
+      "product_id": 4,
+      "category_id": 7,
+      "category_name": "CARNES PROCESADAS AL VACIO",
+      "total_sold": 260418
+    },
+    {
+      "product_id": 6,
+      "category_id": 28,
+      "category_name": "AROMATICAS MEDICINALES",
+      "total_sold": 254644
+    },
+    {
+      "product_id": 8,
+      "category_id": 6,
+      "category_name": "VERDURAS RAIZ,TUBERCULO Y BULBOS",
+      "total_sold": 253899
+    },
+    {
+      "product_id": 8,
+      "category_id": 7,
+      "category_name": "CARNES PROCESADAS AL VACIO",
+      "total_sold": 253899
+    }
+  ],
+  "generated_at": "2025-11-23T19:46:11.275781"
+}

@@ -14,13 +14,17 @@ from pyspark.sql import DataFrame, SparkSession
 from pyspark.sql.functions import (
     col,
     count,
+    countDistinct,
     sum as spark_sum,
     desc,
     size,
     split,
     trim,
     to_date,
+    date_format,
     explode as spark_explode,
+    coalesce,
+    lit,
 )
 from typing import Dict, Any
 
@@ -70,25 +74,46 @@ class SummaryMetrics:
         return metrics
 
     def get_top_products(
-        self, df_transactions_exploded: DataFrame, top_n: int = 10
+        self,
+        df_transactions_exploded: DataFrame,
+        df_product_categories: DataFrame,
+        df_categories: DataFrame,
+        top_n: int = 10,
     ) -> DataFrame:
         """
-        Obtiene los productos más vendidos.
+        Obtiene los productos más vendidos con su categoría.
 
         Args:
             df_transactions_exploded: DataFrame de transacciones explodidas
+            df_product_categories: DataFrame de relación producto-categoría
+            df_categories: DataFrame de categorías
             top_n: Número de productos a retornar
 
         Returns:
-            DataFrame con top productos
+            DataFrame con top productos incluyendo categoría
         """
         print(f"\n🏆 Calculando Top {top_n} productos...")
 
-        df_top_products = (
-            df_transactions_exploded.groupBy("product_id")
-            .agg(count("*").alias("total_sold"))
-            .orderBy(desc("total_sold"))
-            .limit(top_n)
+        # Calcular cantidad vendida por producto
+        df_product_counts = df_transactions_exploded.groupBy("product_id").agg(
+            count("*").alias("total_sold")
+        )
+
+        # Hacer join con categorías para obtener información de categoría
+        df_products_with_category = (
+            df_product_counts.join(df_product_categories, "product_id", "left")
+            .join(df_categories, "category_id", "left")
+            .select(
+                "product_id",
+                col("category_id").cast("int").alias("category_id"),
+                col("category_name"),
+                "total_sold",
+            )
+        )
+
+        # Obtener top N productos ordenados por cantidad vendida
+        df_top_products = df_products_with_category.orderBy(desc("total_sold")).limit(
+            top_n
         )
 
         df_top_products.show(truncate=False)
@@ -110,6 +135,7 @@ class SummaryMetrics:
         """
         print(f"\n👥 Calculando Top {top_n} clientes...")
 
+        # Calcular total de compras por cliente
         df_top_customers = (
             df_transactions.groupBy("customer_id")
             .agg(count("*").alias("total_purchases"))
@@ -134,7 +160,8 @@ class SummaryMetrics:
         """
         print(f"\n📅 Calculando {top_n} días pico de compras...")
 
-        df_peak_days = (
+        # Calcular días pico de compras
+        df_peak_days_temp = (
             df_transactions.withColumn("date", to_date(col("transaction_date")))
             .groupBy("date")
             .agg(count("*").alias("num_transactions"))
@@ -142,9 +169,51 @@ class SummaryMetrics:
             .limit(top_n)
         )
 
+        # Convertir fecha a string para JSON (después del groupBy)
+        df_peak_days = df_peak_days_temp.withColumn(
+            "date", date_format(col("date"), "yyyy-MM-dd")
+        )
+
         df_peak_days.show(truncate=False)
 
         return df_peak_days
+
+    def get_peak_days_by_products(
+        self, df_transactions: DataFrame, top_n: int = 10
+    ) -> DataFrame:
+        """
+        Identifica los días con más productos vendidos (unidades), no transacciones.
+
+        Args:
+            df_transactions: DataFrame de transacciones
+            top_n: Número de días a retornar
+
+        Returns:
+            DataFrame con días con más productos vendidos
+        """
+        print(f"\n📆 Calculando {top_n} días con más productos vendidos...")
+
+        # Calcular días con más productos vendidos
+        df_peak_days_by_products_temp = (
+            df_transactions.withColumn("date", to_date(col("transaction_date")))
+            .groupBy("date")
+            .agg(
+                spark_sum(size(split(trim(col("products")), " "))).alias(
+                    "total_products_sold"
+                )
+            )
+            .orderBy(desc("total_products_sold"))
+            .limit(top_n)
+        )
+
+        # Convertir fecha a string para JSON (después del groupBy)
+        df_peak_days_by_products = df_peak_days_by_products_temp.withColumn(
+            "date", date_format(col("date"), "yyyy-MM-dd")
+        )
+
+        df_peak_days_by_products.show(truncate=False)
+
+        return df_peak_days_by_products
 
     def get_top_categories(
         self,
@@ -154,7 +223,8 @@ class SummaryMetrics:
         top_n: int = 10,
     ) -> DataFrame:
         """
-        Identifica las categorías más rentables (por volumen).
+        Identifica las categorías más rentables (por volumen de unidades vendidas).
+        Incluye productos sin categoría (NULL) porque es información importante.
 
         Args:
             df_transactions_exploded: DataFrame de transacciones explodidas
@@ -163,15 +233,18 @@ class SummaryMetrics:
             top_n: Número de categorías a retornar
 
         Returns:
-            DataFrame con top categorías
+            DataFrame con top categorías por volumen (incluyendo NULL si está en top)
         """
-        print(f"\n📦 Calculando Top {top_n} categorías más rentables...")
+        print(f"\n📦 Calculando Top {top_n} categorías más rentables (por volumen)...")
 
-        # Join: transactions -> products -> categories
-        df_with_category = df_transactions_exploded.join(
-            df_product_categories, "product_id", "left"
-        ).join(df_categories, "category_id", "left")
+        # Join para obtener categorías de productos
+        df_with_category = (
+            df_transactions_exploded.join(df_product_categories, "product_id", "left")
+            .join(df_categories, "category_id", "left")
+            .withColumn("category_id", col("category_id").cast("int"))
+        )
 
+        # Calcular volumen de ventas por categoría
         df_top_categories = (
             df_with_category.groupBy("category_id", "category_name")
             .agg(count("*").alias("total_volume"))
@@ -182,6 +255,41 @@ class SummaryMetrics:
         df_top_categories.show(truncate=False)
 
         return df_top_categories
+
+    def get_top_categories_by_product_count(
+        self,
+        df_transactions_exploded: DataFrame,
+        df_product_categories: DataFrame,
+        df_categories: DataFrame,
+        top_n: int = 10,
+    ) -> DataFrame:
+        """
+        Identifica las categorías con mayor número de productos en el catálogo.
+        Cuenta el total de productos únicos que tiene cada categoría.
+
+        Args:
+            df_transactions_exploded: DataFrame de transacciones explodidas (no se usa, mantenido por compatibilidad)
+            df_product_categories: DataFrame de relación producto-categoría
+            df_categories: DataFrame de categorías
+            top_n: Número de categorías a retornar
+
+        Returns:
+            DataFrame con top categorías por número total de productos en catálogo
+        """
+        print(f"\n🏷️ Calculando Top {top_n} categorías con más productos en catálogo...")
+
+        # Calcular número de productos por categoría
+        df_top_categories_by_products = (
+            df_product_categories.join(df_categories, "category_id", "inner")
+            .groupBy("category_id", "category_name")
+            .agg(countDistinct("product_id").alias("num_products"))
+            .orderBy(desc("num_products"))
+            .limit(top_n)
+        )
+
+        df_top_categories_by_products.show(truncate=False)
+
+        return df_top_categories_by_products
 
     def generate_executive_summary(
         self,
@@ -210,7 +318,9 @@ class SummaryMetrics:
         basic_metrics = self.calculate_basic_metrics(df_transactions)
 
         # Top 10 productos
-        top_products = self.get_top_products(df_transactions_exploded, top_n=10)
+        top_products = self.get_top_products(
+            df_transactions_exploded, df_product_categories, df_categories, top_n=10
+        )
 
         # Top 10 clientes
         top_customers = self.get_top_customers(df_transactions, top_n=10)
@@ -218,8 +328,18 @@ class SummaryMetrics:
         # Días pico
         peak_days = self.get_peak_days(df_transactions, top_n=10)
 
-        # Top categorías
+        # Días con más productos vendidos (unidades)
+        peak_days_by_products = self.get_peak_days_by_products(
+            df_transactions, top_n=10
+        )
+
+        # Top categorías por volumen
         top_categories = self.get_top_categories(
+            df_transactions_exploded, df_product_categories, df_categories, top_n=10
+        )
+
+        # Top categorías por cantidad de productos
+        top_categories_by_products = self.get_top_categories_by_product_count(
             df_transactions_exploded, df_product_categories, df_categories, top_n=10
         )
 
@@ -233,4 +353,6 @@ class SummaryMetrics:
             "top_customers": top_customers,
             "peak_days": peak_days,
             "top_categories": top_categories,
+            "top_categories_by_products": top_categories_by_products,
+            "peak_days_by_products": peak_days_by_products,
         }
