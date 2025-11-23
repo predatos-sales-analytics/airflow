@@ -162,6 +162,7 @@ airflow/
 **Descripción**: Analiza datasets de referencia (categorías y productos-categorías).
 
 **Tareas**:
+
 - `analyze_categories` → `analyze_product_categories`
 
 **Duración estimada**: 1-2 minutos
@@ -171,6 +172,7 @@ airflow/
 **Descripción**: Ejecuta análisis de calidad y datasets explodidos de transacciones.
 
 **Tareas**:
+
 - `analyze_transactions` → `analyze_transactions_exploded`
 
 **Duración estimada**: 5-10 minutos (depende del tamaño de datos)
@@ -180,6 +182,7 @@ airflow/
 **Descripción**: Análisis completo con procesamiento paralelo por tienda y FP-Growth distribuido.
 
 **Tareas**:
+
 - `temporal_analysis` (paralelo)
 - `customer_analysis` (paralelo)
 - `global_product_analysis` (paralelo)
@@ -187,8 +190,9 @@ airflow/
 - `train_fp_growth` (distribuido en Spark cluster)
 
 **Flujo**:
+
 ```
-[temporal, customers, products] 
+[temporal, customers, products]
     ↓
 [analyze_store × N tiendas] (paralelo)
     ↓
@@ -248,6 +252,7 @@ docker compose exec postgres psql -U sales -d sales -c "SELECT COUNT(*) FROM tra
 **Causa**: Los módulos `config/` o `src/` no están disponibles en el contenedor.
 
 **Solución**:
+
 1. Verificar que las carpetas `config/` y `src/` existen en el directorio `airflow/`
 2. Verificar que los volúmenes están montados correctamente en `docker-compose.yml`
 3. Verificar que el volumen está montado correctamente en `docker-compose.yml`
@@ -257,6 +262,7 @@ docker compose exec postgres psql -U sales -d sales -c "SELECT COUNT(*) FROM tra
 **Causa**: Postgres no está listo o las credenciales son incorrectas.
 
 **Solución**:
+
 ```bash
 # Verificar estado
 docker compose ps postgres
@@ -273,6 +279,7 @@ docker compose restart postgres
 **Causa**: El clúster Spark no está iniciado o la URL es incorrecta.
 
 **Solución**:
+
 ```bash
 # Verificar servicios Spark
 docker compose ps | grep spark
@@ -288,6 +295,7 @@ docker compose logs spark-master
 **Causa**: Errores de sintaxis o imports en los DAGs.
 
 **Solución**:
+
 ```bash
 # Verificar logs del scheduler
 docker compose logs airflow-scheduler
@@ -304,6 +312,7 @@ docker compose exec airflow-scheduler airflow dags list-import-errors
 **Causa**: Problemas de permisos con el usuario de Airflow.
 
 **Solución**:
+
 ```bash
 # Ajustar permisos
 sudo chown -R 50000:0 airflow/logs airflow/plugins
@@ -324,10 +333,10 @@ echo -e "AIRFLOW_UID=$(id -u)" > .env
 - Los resultados se guardan en `output/` dentro del proyecto principal (montado como volumen)
 - Los análisis por tienda generan CSVs en `output/stores/<store_id>/`
 - FP-Growth guarda resultados en `output/data/fp_growth_*`
+- El pipeline de recomendaciones escribe JSON consumibles por el frontend en `output/recommendations/{product_recs,customer_recs}.json`
 - Los logs de Airflow se almacenan en `airflow/logs/` (persisten entre reinicios)
 
 ## 👥 Autores
 
 - Juan David Colonia Aldana - A00395956
 - Miguel Ángel Gonzalez Arango - A00395687
-
