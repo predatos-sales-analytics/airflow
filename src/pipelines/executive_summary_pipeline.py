@@ -18,9 +18,9 @@ import os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", ".."))
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
-from config.spark_config import create_spark_session, stop_spark_session
+from src.config.spark_config import create_spark_session, stop_spark_session
 from src.data_loader import DataLoader
-from src.summary_metrics import SummaryMetrics
+from src.analyzers.summary_metrics import SummaryMetrics
 from src.json_exporter import JSONExporter
 
 

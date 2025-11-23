@@ -71,7 +71,7 @@ echo "==========================================================================
 echo ""
 
 # Ejecutar el pipeline con todos los argumentos
-if docker compose exec spark-client python3 /opt/spark/work-dir/run_pipeline.py "$@"; then
+if docker compose exec spark-client python3 /opt/spark/work-dir/src/run_pipeline.py "$@"; then
     echo ""
     echo "================================================================================"
     log_success "Pipeline '${PIPELINE_NAME}' completado exitosamente"

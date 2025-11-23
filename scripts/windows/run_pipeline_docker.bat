@@ -52,7 +52,7 @@ echo ===========================================================================
 echo.
 
 REM Ejecutar el pipeline con todos los argumentos
-docker compose exec spark-client python3 /opt/spark/work-dir/run_pipeline.py %*
+docker compose exec spark-client python3 /opt/spark/work-dir/src/run_pipeline.py %*
 
 if errorlevel 1 (
     echo.

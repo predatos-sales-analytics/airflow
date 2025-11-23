@@ -49,7 +49,6 @@ services:
     volumes:
       - ${PROJ_DIR:-.}/data:/opt/spark/work-dir/data:ro
       - ${PROJ_DIR:-.}/src:/opt/spark/work-dir/src:ro
-      - ${PROJ_DIR:-.}/config:/opt/spark/work-dir/config:ro
       - ${PROJ_DIR:-.}/output:/opt/spark/work-dir/output
 
   spark-worker:
@@ -78,7 +77,6 @@ services:
     volumes:
       - ${PROJ_DIR:-.}/data:/opt/spark/work-dir/data:ro
       - ${PROJ_DIR:-.}/src:/opt/spark/work-dir/src:ro
-      - ${PROJ_DIR:-.}/config:/opt/spark/work-dir/config:ro
       - ${PROJ_DIR:-.}/output:/opt/spark/work-dir/output
 
   spark-client:
@@ -96,7 +94,7 @@ services:
       - POSTGRES_PASSWORD=sales
       - SPARK_MASTER_URL=spark://spark-master:7077
       - PYSPARK_PYTHON=/usr/bin/python3
-      - PYTHONPATH=/opt/spark/work-dir/src:/opt/spark/work-dir/config
+      - PYTHONPATH=/opt/spark/work-dir/src
       - DATA_PATH=/opt/spark/work-dir/data
       - OUTPUT_PATH=/opt/spark/work-dir/output
     depends_on:
@@ -105,9 +103,8 @@ services:
     volumes:
       - ${PROJ_DIR:-.}/data:/opt/spark/work-dir/data:ro
       - ${PROJ_DIR:-.}/src:/opt/spark/work-dir/src:ro
-      - ${PROJ_DIR:-.}/config:/opt/spark/work-dir/config:ro
       - ${PROJ_DIR:-.}/output:/opt/spark/work-dir/output
-      - ${PROJ_DIR:-.}/run_pipeline.py:/opt/spark/work-dir/run_pipeline.py:ro
+      - ${PROJ_DIR:-.}/src/run_pipeline.py:/opt/spark/work-dir/src/run_pipeline.py:ro
     working_dir: /opt/spark/work-dir
 
 volumes:
