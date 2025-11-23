@@ -61,6 +61,11 @@ El archivo `.env` contiene todas las configuraciones necesarias. Ver `.env.templ
 - `AIRFLOW_UID`: ID de usuario para Airflow (generado automáticamente en Linux/Mac)
 - `AIRFLOW_FERNET_KEY`: Clave de encriptación para Airflow (generar con el comando de instalación)
 
+**Fuente de datos para Spark (`src/data_loader.py`):**
+
+- `DATA_SOURCE=postgres` (default): lee desde la base de datos `sales`.
+- `DATA_SOURCE=s3`: lee directamente los CSV publicados en S3. Define `S3_DATA_BASE_URI` (por ejemplo `s3://exec-summary-frank-bullfrog/raw-data`) y, si lo deseas, sobreescribe las rutas específicas con `S3_TRANSACTIONS_PATH`, `S3_CATEGORIES_PATH` y `S3_PRODUCT_CATEGORIES_PATH`.
+
 ### Variables de Airflow
 
 Configurar en la UI de Airflow (Admin → Variables) o vía CLI:
@@ -162,6 +167,7 @@ airflow/
 **Descripción**: Analiza datasets de referencia (categorías y productos-categorías).
 
 **Tareas**:
+
 - `analyze_categories` → `analyze_product_categories`
 
 **Duración estimada**: 1-2 minutos
@@ -171,6 +177,7 @@ airflow/
 **Descripción**: Ejecuta análisis de calidad y datasets explodidos de transacciones.
 
 **Tareas**:
+
 - `analyze_transactions` → `analyze_transactions_exploded`
 
 **Duración estimada**: 5-10 minutos (depende del tamaño de datos)
@@ -180,6 +187,7 @@ airflow/
 **Descripción**: Análisis completo con procesamiento paralelo por tienda y FP-Growth distribuido.
 
 **Tareas**:
+
 - `temporal_analysis` (paralelo)
 - `customer_analysis` (paralelo)
 - `global_product_analysis` (paralelo)
@@ -187,8 +195,9 @@ airflow/
 - `train_fp_growth` (distribuido en Spark cluster)
 
 **Flujo**:
+
 ```
-[temporal, customers, products] 
+[temporal, customers, products]
     ↓
 [analyze_store × N tiendas] (paralelo)
     ↓
@@ -196,6 +205,95 @@ train_fp_growth
 ```
 
 **Duración estimada**: 15-30 minutos (depende del número de tiendas y tamaño de datos)
+
+## ☁️ Executive Summary en EMR Serverless
+
+El DAG `01_executive_summary` ya no usa el cluster local de Spark. Ahora lanza un job en EMR Serverless usando el artefacto PySpark publicado en S3 y sincroniza los resultados a `output/summary`.
+
+### 1. Empaquetar y subir el código
+
+```bash
+# Desde la carpeta airflow/
+mkdir -p dist
+
+# Empaqueta todo el módulo src/ (incluye data_loader, summary_metrics, etc.)
+zip -r dist/executive_summary_dependencies.zip src
+aws s3 cp dist/executive_summary_dependencies.zip s3://exec-summary-frank-bullfrog/artifacts/
+
+# Sube el entrypoint principal (debe quedar como archivo .py plano en S3)
+aws s3 cp src/main_emr.py s3://exec-summary-frank-bullfrog/artifacts/main_emr.py
+```
+
+> El ZIP se pasa a Spark con `--py-files` y `main_emr.py` es el `entryPoint`. Mantén ambos dentro del mismo bucket para facilitar permisos.
+
+### 2. Publicar los datos crudos
+
+Sincroniza los CSV al bucket que creó Terraform:
+
+```bash
+aws s3 sync data/transactions s3://exec-summary-frank-bullfrog/raw-data/transactions
+aws s3 sync data/products s3://exec-summary-frank-bullfrog/raw-data/products
+```
+
+### 3. Configurar credenciales en Airflow
+
+1. Crea/actualiza la conexión `aws_default` (Admin → Connections) con las claves que tengan acceso a EMR Serverless y S3.
+2. Si prefieres otro `conn_id`, indícalo en el JSON de configuración (clave `aws_conn_id`).
+
+### 4. Variable `EXEC_SUMMARY_EMR_CONFIG`
+
+En Admin → Variables agrega `EXEC_SUMMARY_EMR_CONFIG` con un JSON similar:
+
+```json
+{
+  "application_id": "00g1blpe2q64eq0d",
+  "execution_role_arn": "arn:aws:iam::019682854801:role/executive-summary-execution-role",
+  "entry_point": "s3://exec-summary-mint-lamb/artifacts/main_emr.py",
+  "py_files": "s3://exec-summary-mint-lamb/artifacts/executive_summary_dependencies.zip",
+  "data_base_uri": "s3://exec-summary-mint-lamb/raw-data",
+  "transactions_path": "s3://exec-summary-mint-lamb/raw-data/transactions",
+  "categories_path": "s3://exec-summary-mint-lamb/raw-data/products/Categories.csv",
+  "product_categories_path": "s3://exec-summary-mint-lamb/raw-data/products/ProductCategory.csv",
+  "output_prefix": "s3://exec-summary-mint-lamb/results/executive_summary",
+  "log_uri": "s3://exec-summary-mint-lamb/logs/",
+  "aws_conn_id": "aws_default",
+  "top_n": 10,
+  "local_download_path": "/opt/airflow/output/summary"
+}
+```
+
+- `output_prefix` define dónde se guardan los JSON generados por el job.
+- `local_download_path` es la carpeta que el operador Python sincroniza tras cada corrida (puede apuntar al volumen montado por el frontend).
+- Usa `extra_submit_params` si necesitas añadir flags extra (`["--conf", "spark.executor.memory=6g"]`).
+
+### 5. Ejecutar el DAG
+
+1. Despliega la infraestructura Terraform si aún no lo has hecho (bucket, rol y aplicación EMR Serverless).
+2. Verifica que los archivos `artifacts/` y `raw-data/` existen en S3.
+3. Activa y lanza `01_executive_summary`. La tarea `run_exec_summary_emr` monitorea el job remoto y `sync_summary_results` descarga los JSON a `output/summary`.
+
+> En caso de error revisa primero los logs en CloudWatch/S3 (`log_uri`) y luego los logs de la tarea en Airflow.
+
+### DAG ligero `02_sample_summary`
+
+Si sólo necesitas validar la infraestructura con un job liviano:
+
+1. Sube `src/simple_emr_job.py` a tu bucket (ej. `s3://exec-summary-frank-bullfrog/artifacts/simple_emr_job.py`). No requiere ZIP adicional.
+2. Crea la variable `SAMPLE_SUMMARY_EMR_CONFIG`:
+
+```json
+{
+  "application_id": "00g1blpe2q64eq0d",
+  "execution_role_arn": "arn:aws:iam::019682854801:role/executive-summary-execution-role",
+  "entry_point": "s3://exec-summary-frank-bullfrog/artifacts/simple_emr_job.py",
+  "transactions_path": "s3://exec-summary-frank-bullfrog/raw-data/transactions",
+  "output_prefix": "s3://exec-summary-frank-bullfrog/results/sample_summary",
+  "max_records": 5000,
+  "aws_conn_id": "aws_default"
+}
+```
+
+3. Ejecuta `02_sample_summary` desde la UI. El job leerá sólo unos miles de filas para estimar actividad diaria y escribirá `sample_summary.json` + `metadata.json` en el prefijo indicado.
 
 ## 📥 Carga de Datos
 
@@ -248,6 +346,7 @@ docker compose exec postgres psql -U sales -d sales -c "SELECT COUNT(*) FROM tra
 **Causa**: Los módulos `config/` o `src/` no están disponibles en el contenedor.
 
 **Solución**:
+
 1. Verificar que las carpetas `config/` y `src/` existen en el directorio `airflow/`
 2. Verificar que los volúmenes están montados correctamente en `docker-compose.yml`
 3. Verificar que el volumen está montado correctamente en `docker-compose.yml`
@@ -257,6 +356,7 @@ docker compose exec postgres psql -U sales -d sales -c "SELECT COUNT(*) FROM tra
 **Causa**: Postgres no está listo o las credenciales son incorrectas.
 
 **Solución**:
+
 ```bash
 # Verificar estado
 docker compose ps postgres
@@ -273,6 +373,7 @@ docker compose restart postgres
 **Causa**: El clúster Spark no está iniciado o la URL es incorrecta.
 
 **Solución**:
+
 ```bash
 # Verificar servicios Spark
 docker compose ps | grep spark
@@ -288,6 +389,7 @@ docker compose logs spark-master
 **Causa**: Errores de sintaxis o imports en los DAGs.
 
 **Solución**:
+
 ```bash
 # Verificar logs del scheduler
 docker compose logs airflow-scheduler
@@ -304,6 +406,7 @@ docker compose exec airflow-scheduler airflow dags list-import-errors
 **Causa**: Problemas de permisos con el usuario de Airflow.
 
 **Solución**:
+
 ```bash
 # Ajustar permisos
 sudo chown -R 50000:0 airflow/logs airflow/plugins
@@ -330,4 +433,3 @@ echo -e "AIRFLOW_UID=$(id -u)" > .env
 
 - Juan David Colonia Aldana - A00395956
 - Miguel Ángel Gonzalez Arango - A00395687
-
