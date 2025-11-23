@@ -1,0 +1,41 @@
+{
+  "distribution_name": "day_of_week_patterns",
+  "data": [
+    {
+      "day_of_week": 1,
+      "day_name": "Sunday",
+      "num_transacciones": 191406
+    },
+    {
+      "day_of_week": 2,
+      "day_name": "Monday",
+      "num_transacciones": 142445
+    },
+    {
+      "day_of_week": 3,
+      "day_name": "Tuesday",
+      "num_transacciones": 150739
+    },
+    {
+      "day_of_week": 4,
+      "day_name": "Wednesday",
+      "num_transacciones": 137245
+    },
+    {
+      "day_of_week": 5,
+      "day_name": "Thursday",
+      "num_transacciones": 158766
+    },
+    {
+      "day_of_week": 6,
+      "day_name": "Friday",
+      "num_transacciones": 139371
+    },
+    {
+      "day_of_week": 7,
+      "day_name": "Saturday",
+      "num_transacciones": 189015
+    }
+  ],
+  "generated_at": "2025-11-23T21:11:05.468295"
+}

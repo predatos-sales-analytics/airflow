@@ -1,0 +1,20 @@
+{
+  "dag_id": "analytics_pipeline",
+  "task_id": "generate_analytics",
+  "execution_timestamp": "2025-11-23T21:11:49.860962",
+  "status": "success",
+  "files_generated": [
+    "daily_sales.json",
+    "weekly_sales.json",
+    "monthly_sales.json",
+    "day_of_week_patterns_distribution.json",
+    "category_products_by_store_distribution.json",
+    "variable_correlation.json"
+  ],
+  "visualizations": [
+    "Serie de tiempo (diaria, semanal, mensual)",
+    "Patrones por día de la semana",
+    "Boxplot - Total productos vendidos por categoría (4 tiendas por categoría)",
+    "Heatmap - Matriz de correlación"
+  ]
+}

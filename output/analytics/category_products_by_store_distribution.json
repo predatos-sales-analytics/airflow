@@ -1,0 +1,570 @@
+{
+  "distribution_name": "category_products_by_store",
+  "data": [
+    {
+      "category_id": 1,
+      "category_name": "GRUPO FRUVER-EXCEPCIONES",
+      "store_id": 103,
+      "total_products_sold": 165314
+    },
+    {
+      "category_id": 1,
+      "category_name": "GRUPO FRUVER-EXCEPCIONES",
+      "store_id": 107,
+      "total_products_sold": 20724
+    },
+    {
+      "category_id": 1,
+      "category_name": "GRUPO FRUVER-EXCEPCIONES",
+      "store_id": 110,
+      "total_products_sold": 47508
+    },
+    {
+      "category_id": 3,
+      "category_name": "VERDURAS DE FRUTOS",
+      "store_id": 102,
+      "total_products_sold": 421066
+    },
+    {
+      "category_id": 3,
+      "category_name": "VERDURAS DE FRUTOS",
+      "store_id": 103,
+      "total_products_sold": 521030
+    },
+    {
+      "category_id": 3,
+      "category_name": "VERDURAS DE FRUTOS",
+      "store_id": 107,
+      "total_products_sold": 290300
+    },
+    {
+      "category_id": 3,
+      "category_name": "VERDURAS DE FRUTOS",
+      "store_id": 110,
+      "total_products_sold": 178354
+    },
+    {
+      "category_id": 4,
+      "category_name": "CUIDADO DE LA ROPA",
+      "store_id": 102,
+      "total_products_sold": 421066
+    },
+    {
+      "category_id": 4,
+      "category_name": "CUIDADO DE LA ROPA",
+      "store_id": 103,
+      "total_products_sold": 521030
+    },
+    {
+      "category_id": 4,
+      "category_name": "CUIDADO DE LA ROPA",
+      "store_id": 107,
+      "total_products_sold": 290300
+    },
+    {
+      "category_id": 4,
+      "category_name": "CUIDADO DE LA ROPA",
+      "store_id": 110,
+      "total_products_sold": 178354
+    },
+    {
+      "category_id": 6,
+      "category_name": "VERDURAS RAIZ,TUBERCULO Y BULBOS",
+      "store_id": 102,
+      "total_products_sold": 470316
+    },
+    {
+      "category_id": 6,
+      "category_name": "VERDURAS RAIZ,TUBERCULO Y BULBOS",
+      "store_id": 103,
+      "total_products_sold": 714113
+    },
+    {
+      "category_id": 6,
+      "category_name": "VERDURAS RAIZ,TUBERCULO Y BULBOS",
+      "store_id": 107,
+      "total_products_sold": 404181
+    },
+    {
+      "category_id": 6,
+      "category_name": "VERDURAS RAIZ,TUBERCULO Y BULBOS",
+      "store_id": 110,
+      "total_products_sold": 222913
+    },
+    {
+      "category_id": 7,
+      "category_name": "CARNES PROCESADAS AL VACIO",
+      "store_id": 102,
+      "total_products_sold": 470316
+    },
+    {
+      "category_id": 7,
+      "category_name": "CARNES PROCESADAS AL VACIO",
+      "store_id": 103,
+      "total_products_sold": 714113
+    },
+    {
+      "category_id": 7,
+      "category_name": "CARNES PROCESADAS AL VACIO",
+      "store_id": 107,
+      "total_products_sold": 404181
+    },
+    {
+      "category_id": 7,
+      "category_name": "CARNES PROCESADAS AL VACIO",
+      "store_id": 110,
+      "total_products_sold": 222913
+    },
+    {
+      "category_id": 8,
+      "category_name": "QUESO",
+      "store_id": 103,
+      "total_products_sold": 1114
+    },
+    {
+      "category_id": 8,
+      "category_name": "QUESO",
+      "store_id": 107,
+      "total_products_sold": 2425
+    },
+    {
+      "category_id": 8,
+      "category_name": "QUESO",
+      "store_id": 110,
+      "total_products_sold": 4
+    },
+    {
+      "category_id": 9,
+      "category_name": "PASABOCAS",
+      "store_id": 103,
+      "total_products_sold": 1114
+    },
+    {
+      "category_id": 9,
+      "category_name": "PASABOCAS",
+      "store_id": 107,
+      "total_products_sold": 2425
+    },
+    {
+      "category_id": 9,
+      "category_name": "PASABOCAS",
+      "store_id": 110,
+      "total_products_sold": 4
+    },
+    {
+      "category_id": 11,
+      "category_name": "CUIDADO DE LA COCINA",
+      "store_id": 103,
+      "total_products_sold": 34185
+    },
+    {
+      "category_id": 11,
+      "category_name": "CUIDADO DE LA COCINA",
+      "store_id": 107,
+      "total_products_sold": 14531
+    },
+    {
+      "category_id": 11,
+      "category_name": "CUIDADO DE LA COCINA",
+      "store_id": 110,
+      "total_products_sold": 10141
+    },
+    {
+      "category_id": 13,
+      "category_name": "GALLETAS",
+      "store_id": 103,
+      "total_products_sold": 34185
+    },
+    {
+      "category_id": 13,
+      "category_name": "GALLETAS",
+      "store_id": 107,
+      "total_products_sold": 14531
+    },
+    {
+      "category_id": 13,
+      "category_name": "GALLETAS",
+      "store_id": 110,
+      "total_products_sold": 10141
+    },
+    {
+      "category_id": 14,
+      "category_name": "ENLATADOS",
+      "store_id": 103,
+      "total_products_sold": 4092
+    },
+    {
+      "category_id": 14,
+      "category_name": "ENLATADOS",
+      "store_id": 107,
+      "total_products_sold": 1976
+    },
+    {
+      "category_id": 14,
+      "category_name": "ENLATADOS",
+      "store_id": 110,
+      "total_products_sold": 1020
+    },
+    {
+      "category_id": 17,
+      "category_name": "JUGOS",
+      "store_id": 102,
+      "total_products_sold": 180118
+    },
+    {
+      "category_id": 17,
+      "category_name": "JUGOS",
+      "store_id": 103,
+      "total_products_sold": 280578
+    },
+    {
+      "category_id": 17,
+      "category_name": "JUGOS",
+      "store_id": 107,
+      "total_products_sold": 173887
+    },
+    {
+      "category_id": 17,
+      "category_name": "JUGOS",
+      "store_id": 110,
+      "total_products_sold": 94930
+    },
+    {
+      "category_id": 18,
+      "category_name": "VERDURAS DE HOJAS",
+      "store_id": 102,
+      "total_products_sold": 180118
+    },
+    {
+      "category_id": 18,
+      "category_name": "VERDURAS DE HOJAS",
+      "store_id": 103,
+      "total_products_sold": 280578
+    },
+    {
+      "category_id": 18,
+      "category_name": "VERDURAS DE HOJAS",
+      "store_id": 107,
+      "total_products_sold": 173887
+    },
+    {
+      "category_id": 18,
+      "category_name": "VERDURAS DE HOJAS",
+      "store_id": 110,
+      "total_products_sold": 94930
+    },
+    {
+      "category_id": 20,
+      "category_name": "AROMATICAS CONDIMENTOS",
+      "store_id": 102,
+      "total_products_sold": 139688
+    },
+    {
+      "category_id": 20,
+      "category_name": "AROMATICAS CONDIMENTOS",
+      "store_id": 103,
+      "total_products_sold": 172806
+    },
+    {
+      "category_id": 20,
+      "category_name": "AROMATICAS CONDIMENTOS",
+      "store_id": 107,
+      "total_products_sold": 122208
+    },
+    {
+      "category_id": 20,
+      "category_name": "AROMATICAS CONDIMENTOS",
+      "store_id": 110,
+      "total_products_sold": 58686
+    },
+    {
+      "category_id": 21,
+      "category_name": "HUEVOS",
+      "store_id": 103,
+      "total_products_sold": 7714
+    },
+    {
+      "category_id": 21,
+      "category_name": "HUEVOS",
+      "store_id": 107,
+      "total_products_sold": 2137
+    },
+    {
+      "category_id": 21,
+      "category_name": "HUEVOS",
+      "store_id": 110,
+      "total_products_sold": 1793
+    },
+    {
+      "category_id": 23,
+      "category_name": "AZUCAR",
+      "store_id": 103,
+      "total_products_sold": 32653
+    },
+    {
+      "category_id": 23,
+      "category_name": "AZUCAR",
+      "store_id": 107,
+      "total_products_sold": 11442
+    },
+    {
+      "category_id": 23,
+      "category_name": "AZUCAR",
+      "store_id": 110,
+      "total_products_sold": 8376
+    },
+    {
+      "category_id": 24,
+      "category_name": "VERDURAS RAIZ,TUBE,ETC, PESO FIJO",
+      "store_id": 103,
+      "total_products_sold": 6691
+    },
+    {
+      "category_id": 24,
+      "category_name": "VERDURAS RAIZ,TUBE,ETC, PESO FIJO",
+      "store_id": 107,
+      "total_products_sold": 4987
+    },
+    {
+      "category_id": 24,
+      "category_name": "VERDURAS RAIZ,TUBE,ETC, PESO FIJO",
+      "store_id": 110,
+      "total_products_sold": 2280
+    },
+    {
+      "category_id": 25,
+      "category_name": "PASTAS COMESTIBLES",
+      "store_id": 102,
+      "total_products_sold": 139688
+    },
+    {
+      "category_id": 25,
+      "category_name": "PASTAS COMESTIBLES",
+      "store_id": 103,
+      "total_products_sold": 171778
+    },
+    {
+      "category_id": 25,
+      "category_name": "PASTAS COMESTIBLES",
+      "store_id": 107,
+      "total_products_sold": 121971
+    },
+    {
+      "category_id": 25,
+      "category_name": "PASTAS COMESTIBLES",
+      "store_id": 110,
+      "total_products_sold": 58459
+    },
+    {
+      "category_id": 26,
+      "category_name": "GRANOS",
+      "store_id": 103,
+      "total_products_sold": 1028
+    },
+    {
+      "category_id": 26,
+      "category_name": "GRANOS",
+      "store_id": 107,
+      "total_products_sold": 237
+    },
+    {
+      "category_id": 26,
+      "category_name": "GRANOS",
+      "store_id": 110,
+      "total_products_sold": 227
+    },
+    {
+      "category_id": 27,
+      "category_name": "SOPAS-CREMAS-CALDOS",
+      "store_id": 103,
+      "total_products_sold": 24939
+    },
+    {
+      "category_id": 27,
+      "category_name": "SOPAS-CREMAS-CALDOS",
+      "store_id": 107,
+      "total_products_sold": 9305
+    },
+    {
+      "category_id": 27,
+      "category_name": "SOPAS-CREMAS-CALDOS",
+      "store_id": 110,
+      "total_products_sold": 6583
+    },
+    {
+      "category_id": 28,
+      "category_name": "AROMATICAS MEDICINALES",
+      "store_id": 102,
+      "total_products_sold": 72967
+    },
+    {
+      "category_id": 28,
+      "category_name": "AROMATICAS MEDICINALES",
+      "store_id": 103,
+      "total_products_sold": 108084
+    },
+    {
+      "category_id": 28,
+      "category_name": "AROMATICAS MEDICINALES",
+      "store_id": 107,
+      "total_products_sold": 77837
+    },
+    {
+      "category_id": 28,
+      "category_name": "AROMATICAS MEDICINALES",
+      "store_id": 110,
+      "total_products_sold": 35865
+    },
+    {
+      "category_id": 31,
+      "category_name": "LEGUMBRES VERDES",
+      "store_id": 102,
+      "total_products_sold": 28308
+    },
+    {
+      "category_id": 31,
+      "category_name": "LEGUMBRES VERDES",
+      "store_id": 103,
+      "total_products_sold": 42930
+    },
+    {
+      "category_id": 31,
+      "category_name": "LEGUMBRES VERDES",
+      "store_id": 107,
+      "total_products_sold": 37299
+    },
+    {
+      "category_id": 31,
+      "category_name": "LEGUMBRES VERDES",
+      "store_id": 110,
+      "total_products_sold": 17030
+    },
+    {
+      "category_id": 33,
+      "category_name": "CONDIMENTOS",
+      "store_id": 103,
+      "total_products_sold": 1697
+    },
+    {
+      "category_id": 33,
+      "category_name": "CONDIMENTOS",
+      "store_id": 107,
+      "total_products_sold": 1121
+    },
+    {
+      "category_id": 33,
+      "category_name": "CONDIMENTOS",
+      "store_id": 110,
+      "total_products_sold": 384
+    },
+    {
+      "category_id": 39,
+      "category_name": "CONFITES",
+      "store_id": 103,
+      "total_products_sold": 2713
+    },
+    {
+      "category_id": 39,
+      "category_name": "CONFITES",
+      "store_id": 107,
+      "total_products_sold": 615
+    },
+    {
+      "category_id": 39,
+      "category_name": "CONFITES",
+      "store_id": 110,
+      "total_products_sold": 628
+    },
+    {
+      "category_id": 41,
+      "category_name": "LULO NACIONAL",
+      "store_id": 103,
+      "total_products_sold": 36428
+    },
+    {
+      "category_id": 41,
+      "category_name": "LULO NACIONAL",
+      "store_id": 107,
+      "total_products_sold": 15475
+    },
+    {
+      "category_id": 41,
+      "category_name": "LULO NACIONAL",
+      "store_id": 110,
+      "total_products_sold": 11766
+    },
+    {
+      "category_id": 42,
+      "category_name": "CAFE NO SOLUBLES",
+      "store_id": 103,
+      "total_products_sold": 1074
+    },
+    {
+      "category_id": 42,
+      "category_name": "CAFE NO SOLUBLES",
+      "store_id": 107,
+      "total_products_sold": 527
+    },
+    {
+      "category_id": 42,
+      "category_name": "CAFE NO SOLUBLES",
+      "store_id": 110,
+      "total_products_sold": 387
+    },
+    {
+      "category_id": 45,
+      "category_name": "PAPAYA COMUN",
+      "store_id": 103,
+      "total_products_sold": 14624
+    },
+    {
+      "category_id": 45,
+      "category_name": "PAPAYA COMUN",
+      "store_id": 107,
+      "total_products_sold": 10196
+    },
+    {
+      "category_id": 45,
+      "category_name": "PAPAYA COMUN",
+      "store_id": 110,
+      "total_products_sold": 4514
+    },
+    {
+      "category_id": 46,
+      "category_name": "BANANO EXPORTACION",
+      "store_id": 103,
+      "total_products_sold": 2941
+    },
+    {
+      "category_id": 46,
+      "category_name": "BANANO EXPORTACION",
+      "store_id": 107,
+      "total_products_sold": 1431
+    },
+    {
+      "category_id": 46,
+      "category_name": "BANANO EXPORTACION",
+      "store_id": 110,
+      "total_products_sold": 906
+    },
+    {
+      "category_id": 50,
+      "category_name": "MANGO TOMY",
+      "store_id": 103,
+      "total_products_sold": 20158
+    },
+    {
+      "category_id": 50,
+      "category_name": "MANGO TOMY",
+      "store_id": 107,
+      "total_products_sold": 11759
+    },
+    {
+      "category_id": 50,
+      "category_name": "MANGO TOMY",
+      "store_id": 110,
+      "total_products_sold": 7009
+    }
+  ],
+  "generated_at": "2025-11-23T21:11:30.599434"
+}

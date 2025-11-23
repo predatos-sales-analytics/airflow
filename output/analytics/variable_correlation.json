@@ -1,0 +1,57 @@
+{
+  "matrix_name": "variable_correlation",
+  "correlation_data": {
+    "variables": [
+      "frequency",
+      "total_products",
+      "diversity",
+      "avg_quantity",
+      "unique_stores"
+    ],
+    "variable_names": {
+      "frequency": "Frecuencia (nº transacciones)",
+      "total_products": "Total Productos",
+      "diversity": "Diversidad (productos únicos)",
+      "avg_quantity": "Cantidad Promedio",
+      "unique_stores": "Tiendas Únicas"
+    },
+    "matrix": {
+      "frequency": {
+        "frequency": null,
+        "total_products": null,
+        "diversity": null,
+        "avg_quantity": null,
+        "unique_stores": null
+      },
+      "total_products": {
+        "frequency": null,
+        "total_products": 1.0,
+        "diversity": 0.8495603923526602,
+        "avg_quantity": 0.46346377639604225,
+        "unique_stores": 0.24861332229594846
+      },
+      "diversity": {
+        "frequency": null,
+        "total_products": 0.8495603923526602,
+        "diversity": 1.0,
+        "avg_quantity": 0.577381310357146,
+        "unique_stores": 0.288957951498331
+      },
+      "avg_quantity": {
+        "frequency": null,
+        "total_products": 0.46346377639604225,
+        "diversity": 0.577381310357146,
+        "avg_quantity": 1.0,
+        "unique_stores": 0.0739131290578217
+      },
+      "unique_stores": {
+        "frequency": null,
+        "total_products": 0.24861332229594846,
+        "diversity": 0.288957951498331,
+        "avg_quantity": 0.0739131290578217,
+        "unique_stores": 1.0
+      }
+    }
+  },
+  "generated_at": "2025-11-23T21:11:49.859544"
+}

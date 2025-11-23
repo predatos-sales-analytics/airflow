@@ -1,0 +1,55 @@
+{
+  "series_name": "monthly_sales",
+  "date_column": "date",
+  "value_column": "num_transacciones",
+  "statistics": {
+    "promedio": 184831.16666666666,
+    "minimo": 170771.0,
+    "maximo": 193156.0
+  },
+  "data": [
+    {
+      "year": 2013,
+      "month": 1,
+      "month_name": "January",
+      "num_transacciones": 184916,
+      "date": "2013-1"
+    },
+    {
+      "year": 2013,
+      "month": 2,
+      "month_name": "February",
+      "num_transacciones": 170771,
+      "date": "2013-2"
+    },
+    {
+      "year": 2013,
+      "month": 3,
+      "month_name": "March",
+      "num_transacciones": 189313,
+      "date": "2013-3"
+    },
+    {
+      "year": 2013,
+      "month": 4,
+      "month_name": "April",
+      "num_transacciones": 182632,
+      "date": "2013-4"
+    },
+    {
+      "year": 2013,
+      "month": 5,
+      "month_name": "May",
+      "num_transacciones": 188199,
+      "date": "2013-5"
+    },
+    {
+      "year": 2013,
+      "month": 6,
+      "month_name": "June",
+      "num_transacciones": 193156,
+      "date": "2013-6"
+    }
+  ],
+  "generated_at": "2025-11-23T21:11:01.348095"
+}

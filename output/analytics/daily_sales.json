@@ -1,0 +1,918 @@
+{
+  "series_name": "daily_sales",
+  "date_column": "date",
+  "value_column": "num_transacciones",
+  "statistics": {
+    "promedio": 6127.0,
+    "minimo": 2860.0,
+    "maximo": 9476.0
+  },
+  "data": [
+    {
+      "date": "2013-01-01",
+      "num_transacciones": 2860,
+      "clientes_unicos": 2852
+    },
+    {
+      "date": "2013-01-02",
+      "num_transacciones": 6577,
+      "clientes_unicos": 6547
+    },
+    {
+      "date": "2013-01-03",
+      "num_transacciones": 6539,
+      "clientes_unicos": 6512
+    },
+    {
+      "date": "2013-01-04",
+      "num_transacciones": 5961,
+      "clientes_unicos": 5934
+    },
+    {
+      "date": "2013-01-05",
+      "num_transacciones": 6405,
+      "clientes_unicos": 6380
+    },
+    {
+      "date": "2013-01-06",
+      "num_transacciones": 5217,
+      "clientes_unicos": 5197
+    },
+    {
+      "date": "2013-01-07",
+      "num_transacciones": 5934,
+      "clientes_unicos": 5912
+    },
+    {
+      "date": "2013-01-08",
+      "num_transacciones": 6380,
+      "clientes_unicos": 6361
+    },
+    {
+      "date": "2013-01-09",
+      "num_transacciones": 5587,
+      "clientes_unicos": 5574
+    },
+    {
+      "date": "2013-01-10",
+      "num_transacciones": 6090,
+      "clientes_unicos": 6066
+    },
+    {
+      "date": "2013-01-11",
+      "num_transacciones": 5167,
+      "clientes_unicos": 5148
+    },
+    {
+      "date": "2013-01-12",
+      "num_transacciones": 6418,
+      "clientes_unicos": 6403
+    },
+    {
+      "date": "2013-01-13",
+      "num_transacciones": 6705,
+      "clientes_unicos": 6679
+    },
+    {
+      "date": "2013-01-14",
+      "num_transacciones": 5825,
+      "clientes_unicos": 5809
+    },
+    {
+      "date": "2013-01-15",
+      "num_transacciones": 6289,
+      "clientes_unicos": 6270
+    },
+    {
+      "date": "2013-01-16",
+      "num_transacciones": 5989,
+      "clientes_unicos": 5975
+    },
+    {
+      "date": "2013-01-17",
+      "num_transacciones": 6364,
+      "clientes_unicos": 6348
+    },
+    {
+      "date": "2013-01-18",
+      "num_transacciones": 5261,
+      "clientes_unicos": 5248
+    },
+    {
+      "date": "2013-01-19",
+      "num_transacciones": 6981,
+      "clientes_unicos": 6945
+    },
+    {
+      "date": "2013-01-20",
+      "num_transacciones": 7400,
+      "clientes_unicos": 7370
+    },
+    {
+      "date": "2013-01-21",
+      "num_transacciones": 5732,
+      "clientes_unicos": 5710
+    },
+    {
+      "date": "2013-01-22",
+      "num_transacciones": 5547,
+      "clientes_unicos": 5534
+    },
+    {
+      "date": "2013-01-23",
+      "num_transacciones": 4757,
+      "clientes_unicos": 4744
+    },
+    {
+      "date": "2013-01-24",
+      "num_transacciones": 5420,
+      "clientes_unicos": 5404
+    },
+    {
+      "date": "2013-01-25",
+      "num_transacciones": 5191,
+      "clientes_unicos": 5167
+    },
+    {
+      "date": "2013-01-26",
+      "num_transacciones": 6978,
+      "clientes_unicos": 6953
+    },
+    {
+      "date": "2013-01-27",
+      "num_transacciones": 7392,
+      "clientes_unicos": 7371
+    },
+    {
+      "date": "2013-01-28",
+      "num_transacciones": 5714,
+      "clientes_unicos": 5696
+    },
+    {
+      "date": "2013-01-29",
+      "num_transacciones": 5782,
+      "clientes_unicos": 5759
+    },
+    {
+      "date": "2013-01-30",
+      "num_transacciones": 5592,
+      "clientes_unicos": 5579
+    },
+    {
+      "date": "2013-01-31",
+      "num_transacciones": 6862,
+      "clientes_unicos": 6842
+    },
+    {
+      "date": "2013-02-01",
+      "num_transacciones": 6352,
+      "clientes_unicos": 6333
+    },
+    {
+      "date": "2013-02-02",
+      "num_transacciones": 8003,
+      "clientes_unicos": 7963
+    },
+    {
+      "date": "2013-02-03",
+      "num_transacciones": 8523,
+      "clientes_unicos": 8483
+    },
+    {
+      "date": "2013-02-04",
+      "num_transacciones": 5781,
+      "clientes_unicos": 5761
+    },
+    {
+      "date": "2013-02-05",
+      "num_transacciones": 6052,
+      "clientes_unicos": 6030
+    },
+    {
+      "date": "2013-02-06",
+      "num_transacciones": 4997,
+      "clientes_unicos": 4976
+    },
+    {
+      "date": "2013-02-07",
+      "num_transacciones": 6317,
+      "clientes_unicos": 6300
+    },
+    {
+      "date": "2013-02-08",
+      "num_transacciones": 4823,
+      "clientes_unicos": 4814
+    },
+    {
+      "date": "2013-02-09",
+      "num_transacciones": 6814,
+      "clientes_unicos": 6789
+    },
+    {
+      "date": "2013-02-10",
+      "num_transacciones": 7883,
+      "clientes_unicos": 7851
+    },
+    {
+      "date": "2013-02-11",
+      "num_transacciones": 5079,
+      "clientes_unicos": 5063
+    },
+    {
+      "date": "2013-02-12",
+      "num_transacciones": 5363,
+      "clientes_unicos": 5351
+    },
+    {
+      "date": "2013-02-13",
+      "num_transacciones": 5045,
+      "clientes_unicos": 5029
+    },
+    {
+      "date": "2013-02-14",
+      "num_transacciones": 5904,
+      "clientes_unicos": 5888
+    },
+    {
+      "date": "2013-02-15",
+      "num_transacciones": 5373,
+      "clientes_unicos": 5358
+    },
+    {
+      "date": "2013-02-16",
+      "num_transacciones": 7610,
+      "clientes_unicos": 7587
+    },
+    {
+      "date": "2013-02-17",
+      "num_transacciones": 7866,
+      "clientes_unicos": 7833
+    },
+    {
+      "date": "2013-02-18",
+      "num_transacciones": 5516,
+      "clientes_unicos": 5497
+    },
+    {
+      "date": "2013-02-19",
+      "num_transacciones": 5716,
+      "clientes_unicos": 5699
+    },
+    {
+      "date": "2013-02-20",
+      "num_transacciones": 4897,
+      "clientes_unicos": 4890
+    },
+    {
+      "date": "2013-02-21",
+      "num_transacciones": 5869,
+      "clientes_unicos": 5850
+    },
+    {
+      "date": "2013-02-22",
+      "num_transacciones": 4695,
+      "clientes_unicos": 4678
+    },
+    {
+      "date": "2013-02-23",
+      "num_transacciones": 6423,
+      "clientes_unicos": 6395
+    },
+    {
+      "date": "2013-02-24",
+      "num_transacciones": 7184,
+      "clientes_unicos": 7159
+    },
+    {
+      "date": "2013-02-25",
+      "num_transacciones": 5249,
+      "clientes_unicos": 5235
+    },
+    {
+      "date": "2013-02-26",
+      "num_transacciones": 5738,
+      "clientes_unicos": 5722
+    },
+    {
+      "date": "2013-02-27",
+      "num_transacciones": 4870,
+      "clientes_unicos": 4859
+    },
+    {
+      "date": "2013-02-28",
+      "num_transacciones": 6829,
+      "clientes_unicos": 6805
+    },
+    {
+      "date": "2013-03-01",
+      "num_transacciones": 6242,
+      "clientes_unicos": 6226
+    },
+    {
+      "date": "2013-03-02",
+      "num_transacciones": 8160,
+      "clientes_unicos": 8121
+    },
+    {
+      "date": "2013-03-03",
+      "num_transacciones": 8426,
+      "clientes_unicos": 8401
+    },
+    {
+      "date": "2013-03-04",
+      "num_transacciones": 5646,
+      "clientes_unicos": 5636
+    },
+    {
+      "date": "2013-03-05",
+      "num_transacciones": 5841,
+      "clientes_unicos": 5823
+    },
+    {
+      "date": "2013-03-06",
+      "num_transacciones": 4876,
+      "clientes_unicos": 4861
+    },
+    {
+      "date": "2013-03-07",
+      "num_transacciones": 6596,
+      "clientes_unicos": 6570
+    },
+    {
+      "date": "2013-03-08",
+      "num_transacciones": 4948,
+      "clientes_unicos": 4935
+    },
+    {
+      "date": "2013-03-09",
+      "num_transacciones": 6715,
+      "clientes_unicos": 6694
+    },
+    {
+      "date": "2013-03-10",
+      "num_transacciones": 7358,
+      "clientes_unicos": 7333
+    },
+    {
+      "date": "2013-03-11",
+      "num_transacciones": 5125,
+      "clientes_unicos": 5111
+    },
+    {
+      "date": "2013-03-12",
+      "num_transacciones": 5491,
+      "clientes_unicos": 5476
+    },
+    {
+      "date": "2013-03-13",
+      "num_transacciones": 4482,
+      "clientes_unicos": 4467
+    },
+    {
+      "date": "2013-03-14",
+      "num_transacciones": 5864,
+      "clientes_unicos": 5845
+    },
+    {
+      "date": "2013-03-15",
+      "num_transacciones": 5259,
+      "clientes_unicos": 5248
+    },
+    {
+      "date": "2013-03-16",
+      "num_transacciones": 7148,
+      "clientes_unicos": 7122
+    },
+    {
+      "date": "2013-03-17",
+      "num_transacciones": 7878,
+      "clientes_unicos": 7859
+    },
+    {
+      "date": "2013-03-18",
+      "num_transacciones": 5294,
+      "clientes_unicos": 5280
+    },
+    {
+      "date": "2013-03-19",
+      "num_transacciones": 5510,
+      "clientes_unicos": 5489
+    },
+    {
+      "date": "2013-03-20",
+      "num_transacciones": 4646,
+      "clientes_unicos": 4640
+    },
+    {
+      "date": "2013-03-21",
+      "num_transacciones": 5742,
+      "clientes_unicos": 5722
+    },
+    {
+      "date": "2013-03-22",
+      "num_transacciones": 5077,
+      "clientes_unicos": 5062
+    },
+    {
+      "date": "2013-03-23",
+      "num_transacciones": 7123,
+      "clientes_unicos": 7089
+    },
+    {
+      "date": "2013-03-24",
+      "num_transacciones": 6177,
+      "clientes_unicos": 6154
+    },
+    {
+      "date": "2013-03-25",
+      "num_transacciones": 6056,
+      "clientes_unicos": 6033
+    },
+    {
+      "date": "2013-03-26",
+      "num_transacciones": 6040,
+      "clientes_unicos": 6022
+    },
+    {
+      "date": "2013-03-27",
+      "num_transacciones": 7251,
+      "clientes_unicos": 7223
+    },
+    {
+      "date": "2013-03-28",
+      "num_transacciones": 6897,
+      "clientes_unicos": 6863
+    },
+    {
+      "date": "2013-03-29",
+      "num_transacciones": 3935,
+      "clientes_unicos": 3925
+    },
+    {
+      "date": "2013-03-30",
+      "num_transacciones": 6695,
+      "clientes_unicos": 6677
+    },
+    {
+      "date": "2013-03-31",
+      "num_transacciones": 6815,
+      "clientes_unicos": 6786
+    },
+    {
+      "date": "2013-04-01",
+      "num_transacciones": 6389,
+      "clientes_unicos": 6378
+    },
+    {
+      "date": "2013-04-02",
+      "num_transacciones": 6720,
+      "clientes_unicos": 6705
+    },
+    {
+      "date": "2013-04-03",
+      "num_transacciones": 5611,
+      "clientes_unicos": 5599
+    },
+    {
+      "date": "2013-04-04",
+      "num_transacciones": 6428,
+      "clientes_unicos": 6408
+    },
+    {
+      "date": "2013-04-05",
+      "num_transacciones": 5195,
+      "clientes_unicos": 5177
+    },
+    {
+      "date": "2013-04-06",
+      "num_transacciones": 7125,
+      "clientes_unicos": 7096
+    },
+    {
+      "date": "2013-04-07",
+      "num_transacciones": 8265,
+      "clientes_unicos": 8229
+    },
+    {
+      "date": "2013-04-08",
+      "num_transacciones": 5031,
+      "clientes_unicos": 5019
+    },
+    {
+      "date": "2013-04-09",
+      "num_transacciones": 5561,
+      "clientes_unicos": 5546
+    },
+    {
+      "date": "2013-04-10",
+      "num_transacciones": 4943,
+      "clientes_unicos": 4923
+    },
+    {
+      "date": "2013-04-11",
+      "num_transacciones": 5628,
+      "clientes_unicos": 5613
+    },
+    {
+      "date": "2013-04-12",
+      "num_transacciones": 4774,
+      "clientes_unicos": 4763
+    },
+    {
+      "date": "2013-04-13",
+      "num_transacciones": 7120,
+      "clientes_unicos": 7092
+    },
+    {
+      "date": "2013-04-14",
+      "num_transacciones": 7937,
+      "clientes_unicos": 7903
+    },
+    {
+      "date": "2013-04-15",
+      "num_transacciones": 6006,
+      "clientes_unicos": 5996
+    },
+    {
+      "date": "2013-04-16",
+      "num_transacciones": 6517,
+      "clientes_unicos": 6495
+    },
+    {
+      "date": "2013-04-17",
+      "num_transacciones": 4999,
+      "clientes_unicos": 4980
+    },
+    {
+      "date": "2013-04-18",
+      "num_transacciones": 6260,
+      "clientes_unicos": 6241
+    },
+    {
+      "date": "2013-04-19",
+      "num_transacciones": 5028,
+      "clientes_unicos": 5015
+    },
+    {
+      "date": "2013-04-20",
+      "num_transacciones": 6824,
+      "clientes_unicos": 6803
+    },
+    {
+      "date": "2013-04-21",
+      "num_transacciones": 8126,
+      "clientes_unicos": 8092
+    },
+    {
+      "date": "2013-04-22",
+      "num_transacciones": 5027,
+      "clientes_unicos": 5016
+    },
+    {
+      "date": "2013-04-23",
+      "num_transacciones": 4948,
+      "clientes_unicos": 4938
+    },
+    {
+      "date": "2013-04-24",
+      "num_transacciones": 4776,
+      "clientes_unicos": 4759
+    },
+    {
+      "date": "2013-04-25",
+      "num_transacciones": 5808,
+      "clientes_unicos": 5790
+    },
+    {
+      "date": "2013-04-26",
+      "num_transacciones": 5186,
+      "clientes_unicos": 5173
+    },
+    {
+      "date": "2013-04-27",
+      "num_transacciones": 6921,
+      "clientes_unicos": 6889
+    },
+    {
+      "date": "2013-04-28",
+      "num_transacciones": 8286,
+      "clientes_unicos": 8244
+    },
+    {
+      "date": "2013-04-29",
+      "num_transacciones": 4850,
+      "clientes_unicos": 4837
+    },
+    {
+      "date": "2013-04-30",
+      "num_transacciones": 6343,
+      "clientes_unicos": 6320
+    },
+    {
+      "date": "2013-05-01",
+      "num_transacciones": 7495,
+      "clientes_unicos": 7471
+    },
+    {
+      "date": "2013-05-02",
+      "num_transacciones": 5516,
+      "clientes_unicos": 5495
+    },
+    {
+      "date": "2013-05-03",
+      "num_transacciones": 5913,
+      "clientes_unicos": 5901
+    },
+    {
+      "date": "2013-05-04",
+      "num_transacciones": 7190,
+      "clientes_unicos": 7162
+    },
+    {
+      "date": "2013-05-05",
+      "num_transacciones": 7637,
+      "clientes_unicos": 7615
+    },
+    {
+      "date": "2013-05-06",
+      "num_transacciones": 5431,
+      "clientes_unicos": 5421
+    },
+    {
+      "date": "2013-05-07",
+      "num_transacciones": 6126,
+      "clientes_unicos": 6105
+    },
+    {
+      "date": "2013-05-08",
+      "num_transacciones": 5012,
+      "clientes_unicos": 4995
+    },
+    {
+      "date": "2013-05-09",
+      "num_transacciones": 5880,
+      "clientes_unicos": 5863
+    },
+    {
+      "date": "2013-05-10",
+      "num_transacciones": 5461,
+      "clientes_unicos": 5445
+    },
+    {
+      "date": "2013-05-11",
+      "num_transacciones": 8854,
+      "clientes_unicos": 8814
+    },
+    {
+      "date": "2013-05-12",
+      "num_transacciones": 6527,
+      "clientes_unicos": 6489
+    },
+    {
+      "date": "2013-05-13",
+      "num_transacciones": 6707,
+      "clientes_unicos": 6689
+    },
+    {
+      "date": "2013-05-14",
+      "num_transacciones": 5779,
+      "clientes_unicos": 5756
+    },
+    {
+      "date": "2013-05-15",
+      "num_transacciones": 5171,
+      "clientes_unicos": 5157
+    },
+    {
+      "date": "2013-05-16",
+      "num_transacciones": 6864,
+      "clientes_unicos": 6844
+    },
+    {
+      "date": "2013-05-17",
+      "num_transacciones": 5477,
+      "clientes_unicos": 5461
+    },
+    {
+      "date": "2013-05-18",
+      "num_transacciones": 7104,
+      "clientes_unicos": 7079
+    },
+    {
+      "date": "2013-05-19",
+      "num_transacciones": 7559,
+      "clientes_unicos": 7531
+    },
+    {
+      "date": "2013-05-20",
+      "num_transacciones": 4998,
+      "clientes_unicos": 4988
+    },
+    {
+      "date": "2013-05-21",
+      "num_transacciones": 5944,
+      "clientes_unicos": 5924
+    },
+    {
+      "date": "2013-05-22",
+      "num_transacciones": 3753,
+      "clientes_unicos": 3748
+    },
+    {
+      "date": "2013-05-23",
+      "num_transacciones": 5762,
+      "clientes_unicos": 5746
+    },
+    {
+      "date": "2013-05-24",
+      "num_transacciones": 4799,
+      "clientes_unicos": 4784
+    },
+    {
+      "date": "2013-05-25",
+      "num_transacciones": 6756,
+      "clientes_unicos": 6729
+    },
+    {
+      "date": "2013-05-26",
+      "num_transacciones": 6562,
+      "clientes_unicos": 6545
+    },
+    {
+      "date": "2013-05-27",
+      "num_transacciones": 5544,
+      "clientes_unicos": 5529
+    },
+    {
+      "date": "2013-05-28",
+      "num_transacciones": 5934,
+      "clientes_unicos": 5910
+    },
+    {
+      "date": "2013-05-29",
+      "num_transacciones": 4966,
+      "clientes_unicos": 4958
+    },
+    {
+      "date": "2013-05-30",
+      "num_transacciones": 5574,
+      "clientes_unicos": 5565
+    },
+    {
+      "date": "2013-05-31",
+      "num_transacciones": 5904,
+      "clientes_unicos": 5887
+    },
+    {
+      "date": "2013-06-01",
+      "num_transacciones": 8420,
+      "clientes_unicos": 8388
+    },
+    {
+      "date": "2013-06-02",
+      "num_transacciones": 7319,
+      "clientes_unicos": 7296
+    },
+    {
+      "date": "2013-06-03",
+      "num_transacciones": 7754,
+      "clientes_unicos": 7720
+    },
+    {
+      "date": "2013-06-04",
+      "num_transacciones": 6485,
+      "clientes_unicos": 6462
+    },
+    {
+      "date": "2013-06-05",
+      "num_transacciones": 5470,
+      "clientes_unicos": 5455
+    },
+    {
+      "date": "2013-06-06",
+      "num_transacciones": 6184,
+      "clientes_unicos": 6163
+    },
+    {
+      "date": "2013-06-07",
+      "num_transacciones": 5664,
+      "clientes_unicos": 5653
+    },
+    {
+      "date": "2013-06-08",
+      "num_transacciones": 6917,
+      "clientes_unicos": 6886
+    },
+    {
+      "date": "2013-06-09",
+      "num_transacciones": 6200,
+      "clientes_unicos": 6179
+    },
+    {
+      "date": "2013-06-10",
+      "num_transacciones": 6652,
+      "clientes_unicos": 6631
+    },
+    {
+      "date": "2013-06-11",
+      "num_transacciones": 5571,
+      "clientes_unicos": 5556
+    },
+    {
+      "date": "2013-06-12",
+      "num_transacciones": 5057,
+      "clientes_unicos": 5047
+    },
+    {
+      "date": "2013-06-13",
+      "num_transacciones": 5706,
+      "clientes_unicos": 5687
+    },
+    {
+      "date": "2013-06-14",
+      "num_transacciones": 5658,
+      "clientes_unicos": 5642
+    },
+    {
+      "date": "2013-06-15",
+      "num_transacciones": 9476,
+      "clientes_unicos": 9427
+    },
+    {
+      "date": "2013-06-16",
+      "num_transacciones": 8126,
+      "clientes_unicos": 8096
+    },
+    {
+      "date": "2013-06-17",
+      "num_transacciones": 5988,
+      "clientes_unicos": 5968
+    },
+    {
+      "date": "2013-06-18",
+      "num_transacciones": 6311,
+      "clientes_unicos": 6293
+    },
+    {
+      "date": "2013-06-19",
+      "num_transacciones": 5104,
+      "clientes_unicos": 5091
+    },
+    {
+      "date": "2013-06-20",
+      "num_transacciones": 5957,
+      "clientes_unicos": 5934
+    },
+    {
+      "date": "2013-06-21",
+      "num_transacciones": 5752,
+      "clientes_unicos": 5732
+    },
+    {
+      "date": "2013-06-22",
+      "num_transacciones": 6679,
+      "clientes_unicos": 6660
+    },
+    {
+      "date": "2013-06-23",
+      "num_transacciones": 6965,
+      "clientes_unicos": 6939
+    },
+    {
+      "date": "2013-06-24",
+      "num_transacciones": 5117,
+      "clientes_unicos": 5101
+    },
+    {
+      "date": "2013-06-25",
+      "num_transacciones": 5891,
+      "clientes_unicos": 5870
+    },
+    {
+      "date": "2013-06-26",
+      "num_transacciones": 5322,
+      "clientes_unicos": 5310
+    },
+    {
+      "date": "2013-06-27",
+      "num_transacciones": 5906,
+      "clientes_unicos": 5872
+    },
+    {
+      "date": "2013-06-28",
+      "num_transacciones": 6276,
+      "clientes_unicos": 6257
+    },
+    {
+      "date": "2013-06-29",
+      "num_transacciones": 8156,
+      "clientes_unicos": 8129
+    },
+    {
+      "date": "2013-06-30",
+      "num_transacciones": 7073,
+      "clientes_unicos": 7031
+    }
+  ],
+  "generated_at": "2025-11-23T21:10:47.974133"
+}
