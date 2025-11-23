@@ -24,24 +24,33 @@ def create_spark_session(app_name="SparkConfig"):
     conf.set("spark.sql.adaptive.coalescePartitions.enabled", "true")
     conf.set("spark.serializer", "org.apache.spark.serializer.KryoSerializer")
 
-    # Specific configurations to avoid problems
-    conf.set("spark.sql.execution.arrow.pyspark.enabled", "false")
-    conf.set("spark.python.worker.reuse", "false")
-    conf.set("spark.sql.execution.pyspark.udf.faulthandler.enabled", "false")
-    conf.set("spark.python.worker.faulthandler.enabled", "false")
+    # Memory configurations
+    # Driver: 1GB (enough to coordinate)
+    conf.set("spark.driver.memory", "1g")
+    conf.set("spark.driver.maxResultSize", "512m")
 
-    # More permissive network configurations
-    conf.set("spark.network.timeout", "800s")
-    conf.set("spark.sql.execution.pyspark.udf.simplifiedTraceback.enabled", "false")
+    # Executor: 3GB (of 4GB available, leave ~1GB for system overhead and JVM)
+    conf.set("spark.executor.memory", "3g")
+    conf.set("spark.executor.memoryOverhead", "512m")
 
-    # Memory configurations optimized for larger datasets
-    conf.set("spark.driver.memory", "4g")
-    conf.set("spark.executor.memory", "4g")
-    conf.set("spark.driver.maxResultSize", "2g")
+    # Modern memory configuration
+    conf.set("spark.memory.fraction", "0.8")
+    conf.set("spark.memory.storageFraction", "0.3")
 
-    # Configurations to reduce concurrency problems
-    conf.set("spark.sql.adaptive.skewJoin.enabled", "false")
-    conf.set("spark.sql.adaptive.localShuffleReader.enabled", "false")
+    # 1 worker with 4 cores
+    conf.set("spark.executor.instances", "1")
+    conf.set("spark.executor.cores", "4")
+
+    # Parallelism: optimized for 1 worker with 4 cores
+    conf.set("spark.sql.shuffle.partitions", "8")
+    conf.set("spark.default.parallelism", "8")
+
+    # Network
+    conf.set("spark.network.timeout", "600s")
+    conf.set("spark.executor.heartbeatInterval", "60s")
+
+    # Broadcast
+    conf.set("spark.sql.autoBroadcastJoinThreshold", "10485760")
 
     # Configure temporary working directory
     try:
@@ -52,14 +61,12 @@ def create_spark_session(app_name="SparkConfig"):
         pass  # If it cannot be created, use default
 
     master_url = os.getenv("SPARK_MASTER_URL", "local[2]")
+
     jars_packages = os.getenv("SPARK_JARS_PACKAGES")
     for key, value in os.environ.items():
         if key.startswith("SPARK_CONF__"):
             spark_key = key.replace("SPARK_CONF__", "").lower().replace("_", ".")
             conf.set(spark_key, value)
-
-    if jars_packages:
-        conf.set("spark.jars.packages", jars_packages)
 
     spark = (
         SparkSession.builder.appName(app_name)
@@ -91,4 +98,3 @@ def stop_spark_session(spark):
             spark.sparkContext.stop()
         except:
             pass
-
