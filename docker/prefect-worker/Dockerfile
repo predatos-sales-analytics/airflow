@@ -1,5 +1,5 @@
-# Imagen base de Python
-FROM python:3.11-slim
+# Imagen base de Python (bookworm tiene mejor soporte para OpenJDK 17)
+FROM python:3.11-slim-bookworm
 
 # Cambiar a usuario root para instalar dependencias
 USER root
@@ -9,15 +9,15 @@ RUN apt-get update && \
     apt-get install -y \
     wget \
     curl \
-    openjdk-21-jre-headless \
+    openjdk-17-jre-headless \
     procps \
     gcc \
     g++ \
     libpq-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# Configurar Java home para PySpark
-ENV JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64
+# Configurar Java home para PySpark (Java 17 para compatibilidad con Spark 3.5.x)
+ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
 ENV PATH="${JAVA_HOME}/bin:${PATH}"
 
 # Crear directorio para JARs de Spark

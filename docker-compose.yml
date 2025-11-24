@@ -162,10 +162,10 @@ services:
       resources:
         limits:
           cpus: "2.0"
-          memory: 2g
+          memory: 4g
         reservations:
           cpus: "1.0"
-          memory: 1g
+          memory: 2g
     depends_on:
       prefect-server:
         condition: service_healthy
@@ -173,6 +173,9 @@ services:
         condition: service_healthy
       spark-master:
         condition: service_started
+    ports:
+      - "7078:7078" # Spark driver port
+      - "7079:7079" # Spark block manager port
     volumes:
       - ${PROJ_DIR:-.}/data:/opt/prefect/work-dir/data:ro
       - ${PROJ_DIR:-.}/src:/opt/prefect/work-dir/src
