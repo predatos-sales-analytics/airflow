@@ -137,10 +137,27 @@ class AnalyticsPipeline:
             )
 
             # ============================================================
-            # VISUALIZACIÓN 3: HEATMAP - MATRIZ DE CORRELACIÓN
+            # VISUALIZACIÓN 3: BOXPLOT - DISTRIBUCIÓN DE COMPRAS POR CLIENTE
             # ============================================================
             print("\n" + "=" * 70)
-            print("🔥 VISUALIZACIÓN 3: HEATMAP - MATRIZ DE CORRELACIÓN")
+            print("👥 VISUALIZACIÓN 3: BOXPLOT - DISTRIBUCIÓN DE COMPRAS POR CLIENTE")
+            print("=" * 70)
+
+            df_customer_purchases = (
+                self.statistical_analyzer.analyze_customer_purchase_distribution(
+                    df_transactions
+                )
+            )
+            self.exporter.export_distribution(
+                df_customer_purchases,
+                distribution_name="customer_purchase",
+            )
+
+            # ============================================================
+            # VISUALIZACIÓN 4: HEATMAP - MATRIZ DE CORRELACIÓN
+            # ============================================================
+            print("\n" + "=" * 70)
+            print("🔥 VISUALIZACIÓN 4: HEATMAP - MATRIZ DE CORRELACIÓN")
             print("=" * 70)
 
             correlation_data = self.statistical_analyzer.calculate_correlation_matrix(
@@ -162,11 +179,14 @@ class AnalyticsPipeline:
                         "monthly_sales.json",
                         "day_of_week_patterns_distribution.json",
                         "category_products_by_store_distribution.json",
+                        "customer_purchase_distribution.json",
                         "variable_correlation.json",
                     ],
                     "visualizations": [
                         "Serie de tiempo (diaria, semanal, mensual)",
                         "Patrones por día de la semana",
+                        "Boxplot de productos por categoría",
+                        "Boxplot de compras por cliente",
                         "Boxplot - Total productos vendidos por categoría (4 tiendas por categoría)",
                         "Heatmap - Matriz de correlación",
                     ],
