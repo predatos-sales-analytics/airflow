@@ -1,0 +1,27 @@
+{
+  "monitor": {
+    "description": "Configuración del monitor de nuevos datos para Prefect",
+    "auto_trigger_master": false,
+    "save_state": true,
+    "check_interval_minutes": 30,
+    "notification_settings": {
+      "notify_on_new_data": true,
+      "notify_on_no_changes": false
+    }
+  },
+  "thresholds": {
+    "min_new_transactions": 1,
+    "min_new_categories": 0,
+    "min_new_products": 0
+  },
+  "state_file": {
+    "path": "output/metadata/data_monitor_state.json",
+    "description": "Archivo donde se guarda el último estado conocido de la base de datos"
+  },
+  "usage": {
+    "windows": "scripts\\windows\\monitor_data.bat",
+    "linux": "./scripts/linux/monitor_data.sh",
+    "manual": "scripts\\[windows|linux]\\run_prefect_flow.[bat|sh] data_monitor"
+  }
+}
+

@@ -63,6 +63,17 @@ if %ERRORLEVEL% equ 0 (
     echo [INFO] Work pool ya existe o hubo un error menor (puedes ignorar esto)
 )
 
+REM Crear deployment del monitor de datos
+echo.
+echo [INFO] Configurando deployment automatico del monitor de datos...
+docker compose exec -T prefect-worker python src/deployments/monitor_deployment.py
+if %ERRORLEVEL% equ 0 (
+    echo [OK] Deployment del monitor configurado (ejecutara cada 2 minutos)
+) else (
+    echo [WARNING] No se pudo crear el deployment automatico
+    echo [INFO] Puedes ejecutar el monitor manualmente: scripts\windows\monitor_data.bat
+)
+
 REM Informacion de acceso
 echo.
 echo ================================================================================
@@ -73,6 +84,11 @@ echo Prefect esta configurado y listo para usar
 echo.
 echo Acceso a la interfaz web:
 echo   URL: http://localhost:4200
+echo.
+echo Monitor de datos:
+echo   - Configurado para ejecutarse automaticamente cada 2 minutos
+echo   - Gestiona desde la UI: http://localhost:4200/deployments
+echo   - Ejecucion manual: scripts\windows\monitor_data.bat
 echo.
 echo Para ejecutar flows, usa los scripts en scripts\windows\:
 echo   scripts\windows\run_prefect_flow.bat data_loading

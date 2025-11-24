@@ -9,6 +9,7 @@ Sistema de análisis de ventas distribuido que utiliza **Prefect** para orquesta
 - [Requisitos](#requisitos)
 - [Inicio Rápido con Prefect](#inicio-rápido-con-prefect)
 - [Pipelines Disponibles](#pipelines-disponibles)
+- [Monitor de Nuevos Datos](#monitor-de-nuevos-datos)
 - [Estructura del Proyecto](#estructura-del-proyecto)
 - [Configuración Avanzada](#configuración-avanzada)
 - [Guía de Prefect](#guía-de-prefect)
@@ -63,7 +64,13 @@ Después de levantar los servicios por primera vez, configura Prefect:
 scripts\windows\setup_prefect.bat
 ```
 
-Esto creará el work pool necesario. Accede a la UI de Prefect en: **http://localhost:4200**
+Esto hará:
+
+- ✅ Crear el work pool necesario
+- ✅ Configurar el **monitor de datos automático** (se ejecuta cada 2 minutos)
+- ✅ Dejar todo listo para ejecutar flows
+
+Accede a la UI de Prefect en: **http://localhost:4200**
 
 ### Paso 2: Cargar los datos
 
@@ -237,6 +244,160 @@ Sistema de recomendaciones basado en reglas de asociación (FP-Growth):
 
 **Salida**: `output/recommendations/*.json`
 
+## 🔍 Monitor de Nuevos Datos
+
+El sistema incluye un **monitor de datos automático** que detecta cuando hay nuevos datos en la base de datos PostgreSQL.
+
+### ⚡ Configuración automática
+
+**El monitor se activa automáticamente** al ejecutar `setup_prefect`. No necesitas configuración adicional:
+
+- ✅ Se ejecuta **cada 2 minutos** automáticamente
+- ✅ Detecta nuevas transacciones, productos o categorías
+- ✅ Notifica cuando hay cambios
+- ✅ Guarda el estado entre verificaciones
+
+### Características
+
+- Verificar si hay nuevas transacciones, productos o categorías
+- Comparar el estado actual con la última verificación
+- Notificar cuando se detectan cambios
+- Gestión completa desde la UI de Prefect
+
+### ¿Cómo funciona?
+
+El monitor:
+
+1. Consulta el estado actual de la base de datos (conteo de registros y fechas)
+2. Compara con el último estado guardado en `output/metadata/data_monitor_state.json`
+3. Detecta cambios y notifica
+4. Guarda el nuevo estado para la próxima verificación
+
+### Ejecutar el monitor manualmente
+
+#### En Windows:
+
+```cmd
+scripts\windows\monitor_data.bat
+```
+
+#### En Linux/Mac:
+
+```bash
+./scripts/linux/monitor_data.sh
+```
+
+También puedes usar el script genérico de flows:
+
+```bash
+# Windows
+scripts\windows\run_prefect_flow.bat data_monitor
+
+# Linux/Mac
+./scripts/linux/run_prefect_flow.sh data_monitor
+```
+
+### Ejemplo de salida
+
+Cuando hay datos nuevos:
+
+```
+🔔 NUEVOS DATOS DETECTADOS EN LA BASE DE DATOS
+======================================================================
+📈 Nuevas transacciones: +1500 (Total: 50000)
+💡 Sugerencia: Ejecuta el master flow para actualizar los análisis
+   Comando: ./scripts/[windows|linux]/run_prefect_flow.[bat|sh] master
+======================================================================
+```
+
+Cuando no hay cambios:
+
+```
+✅ Base de datos sin cambios desde la última verificación
+```
+
+### Configuración
+
+El archivo `data_monitor_config.json` contiene la configuración del monitor:
+
+```json
+{
+  "monitor": {
+    "auto_trigger_master": false, // Disparar master flow automáticamente
+    "save_state": true, // Guardar estado para próxima verificación
+    "check_interval_minutes": 30 // Intervalo recomendado (para deployments)
+  }
+}
+```
+
+### Monitoreo automático (Deployment)
+
+**¡El monitor se configura automáticamente!** Al ejecutar el script `setup_prefect`, se crea un deployment que ejecuta el monitor **cada 2 minutos** de manera automática.
+
+#### Gestionar el deployment
+
+Desde la UI de Prefect (http://localhost:4200/deployments):
+
+- **Ver estado**: Navega a "Deployments" → "data-monitor-scheduled"
+- **Pausar**: Click en "Pause" para detener la ejecución automática
+- **Reanudar**: Click en "Resume" para reactivar el monitor
+- **Ver historial**: Revisa todas las ejecuciones y sus resultados
+
+El deployment está configurado con:
+
+- ⏱️ **Intervalo**: Cada 2 minutos
+- 🔔 **Notificaciones**: Solo cuando hay datos nuevos
+- 💾 **Estado**: Se guarda automáticamente entre ejecuciones
+- 🚀 **Auto-trigger master**: Deshabilitado (solo notifica)
+
+#### Ejecución manual adicional
+
+Si necesitas verificar manualmente sin esperar al próximo intervalo:
+
+```bash
+# Windows
+scripts\windows\monitor_data.bat
+
+# Linux/Mac
+./scripts/linux/monitor_data.sh
+```
+
+### Monitoreo continuo alternativo (opcional)
+
+Si prefieres usar herramientas del sistema operativo en lugar del deployment de Prefect:
+
+**Opción A: Usar un cron job (Linux/Mac)**
+
+```bash
+# Verificar cada 30 minutos
+*/30 * * * * cd /ruta/al/proyecto/airflow && ./scripts/linux/monitor_data.sh >> logs/monitor.log 2>&1
+```
+
+**Opción B: Usar Task Scheduler (Windows)**
+
+1. Abre el Programador de tareas
+2. Crea una nueva tarea básica
+3. Configura para ejecutar `scripts\windows\monitor_data.bat` cada 30 minutos
+
+**Nota**: Si usas estas opciones, considera pausar el deployment de Prefect para evitar ejecuciones duplicadas.
+
+### Estado del monitor
+
+El archivo de estado se guarda en:
+
+```
+output/metadata/data_monitor_state.json
+```
+
+Contiene:
+
+- Número total de transacciones
+- Fecha de la última transacción
+- Conteos de categorías y productos
+- Timestamp de la última verificación
+
+Este archivo se actualiza automáticamente después de cada ejecución del monitor.
+
 ## 📁 Estructura del Proyecto
 
 ```
@@ -245,6 +406,7 @@ airflow/
 ├── requirements.txt             # Dependencias Python (incluye Prefect)
 ├── env.template                 # Template de variables de entorno
 ├── PREFECT_GUIDE.md             # Guía detallada de Prefect
+├── DATA_MONITOR_GUIDE.md        # 🆕 Guía del monitor de nuevos datos
 │
 ├── src/                         # Código fuente
 │   ├── run_pipeline.py          # CLI para ejecutar pipelines (legacy)
@@ -253,8 +415,12 @@ airflow/
 │   ├── config/
 │   │   └── spark_config.py      # Configuración de Spark
 │   │
+│   ├── deployments/             # 🆕 Deployments de Prefect
+│   │   └── monitor_deployment.py          # Deployment automático del monitor
+│   │
 │   ├── flows/                   # 🆕 Flows de Prefect
 │   │   ├── data_loading_flow.py           # Flow de carga de datos
+│   │   ├── data_monitor_flow.py           # Flow de monitoreo de nuevos datos
 │   │   ├── executive_summary_flow.py      # Flow resumen ejecutivo
 │   │   ├── analytics_flow.py              # Flow análisis temporal
 │   │   ├── clustering_flow.py             # Flow clustering
@@ -282,11 +448,13 @@ airflow/
 │   ├── linux/
 │   │   ├── load_data.sh         # Carga de datos (Linux/Mac)
 │   │   ├── setup_prefect.sh     # 🆕 Configurar Prefect
-│   │   └── run_prefect_flow.sh  # 🆕 Ejecutar flows de Prefect
+│   │   ├── run_prefect_flow.sh  # 🆕 Ejecutar flows de Prefect
+│   │   └── monitor_data.sh      # 🆕 Monitorear nuevos datos
 │   └── windows/
 │       ├── load_data.bat        # Carga de datos (Windows)
 │       ├── setup_prefect.bat    # 🆕 Configurar Prefect
-│       └── run_prefect_flow.bat # 🆕 Ejecutar flows de Prefect
+│       ├── run_prefect_flow.bat # 🆕 Ejecutar flows de Prefect
+│       └── monitor_data.bat     # 🆕 Monitorear nuevos datos
 │
 ├── data/                        # Datos CSV (montar aquí)
 │   ├── Categories.csv
@@ -297,13 +465,17 @@ airflow/
 │   ├── summary/
 │   ├── analytics/
 │   ├── advanced/
-│   └── recommendations/
+│   ├── recommendations/
+│   └── metadata/                # 🆕 Estado del monitor y metadata
+│       └── data_monitor_state.json
 │
 ├── docker/                      # Configuración Docker
 │   ├── prefect-worker/Dockerfile  # 🆕 Dockerfile para Prefect Worker
 │   ├── spark-client/Dockerfile
 │   ├── spark-worker/Dockerfile
 │   └── postgres/init-sales-db.sh
+│
+├── data_monitor_config.json     # 🆕 Configuración del monitor de datos
 │
 └── logs/                        # Logs y ejecuciones
     └── prefect_runs/            # 🆕 Logs de flows de Prefect
@@ -436,12 +608,14 @@ Prefect proporciona:
 ### Flows Disponibles
 
 1. **`data_loading_flow`**: Carga datos CSV a PostgreSQL automáticamente
-2. **`executive_summary_flow`**: Genera métricas ejecutivas
-3. **`analytics_flow`**: Análisis temporal y correlaciones
-4. **`clustering_flow`**: Segmentación de clientes con K-Means
-5. **`recommendations_flow`**: Sistema de recomendaciones con FP-Growth
-6. **`output_sync_flow`**: Sincroniza outputs JSON al frontend
-7. **`master_flow`**: Ejecuta todos los pipelines en secuencia y sincroniza
+2. **`data_monitor_flow`**: 🆕 Monitorea y detecta nuevos datos en la base de datos
+   - 🤖 **Deployment automático**: Se ejecuta cada 2 minutos al configurar Prefect
+3. **`executive_summary_flow`**: Genera métricas ejecutivas
+4. **`analytics_flow`**: Análisis temporal y correlaciones
+5. **`clustering_flow`**: Segmentación de clientes con K-Means
+6. **`recommendations_flow`**: Sistema de recomendaciones con FP-Growth
+7. **`output_sync_flow`**: Sincroniza outputs JSON al frontend
+8. **`master_flow`**: Ejecuta todos los pipelines en secuencia y sincroniza
 
 ### Monitoreo
 
@@ -462,6 +636,14 @@ Ver [PREFECT_GUIDE.md](PREFECT_GUIDE.md) para:
 - Configuración de schedules
 - Troubleshooting avanzado
 - Mejores prácticas
+
+Ver [DATA_MONITOR_GUIDE.md](DATA_MONITOR_GUIDE.md) para:
+
+- Guía completa del monitor de datos
+- Ejemplos de uso avanzado
+- Configuración de monitoreo continuo
+- Integración con webhooks y APIs
+- Troubleshooting del monitor
 
 ## 📝 Notas Importantes
 

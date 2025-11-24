@@ -35,6 +35,7 @@ if [ $# -eq 0 ]; then
     echo ""
     echo "Flows disponibles:"
     echo "  data_loading      - Cargar datos CSV a PostgreSQL"
+    echo "  data_monitor      - Monitorear nuevos datos en la base de datos"
     echo "  master            - Ejecutar todos los pipelines"
     echo "  executive_summary - Pipeline de resumen ejecutivo"
     echo "  analytics         - Pipeline de análisis temporal"
@@ -57,6 +58,9 @@ shift  # Remover el primer argumento, el resto son opciones
 case $FLOW_NAME in
     data_loading)
         FLOW_MODULE="flows.data_loading_flow"
+        ;;
+    data_monitor)
+        FLOW_MODULE="flows.data_monitor_flow"
         ;;
     master)
         FLOW_MODULE="flows.master_flow"

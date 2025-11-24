@@ -14,6 +14,7 @@ if "%~1"=="" (
     echo.
     echo Flows disponibles:
     echo   data_loading      - Cargar datos CSV a PostgreSQL
+    echo   data_monitor      - Monitorear nuevos datos en la base de datos
     echo   master            - Ejecutar todos los pipelines
     echo   executive_summary - Pipeline de resumen ejecutivo
     echo   analytics         - Pipeline de analisis temporal
@@ -35,6 +36,8 @@ shift
 REM Mapear nombre de flow a modulo Python
 if "%FLOW_NAME%"=="data_loading" (
     set FLOW_MODULE=flows.data_loading_flow
+) else if "%FLOW_NAME%"=="data_monitor" (
+    set FLOW_MODULE=flows.data_monitor_flow
 ) else if "%FLOW_NAME%"=="master" (
     set FLOW_MODULE=flows.master_flow
 ) else if "%FLOW_NAME%"=="executive_summary" (

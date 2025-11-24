@@ -78,6 +78,16 @@ log_info "Creando work pool 'default-pool'..."
 docker compose exec -T prefect-worker bash -c "prefect work-pool create default-pool --type process 2>/dev/null || true"
 log_success "Work pool configurado"
 
+# Crear deployment del monitor de datos
+echo ""
+log_info "Configurando deployment automático del monitor de datos..."
+if docker compose exec -T prefect-worker python src/deployments/monitor_deployment.py; then
+    log_success "Deployment del monitor configurado (ejecutará cada 2 minutos)"
+else
+    log_warning "No se pudo crear el deployment automático"
+    log_info "Puedes ejecutar el monitor manualmente: ./scripts/linux/monitor_data.sh"
+fi
+
 # Información de acceso
 log_step "CONFIGURACIÓN COMPLETADA"
 echo ""
@@ -85,6 +95,11 @@ echo -e "${GREEN}✅ Prefect está configurado y listo para usar${NC}"
 echo ""
 echo "Acceso a la interfaz web:"
 echo "  URL: http://localhost:4200"
+echo ""
+echo "Monitor de datos:"
+echo "  - Configurado para ejecutarse automáticamente cada 2 minutos"
+echo "  - Gestiona desde la UI: http://localhost:4200/deployments"
+echo "  - Ejecución manual: ./scripts/linux/monitor_data.sh"
 echo ""
 echo "Para ejecutar flows, usa los scripts en scripts/linux/:"
 echo "  ./scripts/linux/run_prefect_flow.sh data_loading"
