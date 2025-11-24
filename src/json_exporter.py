@@ -9,6 +9,7 @@ import json
 import os
 from datetime import datetime, date
 from typing import Dict, Any, List
+import numpy as np
 from pyspark.sql import DataFrame
 import pandas as pd
 
@@ -95,28 +96,39 @@ class JSONExporter:
         # Convertir a dict
         records = pdf.to_dict("records")
 
+        def normalize_value(value):
+            if isinstance(value, np.ndarray):
+                value = value.tolist()
+            if isinstance(value, (list, tuple)):
+                return [normalize_value(item) for item in value]
+            if value is None:
+                return None
+            if isinstance(value, (pd.Timestamp, date, datetime)):
+                try:
+                    return value.isoformat()
+                except Exception:
+                    return str(value)
+            if isinstance(value, (np.floating, float)):
+                if pd.isna(value):
+                    return None
+                return int(value) if float(value).is_integer() else float(value)
+            if isinstance(value, (np.integer, int)):
+                return int(value)
+            if isinstance(value, (np.bool_, bool)):
+                return bool(value)
+            if isinstance(value, str):
+                return value
+            try:
+                if pd.isna(value):
+                    return None
+            except Exception:
+                pass
+            return str(value)
+
         # Limpieza final: asegurar que todos los valores sean serializables
         for record in records:
             for key, value in record.items():
-                if pd.isna(value) or value is None:
-                    record[key] = None
-                elif isinstance(value, (date, datetime, pd.Timestamp)):
-                    # Convertir objetos date/datetime a string ISO format
-                    try:
-                        record[key] = value.isoformat()
-                    except:
-                        record[key] = str(value)
-                elif isinstance(value, float):
-                    if pd.isna(value):
-                        record[key] = None
-                    elif value.is_integer():
-                        record[key] = int(value)
-                elif isinstance(value, (int, str, bool)):
-                    # Mantener tipos primitivos como están
-                    pass
-                else:
-                    # Convertir otros tipos a string
-                    record[key] = str(value)
+                record[key] = normalize_value(value)
 
         return records
 

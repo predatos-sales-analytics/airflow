@@ -1,0 +1,17 @@
+{
+  "dag_id": "recommendations_pipeline",
+  "task_id": "generate_recommendations",
+  "execution_timestamp": "2025-11-24T09:20:56.675244",
+  "status": "success",
+  "files_generated": [
+    "/opt/spark/work-dir/output/advanced/recommendations/product_associations.json",
+    "/opt/spark/work-dir/output/advanced/recommendations/product_recommendations.json",
+    "/opt/spark/work-dir/output/advanced/recommendations/customer_recommendations.json"
+  ],
+  "params": {
+    "min_support": 0.01,
+    "min_confidence": 0.5,
+    "top_product_recs": 5,
+    "top_customer_recs": 5
+  }
+}

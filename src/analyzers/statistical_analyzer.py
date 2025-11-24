@@ -244,24 +244,25 @@ class StatisticalAnalyzer:
     ) -> DataFrame:
         """
         Calcula la distribución de compras por cliente para boxplot interactivo.
-        
+
         Retorna TODOS los clientes ordenados por volumen de compra.
-        El frontend se encargará de filtrar/paginar los datos.
-        
+
         Args:
             df_transactions: DataFrame de transacciones
-            
+
         Returns:
             DataFrame con columnas: customer_id, total_products_purchased
         """
         print(f"\n👥 Analizando distribución de compras por cliente...")
         print("-" * 60)
-        
+
         # Calcular total de productos por cliente
         df_customer_purchases = df_transactions.groupBy("customer_id").agg(
-            spark_sum(size(split(trim(col("products")), " "))).alias("total_products_purchased")
+            spark_sum(size(split(trim(col("products")), " "))).alias(
+                "total_products_purchased"
+            )
         )
-        
+
         # Calcular estadísticas descriptivas de TODOS los clientes
         stats = df_customer_purchases.select(
             avg("total_products_purchased").alias("promedio"),
@@ -273,7 +274,7 @@ class StatisticalAnalyzer:
             percentile_approx("total_products_purchased", 0.75).alias("q3"),
             count("*").alias("num_clientes"),
         ).collect()[0]
-        
+
         print(f"📊 Estadísticas generales (todos los clientes):")
         print(f"   Total clientes: {stats['num_clientes']:,}")
         print(f"   Promedio: {stats['promedio']:.2f} productos")
@@ -283,19 +284,19 @@ class StatisticalAnalyzer:
         print(f"   Q1 (25%): {stats['q1']:.2f} productos")
         print(f"   Q3 (75%): {stats['q3']:.2f} productos")
         print(f"   Desviación estándar: {stats['desviacion_std']:.2f}")
-        
+
         # Ordenar todos los clientes por volumen de compra (descendente)
         df_all_customers = df_customer_purchases.orderBy(
             col("total_products_purchased").desc()
         )
-        
+
         # Asegurar tipos correctos
         df_all_customers = df_all_customers.select(
             col("customer_id").cast("int"),
             col("total_products_purchased").cast("double"),
         )
-        
+
         print(f"\n📋 Exportando {stats['num_clientes']:,} clientes al JSON...")
         print(f"   (El frontend filtrará los datos para visualización interactiva)")
-        
+
         return df_all_customers
