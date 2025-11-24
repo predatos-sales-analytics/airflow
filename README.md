@@ -1,347 +1,147 @@
-# 🚀 Pipeline de Análisis de Ventas con Apache Airflow
+# 📊 Pipeline de Análisis de Ventas con Apache Spark
 
-Sistema de análisis de ventas distribuido que utiliza Apache Airflow para orquestar pipelines de procesamiento con Apache Spark, generando métricas ejecutivas, análisis temporal, segmentación de clientes y recomendaciones de productos.
-
-## 📋 Tabla de Contenidos
-
-- [Requisitos](#requisitos)
-- [Inicio Rápido](#inicio-rápido)
-- [Pipelines Disponibles](#pipelines-disponibles)
-- [Estructura del Proyecto](#estructura-del-proyecto)
-- [Configuración Avanzada](#configuración-avanzada)
-- [Troubleshooting](#troubleshooting)
-
-## 🔧 Requisitos
-
-- **Docker** y **Docker Compose** instalados
-- **Git** (para clonar el repositorio)
-- Al menos **8 GB de RAM** disponibles para los contenedores
-- **Puerto 8085** libre para Airflow UI
-
-## ⚡ Inicio Rápido
-
-### Paso 1: Levantar los servicios
-
-Desde el directorio `airflow/`:
-
-```bash
-docker compose up -d
-```
-
-Esto iniciará:
-
-- PostgreSQL (base de datos)
-- Apache Airflow (scheduler, webserver, worker)
-- Spark Master y Worker (procesamiento distribuido)
-
-**Tiempo estimado**: 2-3 minutos
-
-Verifica que todos los servicios estén corriendo:
-
-```bash
-docker compose ps
-```
-
-### Paso 2: Cargar los datos
-
-Una vez que los servicios estén activos, carga los datos en PostgreSQL.
-
-#### En Linux/Mac:
-
-```bash
-./scripts/load_data.sh ../data
-```
-
-#### En Windows:
-
-```cmd
-scripts\windows\load_data.bat ..\data
-```
-
-**Nota**: Ajusta la ruta `../data` según la ubicación de tus archivos CSV (`Categories.csv`, `Product_Categories.csv`, `transactions/`).
-
-**Tiempo estimado**: 5-10 minutos (depende del tamaño de los datos)
-
-### Paso 3: Ejecutar los pipelines
-
-Una vez cargados los datos, ejecuta los pipelines de análisis.
-
-#### En Linux/Mac:
-
-```bash
-# Ejecutar todos los pipelines
-./scripts/run_all_pipelines.sh
-
-# O ejecutar pipelines individuales
-cd src
-python run_pipeline.py executive_summary
-python run_pipeline.py analytics
-python run_pipeline.py clustering --n-clusters 4
-python run_pipeline.py recommendations --min-support 0.005 --min-confidence 0.2
-```
-
-#### En Windows:
-
-```cmd
-REM Ejecutar todos los pipelines
-scripts\windows\run_pipeline_docker.bat all
-
-REM O ejecutar pipelines individuales
-scripts\windows\run_pipeline_docker.bat executive_summary
-scripts\windows\run_pipeline_docker.bat analytics
-scripts\windows\run_pipeline_docker.bat clustering
-scripts\windows\run_pipeline_docker.bat recommendations
-```
-
-**Tiempo estimado**:
-
-- Resumen ejecutivo: 3-5 minutos
-- Analítica temporal: 5-8 minutos
-- Clustering: 8-12 minutos
-- Recomendaciones: 10-15 minutos
-
-### Paso 4: Visualizar resultados
-
-Los resultados se generan en formato JSON en el directorio `output/`:
-
-```
-output/
-├── summary/              # Métricas ejecutivas
-│   ├── basic_metrics.json
-│   ├── top_10_products.json
-│   └── top_10_customers.json
-├── analytics/            # Series temporales y correlaciones
-│   ├── daily_sales.json
-│   └── variable_correlation.json
-├── advanced/
-│   └── clustering/       # Segmentación de clientes
-│       ├── cluster_summary.json
-│       └── clustering_visualization.json
-└── recommendations/      # Recomendaciones de productos
-    ├── product_recs.json
-    └── customer_recs.json
-```
-
-**Para visualizar en el frontend**: Copia los archivos JSON a `sales-frontend/public/data/` y ejecuta el dashboard React.
-
-## 📊 Pipelines Disponibles
-
-### 1. Resumen Ejecutivo (`executive_summary`)
-
-Genera métricas clave del negocio:
-
-- Total de transacciones y productos vendidos
-- Top 10 productos más vendidos
-- Top 10 clientes más activos
-- Top 10 categorías por volumen
-- Días pico de ventas
-
-**Salida**: `output/summary/*.json`
-
-### 2. Analítica Temporal (`analytics`)
-
-Análisis de patrones temporales y correlaciones:
-
-- Series de tiempo (diarias, semanales, mensuales)
-- Patrones por día de la semana
-- Distribución de productos por categoría y tienda (boxplot)
-- Matriz de correlación entre variables
-
-**Salida**: `output/analytics/*.json`
-
-### 3. Segmentación de Clientes (`clustering`)
-
-Clustering K-Means para identificar perfiles de clientes:
-
-- 4 clusters: VIP/Premium, Exploradores, Ocasionales, Nuevos
-- Métricas por cluster (frecuencia, volumen, diversidad)
-- Recomendaciones de negocio por segmento
-- Visualización de clasificación (scatter plot)
-
-**Parámetros**:
-
-- `--n-clusters`: Número de clusters (default: 4)
-
-**Salida**: `output/advanced/clustering/*.json`
-
-### 4. Recomendaciones (`recommendations`)
-
-Sistema de recomendaciones basado en reglas de asociación (FP-Growth):
-
-- **Por producto**: Productos complementarios que suelen comprarse juntos
-- **Por cliente**: Sugerencias personalizadas según historial de compra
-
-**Parámetros**:
-
-- `--min-support`: Soporte mínimo para reglas (default: 0.005)
-- `--min-confidence`: Confianza mínima para reglas (default: 0.2)
-
-**Salida**: `output/recommendations/*.json`
-
-## 📁 Estructura del Proyecto
-
-```
-airflow/
-├── docker-compose.yml           # Orquestación de servicios
-├── requirements.txt             # Dependencias Python
-├── env.template                 # Template de variables de entorno
-│
-├── src/                         # Código fuente
-│   ├── run_pipeline.py          # CLI para ejecutar pipelines
-│   ├── config/
-│   │   └── spark_config.py      # Configuración de Spark
-│   ├── pipelines/               # Pipelines principales
-│   │   ├── executive_summary_pipeline.py
-│   │   ├── analytics_pipeline.py
-│   │   ├── clustering_pipeline.py
-│   │   └── recommendations_pipeline.py
-│   ├── analyzers/               # Módulos de análisis
-│   │   ├── summary_metrics.py
-│   │   ├── temporal_analyzer.py
-│   │   ├── customer_analyzer.py
-│   │   └── product_analyzer.py
-│   ├── data_loader.py           # Carga de datos desde PostgreSQL
-│   └── json_exporter.py         # Exportación de resultados
-│
-├── scripts/                     # Scripts de utilidad
-│   ├── load_data.sh             # Carga de datos (Linux/Mac)
-│   └── windows/
-│       ├── load_data.bat        # Carga de datos (Windows)
-│       └── run_pipeline_docker.bat  # Ejecutar pipelines (Windows)
-│
-├── data/                        # Datos CSV (montar aquí)
-│   ├── Categories.csv
-│   ├── Product_Categories.csv
-│   └── transactions/
-│
-├── output/                      # Resultados generados
-│   ├── summary/
-│   ├── analytics/
-│   ├── advanced/
-│   └── recommendations/
-│
-├── docker/                      # Configuración Docker
-│   ├── airflow/Dockerfile
-│   └── postgres/init-sales-db.sh
-│
-└── logs/                        # Logs de Airflow
-```
-
-## ⚙️ Configuración Avanzada
-
-### Variables de Entorno
-
-Crea un archivo `.env` basado en `env.template`:
-
-```bash
-cp env.template .env
-```
-
-**Variables principales**:
-
-```bash
-# PostgreSQL
-POSTGRES_USER=sales
-POSTGRES_PASSWORD=sales
-POSTGRES_DB=sales
-
-# Airflow
-AIRFLOW_UID=50000
-AIRFLOW_FERNET_KEY=<generar con: python -c "from cryptography.fernet import Fernet; print(Fernet.generate_key().decode())">
-
-# Spark
-SPARK_MASTER_URL=spark://spark-master:7077
-```
-
-### Acceso a Interfaces Web
-
-Una vez levantados los servicios:
-
-- **Airflow UI**: http://localhost:8085
-  - Usuario: `admin`
-  - Contraseña: `admin`
-- **Spark Master UI**: http://localhost:8080
-
-### Configuración de Spark
-
-Edita `src/config/spark_config.py` para ajustar:
-
-- Memoria del driver y executors
-- Número de cores
-- Particiones de shuffle
-
-### Parámetros de Pipelines
-
-#### Clustering
-
-```bash
-python run_pipeline.py clustering --n-clusters 5
-```
-
-#### Recomendaciones
-
-```bash
-python run_pipeline.py recommendations \
-  --min-support 0.01 \
-  --min-confidence 0.3
-```
-
-## 🛠️ Comandos Útiles
-
-### Gestión de servicios
-
-```bash
-# Iniciar servicios
-docker compose up -d
-
-# Detener servicios
-docker compose down
-
-# Ver logs en tiempo real
-docker compose logs -f
-
-# Reiniciar un servicio específico
-docker compose restart airflow-scheduler
-
-# Limpiar todo (incluyendo volúmenes)
-docker compose down -v
-```
-
-### Acceso a contenedores
-
-```bash
-# Acceder a shell de Airflow
-docker compose exec airflow-scheduler bash
-
-# Acceder a PostgreSQL
-docker compose exec postgres psql -U sales -d sales
-
-# Ejecutar comando Python en Airflow
-docker compose exec airflow-scheduler python /opt/airflow/src/run_pipeline.py --help
-```
-
-### Verificación de datos
-
-```bash
-# Contar transacciones
-docker compose exec postgres psql -U sales -d sales -c "SELECT COUNT(*) FROM transactions;"
-
-# Ver categorías
-docker compose exec postgres psql -U sales -d sales -c "SELECT * FROM categories LIMIT 10;"
-
-# Verificar archivos generados
-ls -lh output/summary/
-```
-
-## 📝 Notas Importantes
-
-- **Tiempo de procesamiento**: Los pipelines pueden tardar varios minutos dependiendo del tamaño de los datos y recursos disponibles
-- **Persistencia**: Los datos en PostgreSQL persisten entre reinicios gracias a volúmenes Docker
-- **Logs**: Se almacenan en `airflow/logs/` y persisten entre reinicios
-- **Recursos**: Se recomienda al menos 8 GB de RAM para ejecutar todos los servicios simultáneamente
-- **Resultados**: Los JSON generados están optimizados para consumo desde el frontend React
+Pipelines de procesamiento desarrollados en Apache Spark para analizar el comportamiento de ventas, clientes y productos. El proyecto se ejecuta dentro del directorio `airflow/`, pero toda la orquestación se realiza con scripts ligeros y contenedores Spark + PostgreSQL.
 
 ## 👥 Autores
 
-- Juan David Colonia Aldana - A00395956
-- Miguel Ángel Gonzalez Arango - A00395687
+- Juan David Colonia Aldana – A00395956
+- Miguel Ángel Gonzalez Arango – A00395687
+
+## 🧭 Contenido
+
+- [📊 Pipeline de Análisis de Ventas con Apache Spark](#-pipeline-de-análisis-de-ventas-con-apache-spark)
+  - [👥 Autores](#-autores)
+  - [🧭 Contenido](#-contenido)
+  - [🗂️ Descripción de los datos](#️-descripción-de-los-datos)
+  - [🔬 Metodología de análisis](#-metodología-de-análisis)
+  - [📈 Principales hallazgos visuales](#-principales-hallazgos-visuales)
+  - [🧠 Resultados de modelos](#-resultados-de-modelos)
+  - [🎯 Conclusiones y aplicaciones empresariales](#-conclusiones-y-aplicaciones-empresariales)
+  - [🧵 Pipelines disponibles](#-pipelines-disponibles)
+  - [⚙️ Ejecución de pipelines](#️-ejecución-de-pipelines)
+  - [Estructura del repositorio (carpeta `airflow/`)](#estructura-del-repositorio-carpeta-airflow)
+
+---
+
+## 🗂️ Descripción de los datos
+
+Los datos originales provienen de transacciones minoristas:
+
+- `transactions/`: archivos `*_Tran.csv` con el histórico de compras. Cada registro trae fecha, tienda, cliente y lista de productos.
+- `Categories.csv` y `Product_Categories.csv`: catálogo de productos y su relación con categorías.
+- Fuente: entregables del curso.
+
+Se cargan en PostgreSQL mediante los scripts `scripts/linux/windows/load_data.*` y luego Spark accede vía JDBC para todos los pipelines.
+
+---
+
+## 🔬 Metodología de análisis
+
+1. **Ingesta**: Spark lee las tablas principales (`transactions`, `categories`, `product_categories`) directamente desde PostgreSQL.
+2. **Enriquecimiento**: se explotan las listas de productos, se calculan métricas por cliente, categoría y fecha, y se estandarizan fechas y tipos numéricos.
+3. **Análisis ejecutivo**: agregaciones en Spark SQL para métricas de negocio (transacciones, productos, top-N).
+4. **Analítica temporal**: series de tiempo diarias, semanales y mensuales; patrones por día de semana; boxplots por categoría.
+5. **Modelos avanzados**:
+   - **Clustering**: K-Means con variables de frecuencia, volumen y diversidad de compra.
+   - **Recomendaciones**: FP-Growth para reglas de asociación. Se generan salidas por producto y por cliente.
+6. **Exportación**: todos los resultados se escriben como JSON en `output/` para ser consumidos por el frontend.
+
+---
+
+## 📈 Principales hallazgos visuales
+
+- **Patrones temporales**: se observan picos los fines de semana y un comportamiento mensual con ligeras estacionalidades.
+- **Boxplots por categoría**: algunas familias (por ejemplo, “Frutas y verduras”) concentran la mayor parte de unidades, mientras categorías especializadas tienen variaciones menores.
+- **Heatmap**: la correlación revela que frecuencia de compra y diversidad de productos están positivamente relacionadas con el volumen total vendido.
+
+Los archivos JSON en `output/analytics/` contienen las series y distribuciones que alimentan las gráficas del dashboard React.
+
+---
+
+## 🧠 Resultados de modelos
+
+- **Segmentación (K-Means)**  
+  Se generan cuatro clusters con perfiles claros:
+
+  1. **VIP/Premium**: alta frecuencia y volumen; candidatos a programas de fidelización robustos.
+  2. **Exploradores**: compran gran variedad de productos/categorías; responden bien a lanzamientos.
+  3. **Ocasionales**: pocas compras al año; requieren campañas de reactivación.
+  4. **Clientes nuevos**: transacciones recientes y de bajo volumen; conviene guiarlos hacia categorías rentables.
+
+- **Recomendaciones (FP-Growth)**
+  - **Producto → producto**: reglas con lift > 3 identifican complementos naturales (ej. categorías frescas + abarrotes).
+  - **Cliente → producto**: sugerencias personalizadas derivadas de las reglas y del historial individual.
+  - Se guardan estadísticas del dataset para evitar recalcular FP-Growth si no cambian los datos.
+
+---
+
+## 🎯 Conclusiones y aplicaciones empresariales
+
+- El pipeline permite monitorear el negocio a nivel ejecutivo, detectar patrones temporales y segmentar clientes sin depender de herramientas externas.
+- Las reglas de asociación alimentan estrategias de cross-selling tanto en tienda como en canales digitales.
+- Los clusters facilitan campañas específicas: retención de VIPs, incentivos a exploradores, reactivación de clientes ocasionales.
+- Exportar en JSON permite integrar fácilmente un dashboard React o cualquier otra aplicación que consuma APIs o archivos estáticos.
+
+---
+
+## 🧵 Pipelines disponibles
+
+| Pipeline            | Objetivo                                                                                                                                  | Salidas principales                                  |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
+| `executive_summary` | KPIs ejecutivos: totales de transacciones y ventas, top 10 de productos, clientes y categorías, días pico.                                | `output/summary/basic_metrics.json`, `top_10_*.json` |
+| `analytics`         | Series de tiempo (diaria/semanal/mensual), patrones por día de la semana, boxplots por categoría y heatmap de correlaciones.              | `output/analytics/*.json`                            |
+| `clustering`        | Segmentación K-Means en cuatro perfiles (VIP, exploradores, ocasionales, nuevos) con métricas y recomendaciones por cluster.              | `output/advanced/clustering/*.json`                  |
+| `recommendations`   | Reglas de asociación FP-Growth + sugerencias por producto y por cliente. Reutiliza resultados si las estadísticas del dataset no cambian. | `output/advanced/recommendations/*.json`             |
+
+---
+
+## ⚙️ Ejecución de pipelines
+
+1. **Levantar servicios** (Spark master/worker, PostgreSQL, cliente):
+
+   ```bash
+   docker compose up -d
+   ```
+
+2. **Cargar datos** (si es la primera vez):
+
+   ```bash
+   ./scripts/linux/load_data.sh ../data
+   # o en Windows
+   scripts/windows/load_data.bat ..\data
+   ```
+
+3. **Ejecutar pipelines** dentro del contenedor `spark-client`:
+
+   ```bash
+   docker compose exec spark-client python src/run_pipeline.py executive_summary
+   docker compose exec spark-client python src/run_pipeline.py analytics
+   docker compose exec spark-client python src/run_pipeline.py clustering --n-clusters 4
+   docker compose exec spark-client python src/run_pipeline.py recommendations
+   ```
+
+4. **Reutilizar FP-Growth**: si los stats de canastas no cambian, el pipeline de recomendaciones reutiliza los resultados previos (`output/data/fp_growth_*`).
+
+5. **Copiar salidas al frontend**: mover `output/summary`, `output/analytics`, `output/advanced/*`, `output/advanced/recommendations` a `sales-frontend/public/data/`.
+
+---
+
+## Estructura del repositorio (carpeta `airflow/`)
+
+```
+airflow/
+├── docker-compose.yml          # Servicios Spark + PostgreSQL + cliente
+├── requirements.txt            # Dependencias (Spark, pandas, sklearn, etc.)
+├── src/
+│   ├── run_pipeline.py         # CLI para ejecutar pipelines Spark
+│   ├── config/spark_config.py  # Configuración del SparkSession
+│   ├── pipelines/              # Pipelines: executive, analytics, clustering, recommendations
+│   ├── analyzers/              # Lógica de métricas, estadística y modelos
+│   ├── data_loader.py          # Lectura JDBC desde PostgreSQL
+│   └── json_exporter.py        # Utilidades para escribir JSON
+├── scripts/                    # Scripts para cargar datos y ejecutar pipelines (Linux/Windows)
+├── data/                       # CSV originales (montar localmente)
+└── output/                     # Resultados JSON para el frontend
+```
+
+> **Nota**: Esta carpeta se llama `airflow` por el contexto original, pero hoy los pipelines se ejecutan directamente sobre Spark con scripts Dockerizados. No se requiere un scheduler externo.
