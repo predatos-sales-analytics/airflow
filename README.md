@@ -1,340 +1,345 @@
 # 🚀 Pipeline de Análisis de Ventas con Apache Airflow
 
-Pipeline de análisis de ventas orquestado con Apache Airflow, ejecutando análisis distribuidos con Apache Spark y procesamiento paralelo por tienda.
+Sistema de análisis de ventas distribuido que utiliza Apache Airflow para orquestar pipelines de procesamiento con Apache Spark, generando métricas ejecutivas, análisis temporal, segmentación de clientes y recomendaciones de productos.
 
 ## 📋 Tabla de Contenidos
 
 - [Requisitos](#requisitos)
-- [Instalación](#instalación)
-- [Configuración](#configuración)
-- [Uso](#uso)
+- [Inicio Rápido](#inicio-rápido)
+- [Pipelines Disponibles](#pipelines-disponibles)
 - [Estructura del Proyecto](#estructura-del-proyecto)
-- [DAGs Disponibles](#dags-disponibles)
-- [Carga de Datos](#carga-de-datos)
+- [Configuración Avanzada](#configuración-avanzada)
 - [Troubleshooting](#troubleshooting)
 
 ## 🔧 Requisitos
 
-- Docker y Docker Compose
-- Git (para clonar este repositorio)
+- **Docker** y **Docker Compose** instalados
+- **Git** (para clonar el repositorio)
+- Al menos **8 GB de RAM** disponibles para los contenedores
+- **Puerto 8085** libre para Airflow UI
 
-## 📦 Instalación
+## ⚡ Inicio Rápido
 
-### 1. Configurar variables de entorno
+### Paso 1: Levantar los servicios
 
-```bash
-# Copiar template de variables de entorno
-cp env.template .env
-
-# Editar .env con tus valores
-# Generar AIRFLOW_FERNET_KEY si no existe:
-python -c "from cryptography.fernet import Fernet; print(Fernet.generate_key().decode())"
-```
-
-### 3. Inicializar Airflow
+Desde el directorio `airflow/`:
 
 ```bash
-# Crear usuario y base de datos de Airflow
-docker compose up airflow-init
-
-# Esperar a que termine (verás "User 'admin' created" al finalizar)
-```
-
-### 4. Levantar servicios
-
-```bash
-# Iniciar todos los servicios
 docker compose up -d
-
-# Ver logs
-docker compose logs -f
 ```
 
-## ⚙️ Configuración
+Esto iniciará:
 
-### Variables de Entorno (.env)
+- PostgreSQL (base de datos)
+- Apache Airflow (scheduler, webserver, worker)
+- Spark Master y Worker (procesamiento distribuido)
 
-El archivo `.env` contiene todas las configuraciones necesarias. Ver `.env.template` para referencia.
+**Tiempo estimado**: 2-3 minutos
 
-**Variables críticas:**
-
-- `AIRFLOW_UID`: ID de usuario para Airflow (generado automáticamente en Linux/Mac)
-- `AIRFLOW_FERNET_KEY`: Clave de encriptación para Airflow (generar con el comando de instalación)
-
-### Variables de Airflow
-
-Configurar en la UI de Airflow (Admin → Variables) o vía CLI:
+Verifica que todos los servicios estén corriendo:
 
 ```bash
-# Tamaño de muestra para transacciones (opcional, None = todas)
-airflow variables set sales_transactions_sample_size 100000
-
-# Parámetros FP-Growth
-airflow variables set sales_fp_growth_min_support 0.05
-airflow variables set sales_fp_growth_min_confidence 0.4
+docker compose ps
 ```
 
-### Conexiones de Airflow
+### Paso 2: Cargar los datos
 
-La conexión `sales_postgres` se crea automáticamente durante `airflow-init`. Si necesitas modificarla:
+Una vez que los servicios estén activos, carga los datos en PostgreSQL.
+
+#### En Linux/Mac:
 
 ```bash
-airflow connections add 'sales_postgres' \
-  --conn-uri 'postgresql://sales:sales@postgres:5432/sales'
+./scripts/load_data.sh ../data
 ```
 
-## 🚀 Uso
+#### En Windows:
 
-### Acceder a la UI de Airflow
+```cmd
+scripts\windows\load_data.bat ..\data
+```
 
-1. Abrir navegador en: http://localhost:8085
-2. Credenciales por defecto:
-   - Usuario: `admin`
-   - Contraseña: `admin`
+**Nota**: Ajusta la ruta `../data` según la ubicación de tus archivos CSV (`Categories.csv`, `Product_Categories.csv`, `transactions/`).
 
-### Ejecutar DAGs
+**Tiempo estimado**: 5-10 minutos (depende del tamaño de los datos)
 
-1. En la UI, ir a **DAGs**
-2. Activar el DAG deseado (toggle ON/OFF)
-3. Hacer clic en **Trigger DAG** (▶️) para ejecución manual
+### Paso 3: Ejecutar los pipelines
 
-### Orden recomendado de ejecución
+Una vez cargados los datos, ejecuta los pipelines de análisis.
 
-1. **Cargar datos** (ver sección [Carga de Datos](#carga-de-datos))
-2. `categories_reference_pipeline` - Análisis de categorías
-3. `transactions_quality_pipeline` - Análisis de calidad de transacciones
-4. `advanced_sales_analytics` - Análisis avanzados (temporal, clientes, productos, FP-Growth)
+#### En Linux/Mac:
 
-### Monitoreo
+```bash
+# Ejecutar todos los pipelines
+./scripts/run_all_pipelines.sh
 
-- **Logs de tareas**: Click en la tarea → Logs
-- **Grafana/Spark UI**: http://localhost:8080 (Spark Master)
-- **Postgres**: `localhost:5432` (usuario: `airflow` / `sales`)
+# O ejecutar pipelines individuales
+cd src
+python run_pipeline.py executive_summary
+python run_pipeline.py analytics
+python run_pipeline.py clustering --n-clusters 4
+python run_pipeline.py recommendations --min-support 0.005 --min-confidence 0.2
+```
+
+#### En Windows:
+
+```cmd
+REM Ejecutar todos los pipelines
+scripts\windows\run_pipeline_docker.bat all
+
+REM O ejecutar pipelines individuales
+scripts\windows\run_pipeline_docker.bat executive_summary
+scripts\windows\run_pipeline_docker.bat analytics
+scripts\windows\run_pipeline_docker.bat clustering
+scripts\windows\run_pipeline_docker.bat recommendations
+```
+
+**Tiempo estimado**:
+
+- Resumen ejecutivo: 3-5 minutos
+- Analítica temporal: 5-8 minutos
+- Clustering: 8-12 minutos
+- Recomendaciones: 10-15 minutos
+
+### Paso 4: Visualizar resultados
+
+Los resultados se generan en formato JSON en el directorio `output/`:
+
+```
+output/
+├── summary/              # Métricas ejecutivas
+│   ├── basic_metrics.json
+│   ├── top_10_products.json
+│   └── top_10_customers.json
+├── analytics/            # Series temporales y correlaciones
+│   ├── daily_sales.json
+│   └── variable_correlation.json
+├── advanced/
+│   └── clustering/       # Segmentación de clientes
+│       ├── cluster_summary.json
+│       └── clustering_visualization.json
+└── recommendations/      # Recomendaciones de productos
+    ├── product_recs.json
+    └── customer_recs.json
+```
+
+**Para visualizar en el frontend**: Copia los archivos JSON a `sales-frontend/public/data/` y ejecuta el dashboard React.
+
+## 📊 Pipelines Disponibles
+
+### 1. Resumen Ejecutivo (`executive_summary`)
+
+Genera métricas clave del negocio:
+
+- Total de transacciones y productos vendidos
+- Top 10 productos más vendidos
+- Top 10 clientes más activos
+- Top 10 categorías por volumen
+- Días pico de ventas
+
+**Salida**: `output/summary/*.json`
+
+### 2. Analítica Temporal (`analytics`)
+
+Análisis de patrones temporales y correlaciones:
+
+- Series de tiempo (diarias, semanales, mensuales)
+- Patrones por día de la semana
+- Distribución de productos por categoría y tienda (boxplot)
+- Matriz de correlación entre variables
+
+**Salida**: `output/analytics/*.json`
+
+### 3. Segmentación de Clientes (`clustering`)
+
+Clustering K-Means para identificar perfiles de clientes:
+
+- 4 clusters: VIP/Premium, Exploradores, Ocasionales, Nuevos
+- Métricas por cluster (frecuencia, volumen, diversidad)
+- Recomendaciones de negocio por segmento
+- Visualización de clasificación (scatter plot)
+
+**Parámetros**:
+
+- `--n-clusters`: Número de clusters (default: 4)
+
+**Salida**: `output/advanced/clustering/*.json`
+
+### 4. Recomendaciones (`recommendations`)
+
+Sistema de recomendaciones basado en reglas de asociación (FP-Growth):
+
+- **Por producto**: Productos complementarios que suelen comprarse juntos
+- **Por cliente**: Sugerencias personalizadas según historial de compra
+
+**Parámetros**:
+
+- `--min-support`: Soporte mínimo para reglas (default: 0.005)
+- `--min-confidence`: Confianza mínima para reglas (default: 0.2)
+
+**Salida**: `output/recommendations/*.json`
 
 ## 📁 Estructura del Proyecto
 
 ```
 airflow/
-├── dags/                    # DAGs de Airflow
-│   ├── categories_dag.py
-│   ├── transactions_dag.py
-│   └── advanced_analysis_dag.py
-├── includes/                # Módulos compartidos
-│   ├── bootstrap.py         # Inicialización de rutas
-│   ├── pipeline_context.py  # Context manager para pipeline
-│   ├── tasks.py             # Tareas reutilizables
-│   └── store_service.py     # Servicio de consulta de tiendas
-├── config/                  # Configuración de Spark
-│   └── spark_config.py
-├── src/                     # Módulos de análisis
-│   ├── data_loader.py
-│   ├── pipeline.py
-│   ├── eda_analyzer.py
-│   ├── visualizer.py
-│   ├── utils.py
-│   └── analyzers/
-│       ├── customer_analyzer.py
-│       ├── temporal_analyzer.py
-│       └── product_analyzer.py
-├── data/                    # Datos CSV (montados en contenedor)
-│   ├── products/
+├── docker-compose.yml           # Orquestación de servicios
+├── requirements.txt             # Dependencias Python
+├── env.template                 # Template de variables de entorno
+│
+├── src/                         # Código fuente
+│   ├── run_pipeline.py          # CLI para ejecutar pipelines
+│   ├── config/
+│   │   └── spark_config.py      # Configuración de Spark
+│   ├── pipelines/               # Pipelines principales
+│   │   ├── executive_summary_pipeline.py
+│   │   ├── analytics_pipeline.py
+│   │   ├── clustering_pipeline.py
+│   │   └── recommendations_pipeline.py
+│   ├── analyzers/               # Módulos de análisis
+│   │   ├── summary_metrics.py
+│   │   ├── temporal_analyzer.py
+│   │   ├── customer_analyzer.py
+│   │   └── product_analyzer.py
+│   ├── data_loader.py           # Carga de datos desde PostgreSQL
+│   └── json_exporter.py         # Exportación de resultados
+│
+├── scripts/                     # Scripts de utilidad
+│   ├── load_data.sh             # Carga de datos (Linux/Mac)
+│   └── windows/
+│       ├── load_data.bat        # Carga de datos (Windows)
+│       └── run_pipeline_docker.bat  # Ejecutar pipelines (Windows)
+│
+├── data/                        # Datos CSV (montar aquí)
+│   ├── Categories.csv
+│   ├── Product_Categories.csv
 │   └── transactions/
-├── docker/                  # Configuración Docker
-│   ├── airflow/
-│   │   └── Dockerfile
-│   └── postgres/
-│       └── init-sales-db.sh
-├── scripts/                 # Scripts de utilidad
-│   ├── load_data.sh
-│   └── load_data.bat
-├── logs/                    # Logs de Airflow (volumen)
-├── plugins/                 # Plugins personalizados
-├── docker-compose.yml       # Orquestación de servicios
-├── requirements.txt         # Dependencias Python
-├── env.template             # Template de variables de entorno
-└── README.md                # Este archivo
+│
+├── output/                      # Resultados generados
+│   ├── summary/
+│   ├── analytics/
+│   ├── advanced/
+│   └── recommendations/
+│
+├── docker/                      # Configuración Docker
+│   ├── airflow/Dockerfile
+│   └── postgres/init-sales-db.sh
+│
+└── logs/                        # Logs de Airflow
 ```
 
-## 🔄 DAGs Disponibles
+## ⚙️ Configuración Avanzada
 
-### 1. `categories_reference_pipeline`
+### Variables de Entorno
 
-**Descripción**: Analiza datasets de referencia (categorías y productos-categorías).
-
-**Tareas**:
-
-- `analyze_categories` → `analyze_product_categories`
-
-**Duración estimada**: 1-2 minutos
-
-### 2. `transactions_quality_pipeline`
-
-**Descripción**: Ejecuta análisis de calidad y datasets explodidos de transacciones.
-
-**Tareas**:
-
-- `analyze_transactions` → `analyze_transactions_exploded`
-
-**Duración estimada**: 5-10 minutos (depende del tamaño de datos)
-
-### 3. `advanced_sales_analytics`
-
-**Descripción**: Análisis completo con procesamiento paralelo por tienda y FP-Growth distribuido.
-
-**Tareas**:
-
-- `temporal_analysis` (paralelo)
-- `customer_analysis` (paralelo)
-- `global_product_analysis` (paralelo)
-- `fetch_store_ids` → `analyze_store[store_1, store_2, ...]` (paralelo por tienda)
-- `train_fp_growth` (distribuido en Spark cluster)
-
-**Flujo**:
-
-```
-[temporal, customers, products]
-    ↓
-[analyze_store × N tiendas] (paralelo)
-    ↓
-train_fp_growth
-```
-
-**Duración estimada**: 15-30 minutos (depende del número de tiendas y tamaño de datos)
-
-## 📥 Carga de Datos
-
-### Requisitos previos
-
-- Servicios de Docker Compose ejecutándose
-- Base de datos `sales` creada (se crea automáticamente en `airflow-init`)
-
-### Opción 1: Script Bash (Linux/Mac)
+Crea un archivo `.env` basado en `env.template`:
 
 ```bash
-# Desde la raíz del proyecto airflow
-./scripts/load_data.sh [ruta_a_data]
-
-# Ejemplo con ruta relativa al proyecto principal
-./scripts/load_data.sh ../product-sales-analytics/data
+cp env.template .env
 ```
 
-### Opción 2: Script Batch (Windows)
-
-```cmd
-REM Desde la raíz del proyecto airflow
-scripts\load_data.bat [ruta_a_data]
-
-REM Ejemplo
-scripts\load_data.bat ..\product-sales-analytics\data
-```
-
-### Opción 3: Manual con psql
+**Variables principales**:
 
 ```bash
-# Conectar al contenedor Postgres
-docker compose exec postgres psql -U sales -d sales
+# PostgreSQL
+POSTGRES_USER=sales
+POSTGRES_PASSWORD=sales
+POSTGRES_DB=sales
 
-# Ejecutar comandos COPY manualmente
-\copy categories FROM '/path/to/Categories.csv' WITH (FORMAT csv, DELIMITER '|');
+# Airflow
+AIRFLOW_UID=50000
+AIRFLOW_FERNET_KEY=<generar con: python -c "from cryptography.fernet import Fernet; print(Fernet.generate_key().decode())">
+
+# Spark
+SPARK_MASTER_URL=spark://spark-master:7077
 ```
 
-### Verificar carga
+### Acceso a Interfaces Web
 
-```bash
-# Conectar y consultar
-docker compose exec postgres psql -U sales -d sales -c "SELECT COUNT(*) FROM transactions;"
-```
-
-## 🔍 Troubleshooting
-
-### Error: "ModuleNotFoundError: No module named 'config'"
-
-**Causa**: Los módulos `config/` o `src/` no están disponibles en el contenedor.
-
-**Solución**:
-
-1. Verificar que las carpetas `config/` y `src/` existen en el directorio `airflow/`
-2. Verificar que los volúmenes están montados correctamente en `docker-compose.yml`
-3. Verificar que el volumen está montado correctamente en `docker-compose.yml`
-
-### Error: "Connection refused" a Postgres
-
-**Causa**: Postgres no está listo o las credenciales son incorrectas.
-
-**Solución**:
-
-```bash
-# Verificar estado
-docker compose ps postgres
-
-# Ver logs
-docker compose logs postgres
-
-# Reiniciar servicio
-docker compose restart postgres
-```
-
-### Error: "Spark master not available"
-
-**Causa**: El clúster Spark no está iniciado o la URL es incorrecta.
-
-**Solución**:
-
-```bash
-# Verificar servicios Spark
-docker compose ps | grep spark
-
-# Ver logs del master
-docker compose logs spark-master
-
-# Verificar URL en .env: SPARK_MASTER_URL=spark://spark-master:7077
-```
-
-### DAGs no aparecen en la UI
-
-**Causa**: Errores de sintaxis o imports en los DAGs.
-
-**Solución**:
-
-```bash
-# Verificar logs del scheduler
-docker compose logs airflow-scheduler
-
-# Validar DAGs
-docker compose exec airflow-scheduler airflow dags list
-
-# Ver errores específicos
-docker compose exec airflow-scheduler airflow dags list-import-errors
-```
-
-### Permisos en volúmenes (Linux/Mac)
-
-**Causa**: Problemas de permisos con el usuario de Airflow.
-
-**Solución**:
-
-```bash
-# Ajustar permisos
-sudo chown -R 50000:0 airflow/logs airflow/plugins
-
-# O regenerar AIRFLOW_UID
-echo -e "AIRFLOW_UID=$(id -u)" > .env
-```
-
-## 🔗 Enlaces Útiles
+Una vez levantados los servicios:
 
 - **Airflow UI**: http://localhost:8085
+  - Usuario: `admin`
+  - Contraseña: `admin`
 - **Spark Master UI**: http://localhost:8080
-- **Documentación Airflow**: https://airflow.apache.org/docs/
-- **Documentación Spark**: https://spark.apache.org/docs/latest/
 
-## 📝 Notas
+### Configuración de Spark
 
-- Los resultados se guardan en `output/` dentro del proyecto principal (montado como volumen)
-- Los análisis por tienda generan CSVs en `output/stores/<store_id>/`
-- FP-Growth guarda resultados en `output/data/fp_growth_*`
-- El pipeline de recomendaciones escribe JSON consumibles por el frontend en `output/recommendations/{product_recs,customer_recs}.json`
-- Los logs de Airflow se almacenan en `airflow/logs/` (persisten entre reinicios)
+Edita `src/config/spark_config.py` para ajustar:
+
+- Memoria del driver y executors
+- Número de cores
+- Particiones de shuffle
+
+### Parámetros de Pipelines
+
+#### Clustering
+
+```bash
+python run_pipeline.py clustering --n-clusters 5
+```
+
+#### Recomendaciones
+
+```bash
+python run_pipeline.py recommendations \
+  --min-support 0.01 \
+  --min-confidence 0.3
+```
+
+## 🛠️ Comandos Útiles
+
+### Gestión de servicios
+
+```bash
+# Iniciar servicios
+docker compose up -d
+
+# Detener servicios
+docker compose down
+
+# Ver logs en tiempo real
+docker compose logs -f
+
+# Reiniciar un servicio específico
+docker compose restart airflow-scheduler
+
+# Limpiar todo (incluyendo volúmenes)
+docker compose down -v
+```
+
+### Acceso a contenedores
+
+```bash
+# Acceder a shell de Airflow
+docker compose exec airflow-scheduler bash
+
+# Acceder a PostgreSQL
+docker compose exec postgres psql -U sales -d sales
+
+# Ejecutar comando Python en Airflow
+docker compose exec airflow-scheduler python /opt/airflow/src/run_pipeline.py --help
+```
+
+### Verificación de datos
+
+```bash
+# Contar transacciones
+docker compose exec postgres psql -U sales -d sales -c "SELECT COUNT(*) FROM transactions;"
+
+# Ver categorías
+docker compose exec postgres psql -U sales -d sales -c "SELECT * FROM categories LIMIT 10;"
+
+# Verificar archivos generados
+ls -lh output/summary/
+```
+
+## 📝 Notas Importantes
+
+- **Tiempo de procesamiento**: Los pipelines pueden tardar varios minutos dependiendo del tamaño de los datos y recursos disponibles
+- **Persistencia**: Los datos en PostgreSQL persisten entre reinicios gracias a volúmenes Docker
+- **Logs**: Se almacenan en `airflow/logs/` y persisten entre reinicios
+- **Recursos**: Se recomienda al menos 8 GB de RAM para ejecutar todos los servicios simultáneamente
+- **Resultados**: Los JSON generados están optimizados para consumo desde el frontend React
 
 ## 👥 Autores
 
