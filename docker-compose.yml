@@ -9,22 +9,22 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '1.0'
+          cpus: "1.0"
           memory: 512m
         reservations:
-          cpus: '0.5'
+          cpus: "0.5"
           memory: 256m
     volumes:
       - postgres-db-volume:/var/lib/postgresql/data
       - ${PROJ_DIR:-.}/docker/postgres/init-sales-db.sh:/docker-entrypoint-initdb.d/init-sales-db.sh:ro
       - ${PROJ_DIR:-.}/data:/data:ro
     healthcheck:
-      test: ['CMD-SHELL', 'pg_isready -U sales']
+      test: ["CMD-SHELL", "pg_isready -U sales"]
       interval: 5s
       retries: 5
       start_period: 5s
     ports:
-      - '5432:5432'
+      - "5432:5432"
 
   spark-master:
     container_name: sales-spark-master
@@ -38,14 +38,14 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '1.0'
+          cpus: "1.0"
           memory: 1g
         reservations:
-          cpus: '0.5'
+          cpus: "0.5"
           memory: 512m
     ports:
-      - '7077:7077'
-      - '8082:8082'
+      - "7077:7077"
+      - "8082:8082"
     volumes:
       - ${PROJ_DIR:-.}/data:/opt/spark/work-dir/data:ro
       - ${PROJ_DIR:-.}/src:/opt/spark/work-dir/src:ro
@@ -65,15 +65,15 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '4.0'
+          cpus: "4.0"
           memory: 4g
         reservations:
-          cpus: '2.0'
+          cpus: "2.0"
           memory: 2g
     depends_on:
       - spark-master
     ports:
-      - '8083:8081'
+      - "8083:8081"
     volumes:
       - ${PROJ_DIR:-.}/data:/opt/spark/work-dir/data:ro
       - ${PROJ_DIR:-.}/src:/opt/spark/work-dir/src:ro
@@ -107,5 +107,80 @@ services:
       - ${PROJ_DIR:-.}/src/run_pipeline.py:/opt/spark/work-dir/src/run_pipeline.py:ro
     working_dir: /opt/spark/work-dir
 
+  prefect-server:
+    container_name: sales-prefect-server
+    image: prefecthq/prefect:2.14.21-python3.11
+    command: prefect server start --host 0.0.0.0
+    environment:
+      - PREFECT_API_DATABASE_CONNECTION_URL=sqlite+aiosqlite:////var/lib/prefect/prefect.db
+      - PREFECT_SERVER_API_HOST=0.0.0.0
+      - PREFECT_API_URL=http://prefect-server:4200/api
+      - PREFECT_API_ENABLE_HTTP2=false
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 512m
+        reservations:
+          cpus: "0.25"
+          memory: 256m
+    ports:
+      - "4200:4200"
+    volumes:
+      - prefect-data:/var/lib/prefect
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:4200/api/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  prefect-worker:
+    container_name: sales-prefect-worker
+    build:
+      context: .
+      dockerfile: docker/prefect-worker/Dockerfile
+    command: prefect worker start --pool default-pool --type process
+    user: root
+    environment:
+      - PREFECT_API_URL=http://prefect-server:4200/api
+      - PREFECT_API_ENABLE_HTTP2=false
+      - PREFECT_EXPERIMENTAL_ENABLE_EVENTS_CLIENT=false
+      - PREFECT_LOGGING_EXTRA_LOGGERS=
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=sales
+      - POSTGRES_USER=sales
+      - POSTGRES_PASSWORD=sales
+      - SPARK_MASTER_URL=spark://spark-master:7077
+      - PYSPARK_PYTHON=/usr/bin/python3
+      - PYTHONPATH=/opt/prefect/work-dir/src
+      - DATA_PATH=/opt/prefect/work-dir/data
+      - OUTPUT_PATH=/opt/prefect/work-dir/output
+      - FRONTEND_PATH=/opt/prefect/work-dir/frontend
+    deploy:
+      resources:
+        limits:
+          cpus: "2.0"
+          memory: 2g
+        reservations:
+          cpus: "1.0"
+          memory: 1g
+    depends_on:
+      prefect-server:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+      spark-master:
+        condition: service_started
+    volumes:
+      - ${PROJ_DIR:-.}/data:/opt/prefect/work-dir/data:ro
+      - ${PROJ_DIR:-.}/src:/opt/prefect/work-dir/src
+      - ${PROJ_DIR:-.}/output:/opt/prefect/work-dir/output
+      - ${PROJ_DIR:-.}/../sales-frontend/public/data:/opt/prefect/work-dir/frontend:rw
+      - ${PROJ_DIR:-.}/logs:/opt/prefect/work-dir/logs
+    working_dir: /opt/prefect/work-dir
+
 volumes:
   postgres-db-volume:
+  prefect-data:
